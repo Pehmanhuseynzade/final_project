@@ -8,16 +8,16 @@ function Navbar() {
     <>
     
     <header>
-      {/* <div>
+      <div >
         <ul>
           <Link>
-            <li><i class="fa-solid fa-address-book"></i>Bizimlə Əlaqə</li>
+            <li><i class="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
           </Link>
           <Link>
-            <li><i class="fa-solid fa-user"></i>Login</li>
+            <li><i class="fa-solid fa-user"></i> Login</li>
           </Link>
         </ul>
-      </div> */}
+      </div >
         <ul>
           <Link>
             <li className='about'>Haqqımızda</li>

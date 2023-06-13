@@ -4,17 +4,28 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    // div{
-    //     display: flex;
-    //     justify-content: end;
-    //     padding: 20px;
-    // }
     header{
         width: 100%;
         top: 0;
         padding-top: 18px;
         padding-bottom: 5px;
         background-color: #251705;
+        z-index: 999;
+        font-size: 14px;
+        position: fixed;
+        div{
+            width: 100%;
+            top: 0;
+            ul{
+                padding-left: 1250px;
+                li{
+                    font-size: 13px;
+                    i{
+                        color: rgb(239, 166, 30);
+                    }
+                }
+            }
+        }
         ul{
             display: flex;
             justify-content: center;
