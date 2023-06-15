@@ -54,4 +54,86 @@
             }
         }
     }
+    
+footer{
+    padding: 50px;
+    background-color: #0e0902;
+    display: flex;
+    justify-content: space-evenly;
+    .foot-div-1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        p{
+            color: white;
+            line-height: 1.4;
+        }
+        .foot-icons{
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .circle{
+                width: 37px;
+                height: 37px;
+                border: none;
+                background-color: #916b39;
+                border-radius: 48%;
+                transition: .5s;
+                &:hover{
+                    background-color:#251705 ;
+                }
+                i{
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 10px;
+
+                }
+            }
+        }
+    }
+    .foot-div-2{
+        .nav-foot{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            gap: 20px;
+            p{
+                color: white;
+                transition: .5s;
+            &:hover{
+                color: rgba(255, 255, 255, 0.539);
+            }
+            }
+        }
+        .p-sentence{
+            color: white;
+            margin-top: 35px;
+        }
+        form{
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+            input{
+                width: 280px;
+                height: 55px;
+                border-radius: 30px;
+            }
+            button{
+                margin-top: 5px;
+                width: 130px;
+                height: 45px;
+                border-radius: 28px;
+                background-color: #916b39;
+               color: white;
+               transition: .5s;
+               border: none;
+               &:hover{
+                background-color: #251705;
+                cursor: pointer;
+               } 
+            }
+        }
+    }
+    }
 }

@@ -19,19 +19,19 @@ function Navbar() {
         </ul>
       </div >
         <ul>
-          <Link>
+          <Link to='about'>
             <li className='about'>Haqqımızda</li>
           </Link>
           <Link>
             <li>Otaqlar</li>
           </Link>
-          <Link>
+          <Link to='restaurant'>
             <li>Restoranlar</li>
           </Link>
-          <Link>
-            <img style={{width:75,height:75}} src="https://www.marxalresort.az/assets/images/3-2868x2153.png" alt="marxal-logo" />
+          <Link to='/'>
+            <img  style={{width:75,height:75}} src="https://www.marxalresort.az/assets/images/3-2868x2153.png" alt="marxal-logo" />
           </Link>
-          <Link>
+          <Link to='spa'>
             <li>Sağlamlıq və Spa</li>
           </Link>
           <Link>

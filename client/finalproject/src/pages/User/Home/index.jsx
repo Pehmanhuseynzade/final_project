@@ -87,7 +87,67 @@ function Home() {
           <h2 className='h2'>İstirahət Kompleksimizə xoş gəlmişsiniz</h2>
           <div className='line'></div>
           <p className='text-p'>Azərbaycanın ən yaxşı otellərindən biri Marxal Resort & Spa füsunkarlığıyla 5 ulduzlu məkanın lüks və rahatlığını özündə birləşdirir. İçəri addımladığınız ilk andan bura Sizi özü ilə uzaqlara aparır. Bu otelin qüsursuz qonaqsevərliyi Sizə səfəriniz boyunca öz evinizdə olduğu kimi əziz qonaq hissini verəcək.</p>
-          <button className='btnn'>Etrafli</button>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+      </div>
+      <div className='sect-5'>
+      <div className='text'>
+          <h2 className='h2'>Otaqlar</h2>
+          <div className='line'></div>
+          <p className='text-p'>Lüks və rahatlıqla təmin edilən möhtəşəm otaq və suitlərimizdə gözəl gecə yuxusundan həzz alın.</p>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+        <div className='image'>
+          <img className='img' src="https://www.marxalresort.az/assets/images/9s7a5808-1264x842.jpg" alt="" />
+        </div>
+      </div>
+
+      <div className='sect-3'>
+        <div className='image'>
+          <img className='img' src="https://www.marxalresort.az/assets/images/esas-2.jpg" alt="" />
+        </div>
+        <div className='text'>
+          <h2 className='h2'>Bar və Restoranlar</h2>
+          <div className='line'></div>
+          <p className='text-p'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir. Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz.</p>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+      </div>
+
+      <div className='sect-6'>
+      <div className='text'>
+          <h2 className='h2'>Sağlamlıq və Spa</h2>
+          <div className='line'></div>
+          <p className='text-p'>Dünyanın hər yerindən yüksək keyfiyyətli və zövqlü markaları istifadə edərək zəngin müalicə üsullarını kəşf edin. Xidmətlərimizə üz masajları, lüks masajlar, bədən yumşaldıcı və qüvvətləndirici müalicəvi masajlar, türk hamamı daxildir.</p>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+        <div className='image'>
+          <img className='img' src="https://www.marxalresort.az/assets/images/1280x860-1280x860.jpg" alt="" />
+        </div>
+      </div>
+
+      <div className='sect-4'>
+        <div className='image'>
+          <img className='img' src="https://www.marxalresort.az/assets/images/800x533-800x533.jpg" alt="" />
+        </div>
+        <div className='text'>
+          <h2 className='h2'>Əyləncə</h2>
+          <div className='line'></div>
+          <p className='text-p'>Əziz qonaqlar, Marxal Resort & Spa Sizə boulinq oyununu məmnunluqla təqdim edir. Rus bilyardının rahat və xoş mühitində istirahət edin. Siz ailənizlə, iş yoldaşlarınızla, dostlarınızla əyləncə mərkəzində maraqlı vaxt keçirə yüngül qəlyanaltı menyusundan dadlı təamlar və müxtəlif içkilər sifariş edə bilərsiniz.</p>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+      </div>
+
+
+      <div className='sect-7'>
+      <div className='text'>
+          <h2 className='h2'>Konfranslar və Tədbirlər</h2>
+          <div className='line'></div>
+          <p className='text-p'>Marxal Resort & Spa fərdi və ictimai tədbirlər, konfranslar və iş görüşləri üçün ideal seçimdir.</p>
+          <button className='btnn'>Ətraflı</button>
+        </div>
+        <div className='image'>
+          <img className='img' src="https://www.marxalresort.az/assets/images/443a9485-1264x842.jpg" alt="" />
         </div>
       </div>
 
