@@ -5,6 +5,9 @@ import Adminroot from "../pages/Admin/Adminroot"
 import Main from "../pages/Admin/Main"
 import Restaurant from "../pages/User/Restaurant"
 import Spa from "../pages/User/Spa"
+import Parties from "../pages/User/Parties"
+import Media from "../pages/User/Media"
+import Rooms from "../pages/User/Rooms"
 export const ROUTES = [
     {
         path:'/',
@@ -25,6 +28,18 @@ export const ROUTES = [
             {
                 path:'spa',
                 element:<Spa/>
+            },
+            {
+                path:'parties',
+                element:<Parties/>
+            },
+            {
+                path:'media',
+                element:<Media/>
+            },
+            {
+                path:'rooms',
+                element:<Rooms/>
             }
         ]
     },

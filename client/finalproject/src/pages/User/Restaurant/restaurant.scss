@@ -1,10 +1,194 @@
 .main-sec-res{
     width: 100%;
     position: relative;
-    // object-fit: cover;
-    // filter: brightness(0.7);
-    img{
+    .rest-main-image{
         width: 100%;
         height: 80vh;
+        display: block;
+        object-fit: cover;
+        filter: brightness(0.3);
+    }
+    h1{
+        position: absolute;
+        text-align: center;
+        top: 120px;
+        padding-top: 7px;
+        color: rgba(255, 255, 255, 0.906);
+        font-family: 'Caudex', serif;
+        font-size: 2rem;  
+        width: 100%;
+    }
+    .p-info{
+        position: absolute;
+        text-align: center;
+        top: 170px;
+        left: 300px;
+        color: rgba(255, 255, 255, 0.735);
+        font-family: 'Caudex', serif;
+        font-size: 16px;  
+        width: 60%;
+    }
+    .rest-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        position: absolute;
+        top: 240px;
+        left: 20px;
+        div{
+            overflow: hidden ;
+            .restaurants{
+                width: 340px;
+                height: 240px;
+                transition: .5s;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+            p{
+                color: white;
+                text-align: center;
+                padding-top: 10px;
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                margin-left: 3px;
+                .btnn{
+                    width: 123px;
+                    height: 41px;
+                    border-radius: 25px;
+                    border: none;
+                    background-color: #9c7541da;
+                    color: white;
+                    font-weight: bold;
+                    transition: .5s;
+                    &:hover{
+                        background-color: #251705a4;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.rest-sect-1{
+    background-color:#1a1818;
+    display: flex;  
+    gap: 10px;
+    text-align: justify;
+    .image{
+        width: 100%;
+        height: 100%;
+        .img{
+            width: 760px;
+            height: 518px;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+    .text{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 25px;
+        padding-top: 20px;
+        .h2{
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Caudex', serif;
+            font-size: 2rem;
+            padding-top: 80px;
+            font-weight: 300;
+        }
+        .line{
+            background: linear-gradient(90deg, #ffffff, #9c7441);
+            width: 20%;
+            padding: 1px;
+        }
+        p{
+            color: RGB(172, 164, 164);
+        }
+        .p{
+            width: 80%;
+        }
+    }
+}
+
+
+.rest-sect-2{
+    background-color:#1a1818;
+    display: flex;  
+    gap: 10px;
+    text-align: justify;
+    .image{
+        width: 100%;
+        height: 100%;
+        .img{
+            width: 760px;
+            height: 518px;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+    .text{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 25px;
+        padding-top: 20px;
+        .h2{
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Caudex', serif;
+            font-size: 2rem;
+            padding-top: 80px;
+            font-weight: 300;
+        }
+        .line{
+            background: linear-gradient(90deg, #ffffff, #9c7441);
+            width: 20%;
+            padding: 1px;
+        }
+        p{
+            color: RGB(172, 164, 164);
+        }
+        .p{
+            width: 80%;
+        }
+    }
+}
+
+.rest-images{
+    padding: 20px;
+    background-color: #1a1818;
+    .img-1{
+        display: flex;
+        gap: 10px;
+        .restimages{
+            width: 362px;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+    .img-2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        .restimages{
+            width: 362px;
+            height: 300px;
+            object-fit: cover;
+        }
     }
 }

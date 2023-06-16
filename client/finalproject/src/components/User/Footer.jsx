@@ -29,7 +29,7 @@ function Footer() {
         <Link to='about'>
           <p>Haqqımızda</p>
         </Link>
-        <Link>
+        <Link to='rooms'>
           <p>Otaqlar</p>
         </Link>
         <Link to='restaurant'>

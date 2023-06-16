@@ -15,10 +15,6 @@ function Spa() {
         </div>
       </div>
 
-
-
-
-
       <div className='spa-sect-2'>
         <div className='image'>
           <img className='img' src="https://www.marxalresort.az/assets/images/27-945x549.jpg" alt="" />

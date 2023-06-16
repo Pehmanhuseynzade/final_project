@@ -22,7 +22,7 @@ function Navbar() {
           <Link to='about'>
             <li className='about'>Haqqımızda</li>
           </Link>
-          <Link>
+          <Link to='rooms'>
             <li>Otaqlar</li>
           </Link>
           <Link to='restaurant'>
@@ -34,10 +34,10 @@ function Navbar() {
           <Link to='spa'>
             <li>Sağlamlıq və Spa</li>
           </Link>
-          <Link>
+          <Link to='parties'>
             <li>Tədbirlər</li>
           </Link>
-          <Link>
+          <Link to='media'>
             <li>Media</li>
           </Link>
         </ul>
