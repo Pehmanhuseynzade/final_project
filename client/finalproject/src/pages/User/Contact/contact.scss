@@ -1,0 +1,109 @@
+.main-sec-contact{
+    width: 100%;
+    position: relative;
+    .contact-main-image{
+        width: 100%;
+        height: 90vh;
+        display: block;
+        object-fit: cover;
+        filter: brightness(0.3);
+    }
+    form{
+        .name-sur{
+            position: absolute;
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 120px;
+            padding-top: 7px;
+            color: rgba(255, 255, 255, 0.733);
+            font-family: 'Caudex', serif;
+            font-size: 2rem;  
+            width: 100%;
+            gap: 30px;
+            .name{
+                background-color: rgba(255, 255, 255, 0.68);
+                width: 260px;
+                height: 50px;
+                border:none;
+                border-radius: 20px;
+            }
+            .sur{
+                background-color: rgba(255, 255, 255, 0.685);
+                width: 260px;
+                height: 50px;
+                border:none;
+                border-radius: 20px;
+            }
+            
+        }
+        .mail-num{
+            position: absolute;
+            margin-top: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 120px;
+            padding-top: 7px;
+            color: rgba(255, 255, 255, 0.733);
+            font-family: 'Caudex', serif;
+            font-size: 2rem;  
+            width: 100%;
+            gap: 30px;
+            .email{
+                background-color: rgba(255, 255, 255, 0.68);
+                width: 260px;
+                height: 50px;
+                border:none;
+                border-radius: 20px;
+            }
+            .phone{
+                background-color: rgba(255, 255, 255, 0.685);
+                width: 265px;
+                height: 50px;
+                border:none;
+                border-radius: 20px;
+            }
+            
+        }
+        .text-mes{
+            position: absolute;
+            margin-top: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 120px;
+            padding-top: 7px;
+            color: rgba(255, 255, 255, 0.733);
+            font-family: 'Caudex', serif;
+            font-size: 2rem;  
+            width: 100%;
+            gap: 30px;
+            .message{
+                background-color: rgba(255, 255, 255, 0.68);
+                width: 670px;
+                height: 200px;
+                border:none;
+                border-radius: 5px;
+            }
+        }
+        .form-btn{
+            position: absolute;
+            bottom: 30px;
+            left: 1020px;
+            width: 130px;
+            height: 45px;
+            border-radius: 28px;
+            background-color: #916b39;
+            color: white;
+            transition: .5s;
+            border: none;
+           &:hover{
+            background-color: #251705;
+            cursor: pointer;
+           } 
+        }
+    }
+
+}
