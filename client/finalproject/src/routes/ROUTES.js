@@ -8,6 +8,10 @@ import Spa from "../pages/User/Spa"
 import Parties from "../pages/User/Parties"
 import Media from "../pages/User/Media"
 import Rooms from "../pages/User/Rooms"
+import Entertainment from "../pages/User/Entertainment"
+import Tour from "../pages/User/Tour"
+import Contact from "../pages/User/Contact"
+import Login from "../pages/User/Login"
 export const ROUTES = [
     {
         path:'/',
@@ -40,6 +44,22 @@ export const ROUTES = [
             {
                 path:'rooms',
                 element:<Rooms/>
+            },
+            {
+                path:'entertainment',
+                element:<Entertainment/>
+            },
+            {
+                path:'tour',
+                element:<Tour/>
+            },
+            {
+                path:'contact',
+                element:<Contact/>
+            },
+            {
+                path:'login',
+                element:<Login/>
             }
         ]
     },

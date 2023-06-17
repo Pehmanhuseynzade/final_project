@@ -1,0 +1,44 @@
+.rooms{
+    background-color: #232323;
+    margin-top: 120px;
+    .room{
+        color: #9c7441;
+        text-align: center;
+        padding-top: 30px;
+    }
+    p{
+        color: rgba(255, 255, 255, 0.678);
+        text-align: center;
+        padding-top: 10px;
+    }
+    .room-name{
+        text-align: center;
+        padding-top: 50px;
+        color:#9c7441;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .line{
+            margin-top: 30px;
+            background: linear-gradient(90deg, #ffffff, #9c7441);
+            width: 19.5%;
+            padding: 1.5px;
+        }
+    }
+    .room-images{
+        padding: 20px;
+        .img-1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            .roomimages{
+                width: 362px;
+                height: 260px;
+                object-fit: cover;
+            }
+        }
+    }
+}

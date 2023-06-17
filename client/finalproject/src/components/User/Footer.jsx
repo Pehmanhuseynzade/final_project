@@ -35,7 +35,7 @@ function Footer() {
         <Link to='restaurant'>
           <p>Restoranlar</p>
         </Link>
-        <Link>
+        <Link to='entertainment'>
           <p>Əyləncə</p>
         </Link>
         <Link to='spa'>
