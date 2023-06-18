@@ -11,10 +11,10 @@ function Navbar() {
         <div >
           <ul>
             <Link to='contact'>
-              <li><i class="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
+              <li><i className="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
             </Link>
             <Link to='login'>
-              <li><i class="fa-solid fa-user"></i> Login</li>
+              <li><i className="fa-solid fa-user"></i> Login</li>
             </Link>
           </ul>
         </div >

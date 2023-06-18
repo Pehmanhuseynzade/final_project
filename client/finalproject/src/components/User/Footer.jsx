@@ -8,10 +8,10 @@ function Footer() {
       <div className='foot-div-1'>
       <p>Sosial şəbəkələrimiz</p>
       <div className='foot-icons'>
-      <Link className='circle'><i className="fa-brands fa-facebook"></i></Link>
-      <Link className='circle'><i className="fa-brands fa-instagram"></i></Link>
-      <Link className='circle'><i className="fa-brands fa-linkedin-in"></i></Link>
-      <Link className='circle'><i className="fa-brands fa-youtube"></i></Link>
+      <Link to='https://www.facebook.com/marxalresort/' className='circle'><i className="fa-brands fa-facebook"></i></Link>
+      <Link to='https://www.instagram.com/marxalresortspa/' className='circle'><i className="fa-brands fa-instagram"></i></Link>
+      <Link to='https://www.linkedin.com/company/marxal-resort-and-spa-hotel/?originalSubdomain=ru' className='circle'><i className="fa-brands fa-linkedin-in"></i></Link>
+      <Link to='https://www.youtube.com/channel/UC453HCc6k0_zzwhu2zd-cOg' className='circle'><i className="fa-brands fa-youtube"></i></Link>
       </div>
       <p style={{marginTop:"30px"}}>Marxal Resort & Spa, Azərbaycan, Şəki</p>
       <Link>
