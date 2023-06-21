@@ -14,16 +14,23 @@ app.use(bodyParser.json())
 dotenv.config()
 app.use(fileupload())
 
+const media_router = require("./routes/media.routes")
 const infohotel_router = require("./routes/infohotel.routes")
 const about_router = require("./routes/about.routes")
+// const spaimages_router = require("./routes/spaimages.routes")
+const spainfo1_router = require("./routes/spainfo1.routes")
+const spainfo2_router = require("./routes/spainfo2.routes")
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-
+app.use(`/api/media`,media_router)
 app.use(`/api/infomarxal`,infohotel_router)
 app.use(`/api/about`,about_router)
+// app.use(`/api/spaimages`,spaimages_router)
+app.use(`/api/spainfo1`,spainfo1_router)
+app.use(`/api/spainfo2`,spainfo2_router)
 
 
 PORT = process.env.PORT
