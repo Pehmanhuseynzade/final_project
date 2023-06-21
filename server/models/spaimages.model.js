@@ -1,11 +1,11 @@
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// const spaimageSchema = new mongoose.Schema({
-//     name:String,
-//     spaimg:String 
-//   });
+const spaimageSchema = new mongoose.Schema({
+    spaimgname:String,
+    spaimg:String 
+  });
 
-//   const spaimageModel = mongoose.model('Spaimage', spaimageSchema);
+  const spaimageModel = mongoose.model('Spaimage', spaimageSchema);
 
 
-//   module.exports = spaimageModel
+  module.exports = spaimageModel

@@ -17,9 +17,10 @@ app.use(fileupload())
 const media_router = require("./routes/media.routes")
 const infohotel_router = require("./routes/infohotel.routes")
 const about_router = require("./routes/about.routes")
-// const spaimages_router = require("./routes/spaimages.routes")
+const spaimages_router = require("./routes/spaimages.routes")
 const spainfo1_router = require("./routes/spainfo1.routes")
-const spainfo2_router = require("./routes/spainfo2.routes")
+const parties_router = require("./routes/parties.routes")
+const partieimg_router = require("./routes/partieimg.routes")
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -28,9 +29,11 @@ app.get('/', (req, res) => {
 app.use(`/api/media`,media_router)
 app.use(`/api/infomarxal`,infohotel_router)
 app.use(`/api/about`,about_router)
-// app.use(`/api/spaimages`,spaimages_router)
+app.use(`/api/spaimages`,spaimages_router)
 app.use(`/api/spainfo1`,spainfo1_router)
-app.use(`/api/spainfo2`,spainfo2_router)
+app.use(`/api/parties`,parties_router)
+app.use(`/api/partieimg`,partieimg_router)
+
 
 
 PORT = process.env.PORT

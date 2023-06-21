@@ -129,34 +129,98 @@ export const putspainfo1DataByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/spainfo1/${id}`,update)
 }
 
-//5.For spainfo2 Page
+//5.For spaimages
 
-// export const getspainfo2datas = async()=>{
-//     let globalData;
-//     await axios.get(`${BASE_URL1}/spainfo2`)
-//     .then((res)=>{
-//          globalData = res.data
-//     })
-//     return globalData
-// }
+export const getspaimagesdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/spaimages`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
 
-// export const getspainfo2datasID = async(id)=>{
-//     let globalData;
-//     await axios.get(`${BASE_URL1}/spainfo2/${id}`)
-//     .then((res)=>{
-//          globalData = res.data
-//     })
-//     return globalData
-// }
+export const getspaimagesdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/spaimages/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
 
-// export const getspainfo2Delete = async(id)=>{
-//     await axios.delete(`${BASE_URL1}/spainfo2/${id}`)
-// }
+export const getspaimagesDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/spaimages/${id}`)
+}
 
-// export const getspainfo2Post = async(payload)=>{
-//     await axios.post(`${BASE_URL1}/spainfo2`,payload)
-// }
+export const getspaimagesPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/spaimages`,payload)
+}
 
-// export const putspainfo2DataByID = async(update,id)=>{
-//     await axios.put(`${BASE_URL1}/spainfo2/${id}`,update)
-// }
+export const putspaimagesDataByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/spaimages/${id}`,update)
+}
+
+//6.For Parties
+
+export const getpartiesdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/parties`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getpartiesdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/parties/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getpartiesDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/parties/${id}`)
+}
+
+export const getpartiesPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/parties`,payload)
+}
+
+export const putpartiesDataByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/parties/${id}`,update)
+}
+
+//7.For Partiesimg
+
+export const getpartiesimgdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/partieimg`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getpartiesimgdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/partieimg/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getpartiesimgDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/partieimg/${id}`)
+}
+
+export const getpartiesimgPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/partieimg`,payload)
+}
+
+export const putpartiesimgDataByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/partieimg/${id}`,update)
+}
