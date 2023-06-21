@@ -24,13 +24,14 @@ const tourimgModelController = {
         const deletetourimg = await tourimgModel.findByIdAndDelete(id)
         res.status(200).send(deletetourimg)
     },
+    
     post: async (req, res) => {
         const { tournameimg, tourimgs } = req.body
         const posttourimg = new tourimgModel({
             tournameimg: tournameimg,
             tourimgs: tourimgs
         })
-        await posttour.save()
+        await posttourimg.save()
         res.status(200).send({
             message: "Posted succefully!",
             payload: posttourimg
