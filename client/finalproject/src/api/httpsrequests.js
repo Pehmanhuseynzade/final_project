@@ -224,3 +224,67 @@ export const getpartiesimgPost = async(payload)=>{
 export const putpartiesimgDataByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/partieimg/${id}`,update)
 }
+
+//8.For Tour
+
+export const gettourdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/tour`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const gettourdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/tour/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const gettourDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/tour/${id}`)
+}
+
+export const gettourPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/tour`,payload)
+}
+
+export const puttourByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/tour/${id}`,update)
+}
+
+//9.For Tourimg
+
+export const gettourimgdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/tourimg`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const gettourimgdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/tourimg/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const gettourimgDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/tourimg/${id}`)
+}
+
+export const gettourimgPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/tourimg`,payload)
+}
+
+export const puttourimgByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/tourimg/${id}`,update)
+}

@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./tour.scss"
+import {gettourdatas} from "../../../api/httpsrequests"
 function Tour() {
+  const[tour,setTour] = useState([])
+
+  useEffect(()=>{
+    gettourdatas().then((data)=>{
+      setTour(data)
+      console.log(data)
+    })
+  })
+
   return (
     <>
      <div className='tour-sect-1'>
@@ -16,6 +26,33 @@ function Tour() {
           <img className='img' src="https://www.marxalresort.az/assets/images/17-1264x843.jpg" alt="tourimage" />
         </div>
       </div>
+
+      <section className='for-spa'>
+        {tour && tour.map((touritem, idx) => (
+          <div key={spaitem._id}>
+            {idx % 2 ? (<div className='spa-sect-1'>
+              <div className='image'>
+                <img className='img' src={spaitem.spaimg1} alt="spaimage1" />
+              </div>
+              <div className='text'>
+                <h2 className='h2'>{spaitem.spaname}</h2>
+                <div className='line'></div>
+                <p >{spaitem.spadesc1}</p>
+              </div>
+            </div>) : (<div className='spa-sect-1'>
+              <div className='text'>
+                <h2 className='h2'>{spaitem.spaname}</h2>
+                <div className='line'></div>
+                <p >{spaitem.spadesc1}</p>
+              </div>
+              <div className='image'>
+                <img className='img' src={spaitem.spaimg1} alt="spaimage1" />
+              </div>
+            </div>)}
+          </div>
+        ))}
+      </section>
+
 
       <div className='tour-images'>
         <div className='img-2'>

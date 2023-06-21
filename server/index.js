@@ -21,6 +21,8 @@ const spaimages_router = require("./routes/spaimages.routes")
 const spainfo1_router = require("./routes/spainfo1.routes")
 const parties_router = require("./routes/parties.routes")
 const partieimg_router = require("./routes/partieimg.routes")
+const tour_router = require("./routes/tour.routes")
+const tourimg_router = require("./routes/tourimg.routes")
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -33,7 +35,8 @@ app.use(`/api/spaimages`,spaimages_router)
 app.use(`/api/spainfo1`,spainfo1_router)
 app.use(`/api/parties`,parties_router)
 app.use(`/api/partieimg`,partieimg_router)
-
+app.use(`/api/tour`,tour_router)
+app.use(`/api/tourimg`,tourimg_router)
 
 
 PORT = process.env.PORT
