@@ -1,4 +1,4 @@
-.rooms{
+.room-info{
     background-color: #232323;
     margin-top: 120px;
     .room{
@@ -11,6 +11,10 @@
         text-align: center;
         padding-top: 10px;
     }
+}
+
+.rooms{
+    background-color: #232323;
     .room-name{
         text-align: center;
         padding-top: 50px;

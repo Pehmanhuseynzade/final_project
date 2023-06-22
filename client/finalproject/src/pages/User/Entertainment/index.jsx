@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./entertainment.scss"
+import { getentmentdatas, getentmentimgdatas } from '../../../api/httpsrequests'
 function Entertainment() {
+    const [entment, setEntment] = useState([])
+    const [entmentimg, setEntmentimg] = useState([])
+    useEffect(() => {
+        getentmentdatas().then((data) => {
+            setEntment(data)
+            console.log(data)
+        })
+    }, [])
+    useEffect(() => {
+        getentmentimgdatas().then((data) => {
+            setEntmentimg(data)
+            console.log(data)
+        })
+    }, [])
     return (
         <>
             <div className='main-sec-ent'>
@@ -24,35 +39,40 @@ function Entertainment() {
                 </div>
             </div>
 
-            <div className='ent-sect-1'>
-                <div className='text'>
-                    <h2 className='h2'>Boulinq</h2>
-                    <div className='line'></div>
-                    <p className='p' >Boulinq Mərkəzi oyun, əyləncə və idmanı özündə birləşdirir. Çoxları üçün bu idman növü həyat tərzinə çevrilmişdir. Lakin əksəriyyət üçün boulinq bir ailə oyunudur. Boulinq mərkəzimiz maraqlı oyun və səmimi görüşlər üçün lazım olan hər şeyi özündə birləşdirir. Boş vaxtlarda bu məkan uşaqlar və böyüklər üçün ən maraqlı əyləncə yerlərindən biridir və hər bir ailənin tətilini daha da əyləncəli edir.</p>
-                </div>
-                <div className='image'>
-                    <img className='img' src="https://www.marxalresort.az/assets/images/800x533-800x533.jpg" alt="bowling" />
-                </div>
-            </div>
-
-            <div className='ent-sect-2'>
-                <div className='image'>
-                    <img className='img' src="https://www.marxalresort.az/assets/images/nuxa-945x590.jpg" alt="" />
-                </div>
-                <div className='text'>
-                    <h2 className='h2'>Lazer Strayk</h2>
-                    <div className='line'></div>
-                    <p className='p'>Lazer Strayk sonsuz adrenalin mənbəyidir, çünki əyləncə üçün olsa belə "vurulmaq" hissi döyüşlərdə vurulan həqiqi döyüşçülərin duyğularını yaşamağa imkan verir, ancaq bu təkcə oyun deyil, həm də, dostlarla görüşmək, gözəl vaxt keçirmək və söhbət etmək üçün əla bir fürsətdir.</p>
-                </div>
-            </div>
+            <section className='for-entment'>
+                {entment && entment.map((entmentitem, idx) => (
+                    <div key={entmentitem._id}>
+                        {idx % 2 ? (<div className='entment-sect-1'>
+                            <div className='image'>
+                                <img className='img' src={entmentitem.entmentimg} alt="entmentimage1" />
+                            </div>
+                            <div className='text'>
+                                <h2 className='h2'>{entmentitem.entmentname}</h2>
+                                <div className='line'></div>
+                                <p >{entmentitem.entmentdesc1}</p>
+                                <p className='p' >{entmentitem.entmentdesc}</p>
+                            </div>
+                        </div>) : (<div className='entment-sect-1'>
+                            <div className='text'>
+                                <h2 className='h2'>{entmentitem.entmentname}</h2>
+                                <div className='line'></div>
+                                <p >{entmentitem.entmentdesc}</p>
+                                <p className='p' >{entmentitem.entmentdesc}</p>
+                            </div>
+                            <div className='image'>
+                                <img className='img' src={entmentitem.entmentimg} alt="entmentimage1" />
+                            </div>
+                        </div>)}
+                    </div>
+                ))}
+            </section>
 
             <div className='ent-images'>
-                <div className='img-2'>
-                    <img className='entimages' src='https://www.marxalresort.az/assets/images/eylence-8-698x463.jpeg' alt="entimage1" />
-                    <img className='entimages' src='https://www.marxalresort.az/assets/images/eylence-2-800x533.jpg' alt="entimage2" />
-                    <img className='entimages' src='https://www.marxalresort.az/assets/images/2-6-1275x850-800x533-800x533.jpg' alt="entimage3" />
-                    <img className='entimages' src='https://www.marxalresort.az/assets/images/800x5334-1-800x533-800x533.jpg' alt="entimage4" />
-                </div>
+                {entmentimg && entmentimg.map((entimgitem) => (
+                    <div key={entimgitem._id} className='img-2'>
+                        <img className='entimages' src={entimgitem.entmentimgs} alt="entimage1" />
+                    </div>
+                ))}
             </div>
         </>
     )

@@ -36,7 +36,7 @@ function Tour() {
 
       <div className='tour-images'>
       {tourimg && tourimg.map((tourimgitem)=>(
-                <div className='img-2'>
+                <div key={tourimgitem._id} className='img-2'>
                 <img className='tourimages' src={tourimgitem.tourimgs} alt="tourimage1" />
                 </div>
       ))}

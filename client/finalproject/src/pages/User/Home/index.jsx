@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import "./swipper.css";
 import "./home.scss"
 import { Autoplay, Pagination } from "swiper";
-
 import { useState } from 'react';
 import { getInfodatas } from '../../../api/httpsrequests';
 

@@ -23,6 +23,12 @@ const parties_router = require("./routes/parties.routes")
 const partieimg_router = require("./routes/partieimg.routes")
 const tour_router = require("./routes/tour.routes")
 const tourimg_router = require("./routes/tourimg.routes")
+const entment_router = require("./routes/entment.routes")
+const entmentimg_router = require("./routes/entmentimg.routes")
+const res_router = require("./routes/res.routes")
+const roominfo_router = require("./routes/roominfo.routes")
+const room_router = require("./routes/rooms.routes")
+const home_router = require("./routes/home.routes")
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -37,7 +43,12 @@ app.use(`/api/parties`,parties_router)
 app.use(`/api/partieimg`,partieimg_router)
 app.use(`/api/tour`,tour_router)
 app.use(`/api/tourimg`,tourimg_router)
-
+app.use(`/api/entment`,entment_router)
+app.use(`/api/entmentimg`,entmentimg_router)
+app.use(`/api/res`,res_router)
+app.use(`/api/roominfo`,roominfo_router)
+app.use(`/api/rooms`,room_router)
+app.use(`/api/home`,home_router)
 
 PORT = process.env.PORT
 app.listen(PORT, () => {
