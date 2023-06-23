@@ -1,19 +1,18 @@
 const express = require('express')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-const fileupload  =require('express-fileupload')
+const fileupload = require('express-fileupload')
 // const joi = require('joi')
 // const multer = require('multer')
-
 const app = express()
-
 app.use(cors())
 app.use(bodyParser.json())
+app.use(cookieParser())
 dotenv.config()
 app.use(fileupload())
-
 const media_router = require("./routes/media.routes")
 const infohotel_router = require("./routes/infohotel.routes")
 const about_router = require("./routes/about.routes")
@@ -29,35 +28,46 @@ const res_router = require("./routes/res.routes")
 const roominfo_router = require("./routes/roominfo.routes")
 const room_router = require("./routes/rooms.routes")
 const home_router = require("./routes/home.routes")
-
+const authRoute = require("./routes/auth.routes")
+const usersRoute = require("./routes/user.routes")
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
-app.use(`/api/media`,media_router)
-app.use(`/api/infomarxal`,infohotel_router)
-app.use(`/api/about`,about_router)
-app.use(`/api/spaimages`,spaimages_router)
-app.use(`/api/spainfo1`,spainfo1_router)
-app.use(`/api/parties`,parties_router)
-app.use(`/api/partieimg`,partieimg_router)
-app.use(`/api/tour`,tour_router)
-app.use(`/api/tourimg`,tourimg_router)
-app.use(`/api/entment`,entment_router)
-app.use(`/api/entmentimg`,entmentimg_router)
-app.use(`/api/res`,res_router)
-app.use(`/api/roominfo`,roominfo_router)
-app.use(`/api/rooms`,room_router)
-app.use(`/api/home`,home_router)
-
+app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
+app.use(`/api/media`, media_router)
+app.use(`/api/infomarxal`, infohotel_router)
+app.use(`/api/about`, about_router)
+app.use(`/api/spaimages`, spaimages_router)
+app.use(`/api/spainfo1`, spainfo1_router)
+app.use(`/api/parties`, parties_router)
+app.use(`/api/partieimg`, partieimg_router)
+app.use(`/api/tour`, tour_router)
+app.use(`/api/tourimg`, tourimg_router)
+app.use(`/api/entment`, entment_router)
+app.use(`/api/entmentimg`, entmentimg_router)
+app.use(`/api/res`, res_router)
+app.use(`/api/roominfo`, roominfo_router)
+app.use(`/api/rooms`, room_router)
+app.use(`/api/home`, home_router)
+app.use(`/api/auth`, authRoute)
+app.use(`/api/user`, usersRoute)
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500
+  const errorMessage = err.message || "Something went wrong!"
+  return res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+    stack: err.stack,
+  });
+});
 PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
-
 DB_PASSWORD = process.env.DB_PASSWORD
 DB_CONNECTION = process.env.DB_CONNECTION
-
 mongoose.connect(DB_CONNECTION.replace('<password>', DB_PASSWORD)).then(() => {
   console.log("MongoDB Connected!!!")
 });
