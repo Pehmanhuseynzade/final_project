@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Entimg() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Entimg</div>
   )
 }
 
-export default Main
+export default Entimg

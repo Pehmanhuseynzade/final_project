@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Roominfo() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Roominfo</div>
   )
 }
 
-export default Main
+export default Roominfo

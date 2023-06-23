@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Parties() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Parties</div>
   )
 }
 
-export default Main
+export default Parties

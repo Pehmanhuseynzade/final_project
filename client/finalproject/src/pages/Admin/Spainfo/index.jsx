@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Spainfo() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Spainfo</div>
   )
 }
 
-export default Main
+export default Spainfo

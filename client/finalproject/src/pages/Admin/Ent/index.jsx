@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Ent() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Ent</div>
   )
 }
 
-export default Main
+export default Ent

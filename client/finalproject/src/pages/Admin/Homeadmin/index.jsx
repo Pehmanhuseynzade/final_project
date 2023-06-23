@@ -1,12 +1,12 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Homeadmin() {
   return (
     <>
-    <h1>salam</h1>
+    <h1>necesen</h1>
     </>
   )
 }
 
-export default Main
+export default Homeadmin

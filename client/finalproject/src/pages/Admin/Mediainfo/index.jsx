@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Media() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Media</div>
   )
 }
 
-export default Main
+export default Media

@@ -19,22 +19,18 @@ function Restaurant() {
         <div>
         <img className='restaurants' src="https://www.marxalresort.az/assets/images/12-534x356.jpg" alt="rest1" />
         <p>İpək Restoranı</p>
-        <div><button className='btnn'>Ətraflı</button></div>
         </div>
         <div>
         <img className='restaurants' src="https://www.marxalresort.az/assets/images/8-1-1275x850-800x533.jpg" alt="rest2" />
         <p>Nuxa Restoranı</p>
-        <div><button className='btnn'>Ətraflı</button></div>
         </div>
         <div>
         <img className='restaurants' src="https://www.marxalresort.az/assets/images/4-534x356.jpg" alt="rest3" />
         <p>Lobbi Bar</p>
-        <div><button className='btnn'>Ətraflı</button></div>
         </div>
         <div>
           <img className='restaurants' src="https://www.marxalresort.az/assets/images/3-534x356.jpg" alt="rest4" />
           <p>Göl Kafe</p>
-          <div><button className='btnn'>Ətraflı</button></div>
         </div>
       </div>
     </div>

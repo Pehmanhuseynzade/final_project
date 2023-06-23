@@ -1,12 +1,10 @@
 import React from 'react'
 import "../adminpage.scss"
 
-function Main() {
+function Tourimg() {
   return (
-    <>
-    <h1>salam</h1>
-    </>
+    <div>Tourimg</div>
   )
 }
 
-export default Main
+export default Tourimg
