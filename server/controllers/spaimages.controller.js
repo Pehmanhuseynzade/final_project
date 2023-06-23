@@ -36,16 +36,13 @@ const spaimagesModelController = {
           payload:postspaimages
         })
       },
-    edit:async(req,res)=>{
-      const id = req.params.id
-      const {spaimgname,spaimg} = req.body
-      const putspaimages = {
-        spaimgname:spaimgname,
-        spaimg:spaimg
+      edit:async(req,res) => {
+        const id = req.params.id;
+        const { spaimgname,spaimg } = req.body;
+        const putspaimages = {spaimgname:spaimgname,spaimg:spaimg};
+        await spaimagesModel.findByIdAndUpdate(id,putspaimages);
+        res.status(200).send(`${putspaimages.spaimgname} updated successfully!`);
       }
-      await spaimagesModel.findByIdAndUpdate(id,putspaimages)
-         res.status(200).send(spaimagesModel)
     }
-}
 
 module.exports = spaimagesModelController;

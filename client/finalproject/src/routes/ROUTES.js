@@ -116,11 +116,11 @@ export const ROUTES = [
                 element:<Rooms/>
             },
             {
-                path:'spainfoadmin',
+                path:'spaimages',
                 element:<Spaimages/>
             },
             {
-                path:'spaimages',
+                path:'spainfoadmin',
                 element:<Spainfo/>
             },
             {

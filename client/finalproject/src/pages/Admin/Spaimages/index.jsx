@@ -19,19 +19,20 @@ function Spaimages() {
   const [editingSpaimg, setEditingSpaimg] = useState(null);
   const [form] = Form.useForm();
 
-  useEffect(() => {
-    fetchSpas();
-  }, [spaimg]);
 
-
-  const fetchSpas = async () => {
+  
+  const Spas = async () => {
     try {
       const spaData = await getspaimagesdatas();
       setSpaimgs(spaData);
     } catch (error) {
-      console.error('Failed to retrieve social media entries:', error);
+      console.error('Failed to retrieve spa entries:', error);
     }
   };
+
+  useEffect(() => {
+    Spas();
+  }, [spaimg]);
 
   // useEffect(() => {
   //   getspaimagesdatas().then((data)=>{
@@ -59,7 +60,6 @@ function Spaimages() {
   const handleDeleteSpa = (id) => {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'Once deleted, you will not be able to recover this social media entry!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Delete',
@@ -71,9 +71,9 @@ function Spaimages() {
         try {
           await getspaimagesDelete(id);
           setSpaimgs(spaimg.filter((spa) => spa._id !== id));
-          Swal.fire('Deleted!', 'The social media entry has been deleted.', 'success');
+          Swal.fire('Deleted!', 'The Spa images entry has been deleted.', 'success');
         } catch (error) {
-          console.error('Failed to delete social media entry:', error);
+          console.error('Failed to delete Spa images entry:', error);
         }
       }
     });
@@ -115,7 +115,7 @@ function Spaimages() {
 
         handleCloseModal();
       }
-      await fetchSpas();
+      await Spas();
     } catch (error) {
       console.error('Failed to save social media entry:', error);
     }
@@ -123,14 +123,10 @@ function Spaimages() {
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'spaimgname',
-      key: 'spaimgname',
-    },
-    {
-      title: 'Spa Img Name',
+      title: 'Spa Images',
       dataIndex: 'spaimg',
       key: 'spaimg',
+      render: img =><img src={img} alt="spaimg" style={{width:"220px",height:"150px"}} />   
     },
     {
       title: 'Edit',
@@ -165,7 +161,7 @@ function Spaimages() {
 
           <Modal
             visible={modalOpen}
-            title={editingSpaimg ? 'Edit Social Media Entry' : 'Add New Social Media Entry'}
+            title={editingSpaimg ? 'Edit Spa Images Entry' : 'Add New Images'}
             onCancel={handleCloseModal}
             onOk={handleSubmit}
           >
@@ -173,14 +169,14 @@ function Spaimages() {
               <Form.Item
                 label="Name"
                 name="spaimgname"
-                rules={[{ required: true, message: 'Please enter the icon URL' }]}
+                rules={[{ required: false }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 label="Spaimg"
                 name="spaimg"
-                rules={[{ required: true, message: 'Please enter the social media URL' }]}
+                rules={[{ required: true, message: 'Please enter Spa Images' }]}
               >
                 <Input />
               </Form.Item>

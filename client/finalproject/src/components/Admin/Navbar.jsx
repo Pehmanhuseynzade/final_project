@@ -48,7 +48,7 @@ export default function Navbar() {
     { text: 'Rooms', link: '/admin/roomadmin' },
     { text: 'Roominfo', link: '/admin/roominfoadmin' },
     { text: 'Spainfo', link: '/admin/spainfoadmin' },
-    { text: 'Spaimages', link: '/admin/spaimages' },
+    { text: 'SpaImages', link: '/admin/spaimages' },
     { text: 'Tour', link: '/admin/touradmin' },
     { text: 'Tourimg', link: '/admin/tourimgadmin' },  
   ].map(({ text, link }) => (
