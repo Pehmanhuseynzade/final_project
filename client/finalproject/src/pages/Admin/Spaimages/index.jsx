@@ -117,7 +117,7 @@ function Spaimages() {
       }
       await Spas();
     } catch (error) {
-      console.error('Failed to save social media entry:', error);
+      console.error('Failed to save Spa entry:', error);
     }
   };
 

@@ -17,6 +17,7 @@ import Ent from "../pages/Admin/Ent"
 import Entimg from "../pages/Admin/Entimg"
 import Restaurants from "../pages/Admin/Restaurants"
 import Roominfo from "../pages/Admin/Roominfo"
+import Roomss from "../pages/Admin/Roomss"
 import Spaimages from "../pages/Admin/Spaimages"
 import Spainfo from "../pages/Admin/Spainfo"
 import Mediainfo from "../pages/Admin/Mediainfo"
@@ -24,6 +25,7 @@ import Partiesinfo from "../pages/Admin/Partiesinfo"
 import Tourimg from "../pages/Admin/Tourimg"
 import Aboutadmin from "../pages/Admin/Aboutadmin"
 import Tourinfo from "../pages/Admin/Tourinfo"
+import Partiesimg from "../pages/Admin/Partiesimg"
 export const ROUTES = [
     {
         path:'/',
@@ -100,7 +102,7 @@ export const ROUTES = [
                 element:<Mediainfo/>
             },
             {
-                path:'partiesimgadmin',
+                path:'partiesadmin',
                 element:<Partiesinfo/>
             },
             {
@@ -112,8 +114,8 @@ export const ROUTES = [
                 element:<Roominfo/>
             },
             {
-                path:'roomadmin',
-                element:<Rooms/>
+                path:'roomadminn',
+                element:<Roomss/>
             },
             {
                 path:'spaimages',
@@ -134,6 +136,10 @@ export const ROUTES = [
             {
                 path:'touradmin',
                 element:<Tourinfo/>
+            },
+            {
+                path:'partiesimgadmin',
+                element:<Partiesimg/>
             },
         ] 
     }
