@@ -12,6 +12,7 @@ import Rooms from "../pages/User/Rooms"
 import Entertainment from "../pages/User/Entertainment"
 import Contact from "../pages/User/Contact"
 import Login from "../pages/User/Login"
+import Register from "../pages/User/Register"
 import Homeadmin from "../pages/Admin/Homeadmin"
 import Ent from "../pages/Admin/Ent"
 import Entimg from "../pages/Admin/Entimg"
@@ -74,7 +75,11 @@ export const ROUTES = [
             {
                 path:'login',
                 element:<Login/>
-            }
+            },
+            {
+                path:'registerr',
+                element:<Register/>
+            },
         ]
     },
     {
@@ -141,6 +146,10 @@ export const ROUTES = [
                 path:'partiesimgadmin',
                 element:<Partiesimg/>
             },
+            // {
+            //     path:'login',
+            //     element:<Login/>
+            // }
         ] 
     }
 

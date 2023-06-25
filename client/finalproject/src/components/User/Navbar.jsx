@@ -13,7 +13,7 @@ function Navbar() {
             <Link to='contact'>
               <li><i className="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
             </Link>
-            <Link to='login'>
+            <Link to='registerr'>
               <li><i className="fa-solid fa-user"></i> Login</li>
             </Link>
           </ul>

@@ -450,34 +450,27 @@ export const putroomsByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/rooms/${id}`,update)
 }
 
-// //15.For Home
+// 15. LOGIN REGISTER
 
-// export const gethomedatas = async()=>{
-//     let globalData;
-//     await axios.get(`${BASE_URL1}/home`)
-//     .then((res)=>{
-//          globalData = res.data
-//     })
-//     return globalData
-// }
-
-// export const gethomedatasID = async(id)=>{
-//     let globalData;
-//     await axios.get(`${BASE_URL1}/home/${id}`)
-//     .then((res)=>{
-//          globalData = res.data
-//     })
-//     return globalData
-// }
-
-// export const gethomeDelete = async(id)=>{
-//     await axios.delete(`${BASE_URL1}/home/${id}`)
-// }
-
-// export const gethomePost = async(payload)=>{
-//     await axios.post(`${BASE_URL1}/home`,payload)
-// }
-
-// export const puthomeByID = async(update,id)=>{
-//     await axios.put(`${BASE_URL1}/home/${id}`,update)
-// }
+//sign up
+export const signUP = async(payload)=>{
+    const response = await axios.post(`${BASE_URL1}/registerr`,payload);
+    return response;
+}
+//sign in
+export const signIN = async(payload)=>{
+  const response = await axios.post(`${BASE_URL1}/loginn`,payload);
+  return response.data;
+}
+//get users
+export const getUsers = async(token)=>{
+    let users;
+    await axios.get(`${BASE_URL1}/users`,{
+        headers: {
+            'x-access-token': token 
+        }
+    }).then((res)=>{
+        users = res.data.data;
+    })
+    return users;
+}

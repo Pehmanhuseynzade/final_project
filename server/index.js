@@ -82,23 +82,23 @@ app.use(`/api/home`, home_router)
 //---------------------------------------------------------codes
 
 //VERIFY JWT token
-const verifyJWT = async(req,res,next)=>{
-  const token = req.headers['x-access-token'];
-  if (!token) {
-      res.send({message: 'you may need token to get here!'});
-  }
-  else{
-     jwt.verify(token,process.env.SECRET_KEY,(err,decoded)=>{
-          if (err) {
-              res.send({auth:false,message: 'authentication failed!'})
-          }
-          else{
-              req.userId = decoded.id;
-              next();
-          }
-     })
-  }
-}
+// const verifyJWT = async(req,res,next)=>{
+//   const token = req.headers['x-access-token'];
+//   if (!token) {
+//       res.send({message: 'you may need token to get here!'});
+//   }
+//   else{
+//      jwt.verify(token,process.env.SECRET_KEY,(err,decoded)=>{
+//           if (err) {
+//               res.send({auth:false,message: 'authentication failed!'})
+//           }
+//           else{
+//               req.userId = decoded.id;
+//               next();
+//           }
+//      })
+//   }
+// }
 //register - sign up
 app.post('/api/registerr',async(req,res)=>{
   const{username,password,email} = req.body;
@@ -184,7 +184,7 @@ app.post('/api/loginn',async(req,res)=>{
 
 //------------------------------------------------------------------------------------------
 //get users
-app.get('/api/userss',verifyJWT,async(req,res)=>{
+app.get('/api/userss',async(req,res)=>{
   const users = await Userss.find();
 
   res.json({
