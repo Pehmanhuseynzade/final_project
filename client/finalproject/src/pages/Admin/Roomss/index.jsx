@@ -42,7 +42,7 @@ function Roomss() {
     form.resetFields();
   };
 
-  const handleDeleteentimg = (id) => {
+  const handleDeleteroomimg = (id) => {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -72,6 +72,10 @@ function Roomss() {
         const updatedData = {
           roomname: values.roomname,
           roomcount: values.roomcount,
+          roomimg1: values.roomimg1,
+          roomimg2: values.roomimg2,
+          roomimg3: values.roomimg3,
+          roomimg4: values.roomimg4,
         };
 
         await putroomsByID(editingrooms._id, updatedData);
@@ -92,6 +96,10 @@ function Roomss() {
         const newRooms = {
           roomname: values.roomname,
           roomcount: values.roomcount,
+          roomimg1: values.roomimg1,
+          roomimg2: values.roomimg2,
+          roomimg3: values.roomimg3,
+          roomimg4: values.roomimg4,
         };
 
         await getroomsPost(newRooms);
@@ -102,46 +110,44 @@ function Roomss() {
       }
       await Roomspage();
     } catch (error) {
-      console.error('Failed to save Entimg entry:', error);
+      console.error('Failed to save Rooms entry:', error);
     }
   };
 
   const columns = [
     {
       title: 'Room Name',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      dataIndex: 'roomname',
+      key: 'roomname',
     },
     {
       title: 'Room Count',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      dataIndex: 'roomcount',
+      key: 'roomcount',
     },
     {
-      title: 'Entertainment Images',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      title: 'roomimg1',
+      dataIndex: 'roomimg1',
+      key: 'roomimg1',
+      render: img => <img src={img} alt="roomimage" style={{ width: "150px", height: "150px" }} />
     },
     {
-      title: 'Entertainment Images',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      title: 'roomimg2',
+      dataIndex: 'roomimg2',
+      key: 'roomimg2',
+      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
     },
     {
-      title: 'Entertainment Images',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      title: 'roomimg3',
+      dataIndex: 'roomimg3',
+      key: 'roomimg3',
+      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
     },
     {
-      title: 'Entertainment Images',
-      dataIndex: 'entmentimgs',
-      key: 'entmentimgs',
-      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
+      title: 'roomimg3',
+      dataIndex: 'roomimg3',
+      key: 'roomimg3',
+      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
     },
     {
       title: 'Edit',
@@ -156,7 +162,7 @@ function Roomss() {
       title: 'Delete',
       key: 'delete',
       render: (_, record) => (
-        <Button type="primary" danger onClick={() => handleDeleteentimg(record._id)}>
+        <Button type="primary" danger onClick={() => handleDeleteroomimg(record._id)}>
           Delete
         </Button>
       ),
@@ -165,7 +171,68 @@ function Roomss() {
 
   return (
     <>
-    
+          <div style={{ marginLeft: '220px' }}>
+        <div style={{ marginBottom: '16px' }}>
+          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+            Add
+          </Button>
+        </div>
+        <div style={{ width: '80%' }}>
+          <Table style={{ width: '80%' }} columns={columns} dataSource={roomsadmin} />
+
+          <Modal
+            visible={modalOpen}
+            title={editingrooms ? 'Edit Rooms  Entry' : 'Add New '}
+            onCancel={handleCloseModal}
+            onOk={handleSubmit}
+          >
+            <Form form={form} layout="vertical">
+              <Form.Item
+                label="Rooms name"
+                name="roomname"
+                rules={[{ required: true, message: 'Please enter Room name' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Rooms count"
+                name="roomcount"
+                rules={[{ required: true, message: 'Please enter Room count' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Rooms Image"
+                name="roomimg1"
+                rules={[{ required: true, message: 'Please enter Room images' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Rooms Images2"
+                name="roomimg2"
+                rules={[{ required: true, message: 'Please enter Room images' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Rooms Images3"
+                name="roomimg3"
+                rules={[{ required: true, message: 'Please enter Room images' }]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Rooms Images4"
+                name="roomimg4"
+                rules={[{ required: true, message: 'Please enter Room images' }]}
+              >
+                <Input />
+              </Form.Item>
+            </Form>
+          </Modal>
+        </div>
+      </div>
     </>
   )
 }
