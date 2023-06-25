@@ -5,14 +5,44 @@ const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const fileupload = require('express-fileupload')
-// const joi = require('joi')
-// const multer = require('multer')
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use(cookieParser())
 dotenv.config()
 app.use(fileupload())
+//mongoose model
+let validateEmail = function(email) {
+  let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email)
+};
+const Userss = new mongoose.model('Userss',new mongoose.Schema({
+  username: {
+      type: String,
+      required: true,
+      trim: true,
+      minlength: 5,
+      unique: true
+  },
+  email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+      validate: [validateEmail, 'Please fill a valid email address'],
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+  },
+  password: {
+      type: String,
+      minlength: 5,
+      required: true,
+  },
+  isAdmin: {
+      type: Boolean
+  }
+}))
 const media_router = require("./routes/media.routes")
 const infohotel_router = require("./routes/infohotel.routes")
 const about_router = require("./routes/about.routes")
@@ -28,13 +58,11 @@ const res_router = require("./routes/res.routes")
 const roominfo_router = require("./routes/roominfo.routes")
 const room_router = require("./routes/rooms.routes")
 const home_router = require("./routes/home.routes")
-const authRoute = require("./routes/auth.routes")
-const usersRoute = require("./routes/user.routes")
+// const authRoute = require("./routes/auth.routes")
+// const usersRoute = require("./routes/user.routes")
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
 app.use(`/api/media`, media_router)
 app.use(`/api/infomarxal`, infohotel_router)
 app.use(`/api/about`, about_router)
@@ -50,18 +78,122 @@ app.use(`/api/res`, res_router)
 app.use(`/api/roominfo`, roominfo_router)
 app.use(`/api/rooms`, room_router)
 app.use(`/api/home`, home_router)
-app.use(`/api/auth`, authRoute)
-app.use(`/api/user`, usersRoute)
-app.use((err, req, res, next) => {
-  const errorStatus = err.status || 500
-  const errorMessage = err.message || "Something went wrong!"
-  return res.status(errorStatus).json({
-    success: false,
-    status: errorStatus,
-    message: errorMessage,
-    stack: err.stack,
-  });
+
+//---------------------------------------------------------codes
+
+//VERIFY JWT token
+const verifyJWT = async(req,res,next)=>{
+  const token = req.headers['x-access-token'];
+  if (!token) {
+      res.send({message: 'you may need token to get here!'});
+  }
+  else{
+     jwt.verify(token,process.env.SECRET_KEY,(err,decoded)=>{
+          if (err) {
+              res.send({auth:false,message: 'authentication failed!'})
+          }
+          else{
+              req.userId = decoded.id;
+              next();
+          }
+     })
+  }
+}
+//register - sign up
+app.post('/api/registerr',async(req,res)=>{
+  const{username,password,email} = req.body;
+  const existedUsername = await Userss.findOne({username: username});
+  const existedEmail = await Userss.findOne({email: email});
+  if (existedUsername) {
+      res.send({
+          auth: false,
+          message: 'username already exists!'
+      })
+      return;
+  }
+  if (existedEmail) {
+      res.send({
+          auth: false,
+          message: 'email already used!'
+      })
+      return;
+  }
+  const salt = await bcrypt.genSalt(10); //500ms
+  const hashedPassword = await bcrypt.hash(password, salt);
+  const newUser = await Userss({
+      username: username,
+      email: email,
+      password: hashedPassword,
+      isAdmin: false
+  })
+  await newUser.save();
+  res.send({
+      auth: true,
+      data: newUser,
+      message: 'user signed up successfully!',
+  })
 });
+
+//login - sign in
+app.post('/api/loginn',async(req,res)=>{
+  const{username,password} = req.body;
+  const existedUsername = await Userss.findOne({username: username});
+  if (!existedUsername) {
+      res.send({auth:false,message:'username not found!'})
+  }
+  else{
+      const isValid = await bcrypt.compare(password,existedUsername.password);
+      if (!isValid) {
+          res.send({auth:false, message: 'password is incorrect!'});
+      }
+      else{
+          //username, password +
+          const id =  existedUsername._id;
+          const token =  jwt.sign({id}, process.env.SECRET_KEY,{
+              expiresIn: '1d'
+          })
+          res.send({
+              auth:true,
+              user: {
+                  id: existedUsername._id,
+                  username: existedUsername.username,
+                  email: existedUsername.email,
+                  isAdmin: existedUsername.isAdmin
+              },
+              token: token,
+              message: 'user logged in successfully!'
+          })
+      }
+  }
+})
+
+
+//------------------------------------------------------------------------------------------
+// app.use(`/api/auth`, authRoute)
+// app.use(`/api/user`, usersRoute)
+// app.use((err, req, res, next) => {
+//   const errorStatus = err.status || 500
+//   const errorMessage = err.message || "Something went wrong!"
+//   return res.status(errorStatus).json({
+//     success: false,
+//     status: errorStatus,
+//     message: errorMessage,
+//     stack: err.stack,
+//   });
+// });
+
+//------------------------------------------------------------------------------------------
+//get users
+app.get('/api/userss',verifyJWT,async(req,res)=>{
+  const users = await Userss.find();
+
+  res.json({
+      data: users,
+      message: 'data get successfully!'
+  })
+})
+
+
 PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)

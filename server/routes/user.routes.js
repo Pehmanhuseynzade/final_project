@@ -1,28 +1,28 @@
-const express = require('express');
-const {
-  updateUser,
-  deleteUser,
-  getUser,
-  getUsers
-} = require('../controllers/user.controller');
+// const express = require('express');
+// const {
+//   updateUser,
+//   deleteUser,
+//   getUser,
+//   getUsers
+// } = require('../controllers/user.controller');
 
-const {
-  verifyAdmin,
-  verifyUser
-} = require('../utils/verifyToken.js');
+// const {
+//   verifyAdmin,
+//   verifyUser
+// } = require('../utils/verifyToken.js');
 
-const router = express.Router();
+// const router = express.Router();
 
-// UPDATE
-router.put("/:id", verifyUser, updateUser);
+// // UPDATE
+// router.put("/:id", verifyUser, updateUser);
 
-// DELETE
-router.delete("/:id", verifyUser, deleteUser);
+// // DELETE
+// router.delete("/:id", verifyUser, deleteUser);
 
-// GET
-router.get("/:id", verifyUser, getUser);
+// // GET
+// router.get("/:id", verifyUser, getUser);
 
-// GET ALL
-router.get("/", verifyAdmin, getUsers);
+// // GET ALL
+// router.get("/", verifyAdmin, getUsers);
 
-module.exports = router;
+// module.exports = router;

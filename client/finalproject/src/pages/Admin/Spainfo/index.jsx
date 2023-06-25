@@ -170,21 +170,21 @@ function Spainfo() {
             <Form form={form} layout="vertical">
               <Form.Item
                 label="Spa name"
-                name="resname"
+                name="spaname"
                 rules={[{ required: true, message: 'Please enter Spa name' }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 label="Spa Description"
-                name="resdesc1"
+                name="spadesc1"
                 rules={[{ required: true, message: 'Please enter Restaurants desc' }]}
               >
                 <Input />
               </Form.Item>
               <Form.Item
                 label="Spa Description"
-                name="resdesc2"
+                name="spadesc2"
                 rules={[{ required: true, message: 'Please enter Spa desc' }]}
               >
                 <Input />
