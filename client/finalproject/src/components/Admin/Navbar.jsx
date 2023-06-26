@@ -86,7 +86,7 @@ export default function Navbar() {
     <div className='navadmin'>
       {['left'].map((anchor) => (
         <div style={{display:'flex',justifyContent:'space-between'}}>
-          <React.Fragment key={anchor}>
+          <React.Fragment >
             <Button className='hamburger' onClick={toggleDrawer(anchor, true)}><i class="fa-solid fa-bars"></i></Button>
             <Drawer
               anchor={anchor}
@@ -96,7 +96,7 @@ export default function Navbar() {
               {list(anchor)}
             </Drawer>
           </React.Fragment>
-          <React.Fragment key={anchor}>
+          <React.Fragment >
             <Button onClick={()=>{
                 localStorage.removeItem('token');
                 localStorage.removeItem('admin');
@@ -112,13 +112,6 @@ export default function Navbar() {
               }}
             
             style={{color:'white'}} className='logout'>Logout</Button>
-            <Drawer
-              anchor={anchor}
-              open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-            >
-              {list(anchor)}
-            </Drawer>
           </React.Fragment>
         </div>
 

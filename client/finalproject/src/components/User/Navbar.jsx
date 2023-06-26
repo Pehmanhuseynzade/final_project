@@ -1,9 +1,10 @@
 import React from 'react'
 import "./user-comp.scss"
-import { Link } from "react-router-dom"
+import { Link, useNavigate  } from "react-router-dom"
+import { useMarxalContext } from "../../context/usercontextsite";
 function Navbar() {
-
-
+  const[user,setUser] = useMarxalContext();
+  const navigate = useNavigate();
   return (
     <>
 
@@ -14,7 +15,22 @@ function Navbar() {
               <li><i className="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
             </Link>
             <Link to='registerr'>
-              <li><i className="fa-solid fa-user"></i> Login</li>
+              {/* <li><i className="fa-solid fa-user"></i> Login</li> */}
+              {user ? (
+            <>
+              <li style={{color:'white'}}
+               onClick={()=>{
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                setUser(null);
+                navigate('/login');
+              }}><i className="fa-solid fa-user"></i> Logout</li>
+            </>
+          ) : (
+            <>
+              <li><Link style={{color:'white'}} to='/login'><i className="fa-solid fa-user"></i> Login</Link></li>
+            </>
+          )}
             </Link>
           </ul>
         </div >
