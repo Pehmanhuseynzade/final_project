@@ -11,8 +11,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import MailIcon from '@mui/icons-material/Mail';
+import Swal from 'sweetalert2';
+import { useUserContext } from "../../context/Usercontext";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate()
+  const[admin,setAdmin] = useUserContext();
   const [state, setState] = React.useState({
     // top: false,
     left: false
@@ -36,30 +41,30 @@ export default function Navbar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-  {[
-    { text: 'Admin', link: '/admin' },
-    { text: 'Hotelinfo', link: '/admin/homeadmin' },
-    { text: 'About', link: '/admin/aboutadmin' },
-    { text: 'Entertainment', link: '/admin/entadmin' },
-    { text: 'Entertainmentimg', link: '/admin/entimgadmin' },
-    { text: 'Media', link: '/admin/mediaadmin' },
-    { text: 'Parties', link: '/admin/partiesadmin' },
-    { text: 'Parties Images', link: '/admin/partiesimgadmin' },
-    { text: 'Restaurants', link: '/admin/resadmin' },
-    { text: 'Rooms', link: '/admin/roomadminn' },
-    { text: 'Roominfo', link: '/admin/roominfoadmin' },
-    { text: 'Spainfo', link: '/admin/spainfoadmin' },
-    { text: 'SpaImages', link: '/admin/spaimages' },
-    { text: 'Tour', link: '/admin/touradmin' },
-    { text: 'Tourimg', link: '/admin/tourimgadmin' },  
-  ].map(({ text, link }) => (
-    <ListItem key={text} disablePadding>
-      <ListItemButton component="a" href={link}>
-        <ListItemText primary={text} />
-      </ListItemButton>
-    </ListItem>
-  ))}
-</List>
+        {[
+          { text: 'Admin', link: '/admin' },
+          { text: 'Hotelinfo', link: '/admin/homeadmin' },
+          { text: 'About', link: '/admin/aboutadmin' },
+          { text: 'Entertainment', link: '/admin/entadmin' },
+          { text: 'Entertainmentimg', link: '/admin/entimgadmin' },
+          { text: 'Media', link: '/admin/mediaadmin' },
+          { text: 'Parties', link: '/admin/partiesadmin' },
+          { text: 'Parties Images', link: '/admin/partiesimgadmin' },
+          { text: 'Restaurants', link: '/admin/resadmin' },
+          { text: 'Rooms', link: '/admin/roomadminn' },
+          { text: 'Roominfo', link: '/admin/roominfoadmin' },
+          { text: 'Spainfo', link: '/admin/spainfoadmin' },
+          { text: 'SpaImages', link: '/admin/spaimages' },
+          { text: 'Tour', link: '/admin/touradmin' },
+          { text: 'Tourimg', link: '/admin/tourimgadmin' },
+        ].map(({ text, link }) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton component="a" href={link}>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
 
       <Divider />
       {/* <List>
@@ -80,16 +85,44 @@ export default function Navbar() {
   return (
     <div className='navadmin'>
       {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button className='hamburger' onClick={toggleDrawer(anchor, true)}><i class="fa-solid fa-bars"></i></Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
+        <div style={{display:'flex',justifyContent:'space-between'}}>
+          <React.Fragment key={anchor}>
+            <Button className='hamburger' onClick={toggleDrawer(anchor, true)}><i class="fa-solid fa-bars"></i></Button>
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+          <React.Fragment key={anchor}>
+            <Button onClick={()=>{
+                localStorage.removeItem('token');
+                localStorage.removeItem('admin');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'user signed out successfully!',
+                    showConfirmButton: false,
+                    timer: 1200
+                })
+                setAdmin(null);
+                navigate('/loginadmin');
+              }}
+            
+            style={{color:'white'}} className='logout'>Logout</Button>
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        </div>
+
+
       ))}
     </div>
   );

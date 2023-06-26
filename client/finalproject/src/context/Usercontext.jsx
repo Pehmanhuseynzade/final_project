@@ -4,15 +4,15 @@ const UserContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const UserContextProvider = ({children})=>{
-    const[user,setUser] = useState(null);
+    const[admin,setAdmin] = useState(null);
     useEffect(()=>{
-        if (localStorage.getItem('user')) {
-            setUser(localStorage.getItem('user'));
+        if (localStorage.getItem('admin')) {
+            setAdmin(localStorage.getItem('admin'));
         }
     },[])
 
     return(
-        <UserContext.Provider value={[user,setUser]}>
+        <UserContext.Provider value={[admin,setAdmin]}>
             {children}
         </UserContext.Provider>
     )

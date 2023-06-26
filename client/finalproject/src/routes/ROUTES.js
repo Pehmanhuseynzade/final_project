@@ -27,6 +27,9 @@ import Tourimg from "../pages/Admin/Tourimg"
 import Aboutadmin from "../pages/Admin/Aboutadmin"
 import Tourinfo from "../pages/Admin/Tourinfo"
 import Partiesimg from "../pages/Admin/Partiesimg"
+import Rezerv from "../pages/User/Rezerv"
+import Loginroot from "../pages/Loginpage/Loginroot"
+import Loginadmin from "../pages/Loginpage/Loginadmin"
 export const ROUTES = [
     {
         path:'/',
@@ -79,6 +82,20 @@ export const ROUTES = [
             {
                 path:'registerr',
                 element:<Register/>
+            },
+            {
+                path:'rezerv',
+                element:<Rezerv/>
+            },
+        ]
+    },
+    {
+        path:'/loginadmin',
+        element:<Loginroot/>,
+        children:[
+            {
+                path:'',
+                element:<Loginadmin/>
             },
         ]
     },
@@ -145,11 +162,7 @@ export const ROUTES = [
             {
                 path:'partiesimgadmin',
                 element:<Partiesimg/>
-            },
-            // {
-            //     path:'login',
-            //     element:<Login/>
-            // }
+            }
         ] 
     }
 

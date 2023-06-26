@@ -1,29 +1,38 @@
 import React from 'react'
-import "./login.scss"
 import { Button, TextField } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik} from 'formik';
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { signIN } from "../../../api/httpsrequests";
+import  {useUserContext}  from "../../../context/Usercontext";
 
-const Login = () => {
+const Loginadmin = () => {
+  const[admin,setAdmin] = useUserContext();
   const navigate = useNavigate()
   const handleSubmit = async(values,actions)=>{
     const response =  await signIN(values);
-    console.log(response);
-    actions.resetForm()
-    // if (response.data.auth) {
-    //     Swal.fire({
-    //         position: 'top-end',
-    //         icon: 'success',
-    //         title: 'user signed up successfully!',
-    //         showConfirmButton: false,
-    //         timer: 1200
-    //       })
+    // console.log(response);
+    // if(response.user.isAdmin === true){
+    // navigate('/admin')
     // }
-   
+    if (response.auth) {
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('admin', JSON.stringify(response));
+      setAdmin(response);
+    
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'User signed in successfully!',
+        showConfirmButton: false,
+        timer: 1200
+      });
+    
+      navigate('/admin');
+    }
+    
     actions.resetForm();
-}
+  }
 const formik = useFormik({
     initialValues:{
         username: '',
@@ -42,11 +51,10 @@ const formik = useFormik({
           <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" id="outlined-basic" type="password" label="password" variant="outlined" />
         </div>
         <Button style={{display:'block',margin:'30px auto'}} type="submit" variant="contained" color="warning">Login</Button>
-        <Link style={{display:'block',textAlign:'center'}} to='/registerr'>don't have an account?</Link>
       </form>
     </div>
     </>
   )
 }
 
-export default Login
+export default Loginadmin
