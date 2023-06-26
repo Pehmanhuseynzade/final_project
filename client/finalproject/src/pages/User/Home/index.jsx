@@ -8,11 +8,12 @@ import "./home.scss"
 import { Autoplay, Pagination } from "swiper";
 import { useState } from 'react';
 import { getInfodatas } from '../../../api/httpsrequests';
-
+import CountUp from "react-countup"
+import ScrollTrigger from "react-scroll-trigger"
 function Home() {
 
   const [info, setInfo] = useState([])
-
+  const [counterOn,setCounterOn] = useState(false)
   useEffect(() => {
     getInfodatas().then((data) => {
       setInfo(data)
@@ -67,9 +68,9 @@ function Home() {
       <div className='data'>
         {info && info.map((d) => (
           <div className='info-div' key={d._id}>
-            <div>
-              <h1>{d.count}</h1>
-            </div>
+            <ScrollTrigger>
+              <h1><CountUp start={0} end={d.count} duration={2} delay={0}/></h1>
+            </ScrollTrigger>
             <div>
               <p>{d.name}</p>
             </div>

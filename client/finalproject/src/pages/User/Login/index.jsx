@@ -4,7 +4,7 @@ import { useFormik} from 'formik';
 import Swal from 'sweetalert2';
 import { signIN } from "../../../api/httpsrequests";
 import { useMarxalContext } from "../../../context/usercontextsite";
-
+import "./login.scss"
 const Login = () => {
     const[user,setUser] = useMarxalContext();
     const navigate = useNavigate();
@@ -34,15 +34,16 @@ const Login = () => {
         onSubmit: handleSubmit
     })
   return (
-    <div style={{height:'70vh',width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-    <form onSubmit={formik.handleSubmit}>
+    <div className="form-login-div" style={{height:'70vh',width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <form className="form-login" onSubmit={formik.handleSubmit}>
+      <p>Login Page</p>
       <div>
-        <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username" id="outlined-basic" type="text" label="username" variant="outlined" />
+        <input placeholder="Username" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username" id="outlined-basic" type="text" label="username" variant="outlined" />
       </div>
       <div>
-        <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" id="outlined-basic" type="password" label="password" variant="outlined" />
+        <input placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" id="outlined-basic" type="password" label="password" variant="outlined" />
       </div>
-      <Button style={{display:'block',margin:'30px auto'}} type="submit" variant="contained" color="warning">Login</Button>
+      <Button style={{display:'block',margin:'30px auto'}} type="submit" variant="contained" color="primary">Login</Button>
     </form>
   </div>
   )

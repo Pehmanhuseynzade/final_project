@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 // import Swal from 'sweetalert2';
 import { signIN } from "../../../api/httpsrequests";
 import { useUserContext } from "../../../context/Usercontext";
-
+import "./loginadmin.scss"
 const Loginadmin = () => {
   const [admin, setAdmin] = useUserContext();
   const navigate = useNavigate()
@@ -44,15 +44,16 @@ const Loginadmin = () => {
   })
   return (
     <>
-      <div style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <form onSubmit={formik.handleSubmit}>
+      <div className="form-login-div" style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <form className="form-login"  onSubmit={formik.handleSubmit}>
+        <p>Admin Login</p>
           <div>
-            <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username"  type="text" label="username" variant="outlined" />
+            <input placeholder='Admin' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username"  type="text" label="username" variant="outlined" />
           </div>
           <div>
-            <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password"  type="password" label="password" variant="outlined" />
+            <input placeholder='Password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password"  type="password" label="password" variant="outlined" />
           </div>
-          <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="warning">Login</Button>
+          <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Login</Button>
         </form>
       </div>
     </>

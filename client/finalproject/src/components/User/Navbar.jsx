@@ -14,7 +14,7 @@ function Navbar() {
             <Link to='contact'>
               <li><i className="fa-solid fa-address-book"></i> Bizimlə Əlaqə</li>
             </Link>
-            <Link to='registerr'>
+            
               {/* <li><i className="fa-solid fa-user"></i> Login</li> */}
               {user ? (
             <>
@@ -28,10 +28,10 @@ function Navbar() {
             </>
           ) : (
             <>
-              <li><Link style={{color:'white'}} to='/login'><i className="fa-solid fa-user"></i> Login</Link></li>
+              <li><Link style={{color:'white'}} to='/registerr'><i className="fa-solid fa-user"></i> Login</Link></li>
             </>
           )}
-            </Link>
+            
           </ul>
         </div >
         <ul>
