@@ -58,6 +58,8 @@ const res_router = require("./routes/res.routes")
 const roominfo_router = require("./routes/roominfo.routes")
 const room_router = require("./routes/rooms.routes")
 const home_router = require("./routes/home.routes")
+const form_router = require("./routes/form.routes")
+const sendemail_router = require("./routes/sendemail.routes")
 // const authRoute = require("./routes/auth.routes")
 // const usersRoute = require("./routes/user.routes")
 app.get('/', (req, res) => {
@@ -78,7 +80,8 @@ app.use(`/api/res`, res_router)
 app.use(`/api/roominfo`, roominfo_router)
 app.use(`/api/rooms`, room_router)
 app.use(`/api/home`, home_router)
-
+app.use(`/api/form`, form_router)
+app.use(`/api/sendemail`, sendemail_router)
 //---------------------------------------------------------codes
 
 //VERIFY JWT token

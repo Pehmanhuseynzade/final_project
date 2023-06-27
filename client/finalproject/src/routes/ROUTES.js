@@ -30,6 +30,8 @@ import Partiesimg from "../pages/Admin/Partiesimg"
 import Rezerv from "../pages/User/Rezerv"
 import Loginroot from "../pages/Loginpage/Loginroot"
 import Loginadmin from "../pages/Loginpage/Loginadmin"
+import Formm from "../pages/Admin/Formm"
+import Emaill from "../pages/Admin/Emaill"
 export const ROUTES = [
     {
         path:'/',
@@ -162,6 +164,14 @@ export const ROUTES = [
             {
                 path:'partiesimgadmin',
                 element:<Partiesimg/>
+            },
+            {
+                path:'form',
+                element:<Formm/>
+            },
+            {
+                path:'sendemail',
+                element:<Emaill/>
             }
         ] 
     }

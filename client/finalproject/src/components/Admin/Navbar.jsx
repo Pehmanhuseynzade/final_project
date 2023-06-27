@@ -42,7 +42,8 @@ export default function Navbar() {
     >
       <List>
         {[
-          { text: 'Admin', link: '/admin' },
+          { text: 'Form', link: '/admin/form' },
+          { text: 'Emails', link: '/admin/sendemail' },
           { text: 'Hotelinfo', link: '/admin/homeadmin' },
           { text: 'About', link: '/admin/aboutadmin' },
           { text: 'Entertainment', link: '/admin/entadmin' },

@@ -1,34 +1,123 @@
-import React from 'react'
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
 import "./contact.scss"
 function Contact() {
+
+  const formik = useFormik({
+    initialValues: {
+      formusername: '',
+      surname: '',
+      formemail: '',
+      phonenum: '',
+      messages: ''
+    },
+    validationSchema: Yup.object({
+      formusername: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      surname: Yup.string()
+        .max(20, 'Must be 20 characters or less')
+        .required('Required'),
+      formemail: Yup.string().email('Invalid email address').required('Required'),
+      phonenum: Yup.number().required('Phone number is required'),
+      messages: Yup.string().required('Required')
+    }),
+    onSubmit: values => {
+      axios.post('http://localhost:7576/api/form', values)
+        .then(response => {
+          console.log('Post request successful');
+          console.log(response.data);
+          formik.resetForm();
+        })
+        .catch(error => {
+          console.error('Post request error:', error);
+        });
+    },
+  });
+
   return (
     <>
-    <div className='main-sec-contact'>
-      <img className='contact-main-image' src="https://www.marxalresort.az/assets/images/contact-1500x614.jpeg" alt="restaurant" />
-      <form>
-      <div className='name-sur'>
-      <label htmlFor="name">Adınız:</label>
-      <input type='text' name='name' id='name' className='name' />
-      <label htmlFor="sur">Soyad:</label>
-      <input type='text' name='surname' id='sur' className='sur' />
-      </div>
+      <div className="main-sec-contact">
+        <img
+          className="contact-main-image"
+          src="https://www.marxalresort.az/assets/images/contact-1500x614.jpeg"
+          alt="restaurant"
+        />
+        <form onSubmit={formik.handleSubmit}>
+          <div className="name-sur">
+            <label htmlFor="formusername">Adınız:</label>
+            <input
+              id="formusername"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.formusername}
+              placeholder="First Name (required)"
+              name="formusername"
+              className="name"
+            />
 
+            <label htmlFor="surname">Soyad:</label>
+            <input
+              id="surname"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.surname}
+              placeholder="Last Name (required)"
+              name="surname"
+              className="sur"
+            />
+          </div>
 
-      <div className='mail-num'>
-      <label htmlFor="email">E-mail:</label>
-      <input type='email' name='email' id='email' className='email' />
-      <label htmlFor="phone">Mobil:</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" className='phone' />
-      </div>
-      <div className='text-mes'>
-      <label htmlFor="message">Mesaj:</label>
-      <textarea className='message' type='message' id='message' name="message"></textarea>
-      </div>
-      <button type='submit' className='form-btn'>Göndər</button>
-      </form>
+          <div className="mail-num">
+            <label htmlFor="formemail">E-mail:</label>
+            <input
+              id="formemail"
+              type="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.formemail}
+              placeholder="Email (required)"
+              name="formemail"
+              className="email"
+            />
+
+            <label htmlFor="phonenum">Mobil:</label>
+            <input
+              id="phonenum"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phonenum}
+              placeholder="Phone Number"
+              name="phonenum"
+              className="phone"
+            />
+          </div>
+
+          <div className="text-mes">
+            <label htmlFor="messages">Mesaj:</label>
+            <textarea
+              id="messages"
+              name="messages"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.messages}
+              placeholder="Message (required)"
+              className="message"
+            />
+          </div>
+
+          <button type="submit" className="form-btn">
+            Göndər
+          </button>
+        </form>
       </div>
     </>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

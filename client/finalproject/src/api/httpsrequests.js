@@ -474,3 +474,67 @@ export const getUsers = async(token)=>{
     })
     return users;
 }
+
+//16.For form
+
+export const getformdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/form`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getformdatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/form/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getformDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/form/${id}`)
+}
+
+export const getformPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/form`,payload)
+}
+
+export const putformByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/form/${id}`,update)
+}
+
+//18.For sendemail
+
+export const getsendemaildatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/sendemail`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getsendemaildatasID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/sendemail/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getsendemailDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/sendemail/${id}`)
+}
+
+export const getsendemailPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/sendemail`,payload)
+}
+
+export const putsendemailByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/sendemail/${id}`,update)
+}
