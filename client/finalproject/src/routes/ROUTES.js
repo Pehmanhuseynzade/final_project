@@ -34,6 +34,7 @@ import Formm from "../pages/Admin/Formm"
 import Emaill from "../pages/Admin/Emaill"
 import Registers from "../pages/Admin/Registers"
 import Logins from "../pages/Admin/Logins"
+import Reserveroom from "../pages/User/Reserveroom"
 export const ROUTES = [
     {
         path:'/',
@@ -91,6 +92,10 @@ export const ROUTES = [
                 path:'reservation',
                 element:<Rezerv/>
             },
+            {
+                path:'reserveroom',
+                element:<Reserveroom/>
+            }
         ]
     },
     {

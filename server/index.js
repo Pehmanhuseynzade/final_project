@@ -18,31 +18,6 @@ let validateEmail = function(email) {
   let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
-// const Userss = new mongoose.model('Userss',new mongoose.Schema({
-//   username: {
-//       type: String,
-//       required: true,
-//       trim: true,
-//       minlength: 5,
-//       unique: true
-//   },
-//   email: {
-//       type: String,
-//       required: true,
-//       trim: true,
-//       unique: true,
-//       validate: [validateEmail, 'Please fill a valid email address'],
-//       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-//   },
-//   password: {
-//       type: String,
-//       minlength: 5,
-//       required: true,
-//   },
-//   isAdmin: {
-//       type: Boolean
-//   }
-// }))
 
 const userssSchema = new mongoose.Schema({
     username: {
@@ -97,8 +72,8 @@ const room_router = require("./routes/rooms.routes")
 const home_router = require("./routes/home.routes")
 const form_router = require("./routes/form.routes")
 const sendemail_router = require("./routes/sendemail.routes")
-// const authRoute = require("./routes/auth.routes")
-// const usersRoute = require("./routes/user.routes")
+const reserve_router = require("./routes/reserve.routes")
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -119,6 +94,8 @@ app.use(`/api/rooms`, room_router)
 app.use(`/api/home`, home_router)
 app.use(`/api/contactus`, form_router)
 app.use(`/api/sendemail`, sendemail_router)
+app.use(`/api/reserve`, reserve_router)
+
 //---------------------------------------------------------codes
 
 //VERIFY JWT token
@@ -234,38 +211,7 @@ app.delete("/api/login/:id", async (req, res) => {
   }
 });
 
-// app.delete(`/api/loginn`,async(req,res)=>{
-//   const id=req.params.id
-//   const deletesign = await Userss.findByIdAndDelete(id)
-//   res.status(202).send(deletesign)
-// })
 
-
-//------------------------------------------------------------------------------------------
-// app.use(`/api/auth`, authRoute)
-// app.use(`/api/user`, usersRoute)
-// app.use((err, req, res, next) => {
-//   const errorStatus = err.status || 500
-//   const errorMessage = err.message || "Something went wrong!"
-//   return res.status(errorStatus).json({
-//     success: false,
-//     status: errorStatus,
-//     message: errorMessage,
-//     stack: err.stack,
-//   });
-// });
-
-//------------------------------------------------------------------------------------------
-//get users
-
-// app.get('/api/userss',verifyJWT,async(req,res)=>{
-//   const users = await Userss.find()
-
-//   res.json({
-//       data: users,
-//       message: 'data get successfully!'
-//   })
-// })
 
 
 app.get("/api/userss",async(req,res)=>{

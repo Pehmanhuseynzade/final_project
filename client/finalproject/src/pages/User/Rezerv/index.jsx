@@ -1,8 +1,28 @@
 import React from 'react'
 import "./rezervation.scss"
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Divider, Input, Select, Space } from 'antd';
+import { useRef, useState } from 'react';
+import {Link} from "react-router-dom"
 const { RangePicker } = DatePicker;
+let index = 0;
+
 function Rezerv() {
+  const [items, setItems] = useState(['1 Nəfər', '2 Nəfər']);
+  const [name, setName] = useState('');
+  const inputRef = useRef(null);
+  const onNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const addItem = (e) => {
+    e.preventDefault();
+    setItems([...items, name || `${index++}`]);
+    setName('');
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  };
   return (
     <>
       <div className='title-reserv'>
@@ -12,18 +32,57 @@ function Rezerv() {
 
       <div className='main-reserv'>
         <div className='second-reserv-div'>
-          <p>Yerləşmə, tərketmə tarixlərini və qonaq sayını seçin</p>
-        </div>
+          <p className='title-sent'>Yerləşmə, tərketmə tarixlərini və qonaq sayını seçin</p>
+          <div className='in-out'>
+            <p className='checkin'>Yerləşmə tarixi</p>
+            <p className='checkout'>Çıxış tarixi</p>
+          </div>
+          <div className='date'>
+            <Space direction="vertical" size={12}>
+              <RangePicker className='space' />
+            </Space>
+          </div>
 
-        <div>
-          <Space direction="vertical" size={12}>
-            <RangePicker />
-            <RangePicker showTime />
-            <RangePicker picker="week" />
-            <RangePicker picker="month" />
-            <RangePicker picker="quarter" />
-            <RangePicker picker="year" />
-          </Space>
+          <div className='select-option'>
+            <Select
+              className='space-select'
+              style={{
+                width: 500,
+
+              }}
+              placeholder="Qonaq sayı əlavə etmək"
+              dropdownRender={(menu) => (
+                <>
+                  {menu}
+                  <Divider
+                    style={{
+                      margin: '8px 0',
+                    }}
+                  />
+                  <Space
+                  // style={{
+                  //   padding: '0 8px 4px',
+                  // }}
+                  >
+                    <Input
+                      placeholder="Əlavə edin"
+                      ref={inputRef}
+                      value={name}
+                      onChange={onNameChange}
+                    />
+                    <Button type="text" icon={<PlusOutlined />} onClick={addItem}>
+                      Əlavə edin
+                    </Button>
+                  </Space>
+                </>
+              )}
+              options={items.map((item) => ({
+                label: item,
+                value: item,
+              }))}
+            />
+          </div>
+          <div className='find-btn'><Link to='/reserveroom'><button>Tamamla</button></Link></div>
         </div>
       </div>
     </>
