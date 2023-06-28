@@ -18,31 +18,68 @@ let validateEmail = function(email) {
   let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
-const Userss = new mongoose.model('Userss',new mongoose.Schema({
-  username: {
+// const Userss = new mongoose.model('Userss',new mongoose.Schema({
+//   username: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       minlength: 5,
+//       unique: true
+//   },
+//   email: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       unique: true,
+//       validate: [validateEmail, 'Please fill a valid email address'],
+//       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+//   },
+//   password: {
+//       type: String,
+//       minlength: 5,
+//       required: true,
+//   },
+//   isAdmin: {
+//       type: Boolean
+//   }
+// }))
+
+const userssSchema = new mongoose.Schema({
+    username: {
       type: String,
       required: true,
       trim: true,
       minlength: 5,
       unique: true
-  },
-  email: {
+    },
+    email: {
       type: String,
       required: true,
       trim: true,
       unique: true,
-      validate: [validateEmail, 'Please fill a valid email address'],
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-  },
-  password: {
+      validate: [
+        {
+          validator: function (value) {
+            // Email validasiyasını burada əlavə edin
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+          },
+          message: 'Please fill a valid email address'
+        }
+      ]
+    },
+    password: {
       type: String,
       minlength: 5,
-      required: true,
-  },
-  isAdmin: {
+      required: true
+    },
+    isAdmin: {
       type: Boolean
-  }
-}))
+    }
+  });
+  
+  const Userss = mongoose.model('Userss', userssSchema);
+  
+  module.exports = Userss;
 const media_router = require("./routes/media.routes")
 const infohotel_router = require("./routes/infohotel.routes")
 const about_router = require("./routes/about.routes")
@@ -139,6 +176,16 @@ app.post('/api/registerr',async(req,res)=>{
 });
 
 //login - sign in
+
+app.get("/api/loginn",async(req,res)=>{
+  try{
+    const logins = await Userss.find();
+    res.status(200).json(logins);
+  }catch(error){
+    res.status(500).json(error)
+  }
+})
+
 app.post('/api/loginn',async(req,res)=>{
   const{username,password} = req.body;
   const existedUsername = await Userss.findOne({username: username});
@@ -172,6 +219,28 @@ app.post('/api/loginn',async(req,res)=>{
 })
 
 
+app.delete("/api/login/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const deletedUser = await Userss.findByIdAndDelete(userId);
+    
+    if (!deletedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// app.delete(`/api/loginn`,async(req,res)=>{
+//   const id=req.params.id
+//   const deletesign = await Userss.findByIdAndDelete(id)
+//   res.status(202).send(deletesign)
+// })
+
+
 //------------------------------------------------------------------------------------------
 // app.use(`/api/auth`, authRoute)
 // app.use(`/api/user`, usersRoute)
@@ -188,14 +257,26 @@ app.post('/api/loginn',async(req,res)=>{
 
 //------------------------------------------------------------------------------------------
 //get users
-app.get('/api/userss',verifyJWT,async(req,res)=>{
-  const users = await Userss.find();
 
-  res.json({
-      data: users,
-      message: 'data get successfully!'
-  })
+// app.get('/api/userss',verifyJWT,async(req,res)=>{
+//   const users = await Userss.find()
+
+//   res.json({
+//       data: users,
+//       message: 'data get successfully!'
+//   })
+// })
+
+
+app.get("/api/userss",async(req,res)=>{
+  try{
+    const users = await Userss.find();
+    res.status(200).json(users);
+  }catch(error){
+    res.status(500).json(error)
+  }
 })
+
 
 //logut
 app.post('/api/logout',(req,res)=>{

@@ -2,19 +2,28 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getUsers } from '../../../api/httpsrequests';
 import { Table } from 'antd';
+import axios from 'axios';
 function Registers() {
     const [signupadmin, setsignupadmin] = useState([]);
-    const signuppage = async () => {
-        try {
-            const signupData = await getUsers();
-            setsignupadmin(signupData);
-        } catch (error) {
-            console.error('Failed to retrieve signup entries:', error);
-        }
-    };
+    // const signuppage = async () => {
+    //     try {
+    //         const signupData = await getUsers();
+    //         setsignupadmin(signupData);
+    //         // console.log(signupadmin)
+    //     } catch (error) {
+    //         console.error('Failed to retrieve signup entries:', error);
+    //     }
+    // };
+    console.log(getUsers())
     useEffect(() => {
-        signuppage();
-    }, [signupadmin]);
+        // signuppage()
+        axios.get('http://localhost:7576/api/userss').then((data)=>{
+            console.log(data)
+            setsignupadmin(data.data)
+        });
+    }, []);
+
+    
 
     const columns = [
         {

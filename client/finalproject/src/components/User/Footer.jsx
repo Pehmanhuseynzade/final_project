@@ -73,7 +73,7 @@ function Footer() {
               value={formik.values.sendemail}
               name="sendemail"
               className="email"
-              placeholder='  E-poçt ünvanınızı daxil edin'  />
+              placeholder=' E-poçt ünvanınızı daxil edin'  />
             <button type='submit'>Göndər</button>
           </form>
           <p className='p-sentence'>

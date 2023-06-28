@@ -1,0 +1,36 @@
+.title-reserv{
+        margin-top: 120px;
+        background-color: #1A1818;
+        width: 100%;
+        padding: 60px;
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .line{
+            background: linear-gradient(90deg, #ffffff, #9c7441);
+            width: 20%;
+            padding: 1px;
+        }
+    }
+
+        p{
+            text-align: center;
+            color: white;
+            margin-top: 13px;
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+    }
+.main-reserv{
+    background-color: #1A1818;
+    width: 100%;
+    .second-reserv-div{
+        p{
+            text-align: center;
+            color: rgba(255, 255, 255, 0.685);
+            font-family: sans-serif;
+            font-size: 22px;  
+        }
+    }
+}

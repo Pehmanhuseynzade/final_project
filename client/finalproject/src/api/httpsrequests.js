@@ -458,17 +458,32 @@ export const signUP = async(payload)=>{
     return response;
 }
 //sign in
+export const getsignIn = ()=>{
+    let signin;
+     axios.get(`${BASE_URL1}/loginn`,{
+    }).then((res)=>{
+        signin = res.data.data;
+    })
+    return signin;
+}
+
 export const signIN = async(payload)=>{
   const response = await axios.post(`${BASE_URL1}/loginn`,payload);
   return response.data;
 }
+
+
+export const getsignDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/loginn/${id}`)
+}
+
 //get users
-export const getUsers = async(token)=>{
+export const getUsers = ()=>{
     let users;
-    await axios.get(`${BASE_URL1}/users`,{
-        headers: {
-            'x-access-token': token 
-        }
+     axios.get(`${BASE_URL1}/userss`,{
+        // headers: {
+        //     'x-access-token': token 
+        // }
     }).then((res)=>{
         users = res.data.data;
     })

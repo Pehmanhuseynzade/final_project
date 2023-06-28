@@ -11,22 +11,11 @@ const Loginadmin = () => {
   const navigate = useNavigate()
   const handleSubmit = async (values, actions) => {
     const response = await signIN(values);
-    // console.log(response);
-    // if(response.user.isAdmin === true){
-    // navigate('/admin')
-    // }
+
     if (response.auth) {
       localStorage.setItem('token', response.token);
       localStorage.setItem('admin', JSON.stringify(response));
       setAdmin(response);
-
-      // Swal.fire({
-      //   position: 'top-end',
-      //   icon: 'success',
-      //   title: 'User signed in successfully!',
-      //   showConfirmButton: false,
-      //   timer: 1200
-      // });
 
       if (response.user.isAdmin === true) {
         navigate('/admin')

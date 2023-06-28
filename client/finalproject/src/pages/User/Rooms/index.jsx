@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./rooms.scss"
 import { getroominfodatas, getroomsdatas } from '../../../api/httpsrequests'
 import { SRLWrapper } from "simple-react-lightbox";
+import { Link } from 'react-router-dom';
 function Rooms() {
   const [roominfo, setRoominfo] = useState([])
   const [room, setRoom] = useState([])
@@ -66,7 +67,7 @@ function Rooms() {
               </SRLWrapper>
             </div>
             <div className='do-reservation'>
-              <button>Rezervasiya et</button>
+              <Link to='/reservation'><button>Rezervasiya et</button></Link>
             </div>
           </div>
         ))}
