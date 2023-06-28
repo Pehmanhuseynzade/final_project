@@ -479,7 +479,7 @@ export const getUsers = async(token)=>{
 
 export const getformdatas = async()=>{
     let globalData;
-    await axios.get(`${BASE_URL1}/form`)
+    await axios.get(`${BASE_URL1}/contactus`)
     .then((res)=>{
          globalData = res.data
     })
@@ -488,7 +488,7 @@ export const getformdatas = async()=>{
 
 export const getformdatasID = async(id)=>{
     let globalData;
-    await axios.get(`${BASE_URL1}/form/${id}`)
+    await axios.get(`${BASE_URL1}/contactus/${id}`)
     .then((res)=>{
          globalData = res.data
     })
@@ -496,15 +496,15 @@ export const getformdatasID = async(id)=>{
 }
 
 export const getformDelete = async(id)=>{
-    await axios.delete(`${BASE_URL1}/form/${id}`)
+    await axios.delete(`${BASE_URL1}/contactus/${id}`)
 }
 
 export const getformPost = async(payload)=>{
-    await axios.post(`${BASE_URL1}/form`,payload)
+    await axios.post(`${BASE_URL1}/contactus`,payload)
 }
 
 export const putformByID = async(update,id)=>{
-    await axios.put(`${BASE_URL1}/form/${id}`,update)
+    await axios.put(`${BASE_URL1}/contactus/${id}`,update)
 }
 
 //18.For sendemail

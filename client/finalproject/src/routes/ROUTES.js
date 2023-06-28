@@ -32,6 +32,8 @@ import Loginroot from "../pages/Loginpage/Loginroot"
 import Loginadmin from "../pages/Loginpage/Loginadmin"
 import Formm from "../pages/Admin/Formm"
 import Emaill from "../pages/Admin/Emaill"
+import Registers from "../pages/Admin/Registers"
+import Logins from "../pages/Admin/Logins"
 export const ROUTES = [
     {
         path:'/',
@@ -86,7 +88,7 @@ export const ROUTES = [
                 element:<Register/>
             },
             {
-                path:'rezerv',
+                path:'reservation',
                 element:<Rezerv/>
             },
         ]
@@ -166,12 +168,20 @@ export const ROUTES = [
                 element:<Partiesimg/>
             },
             {
-                path:'form',
+                path:'contactus',
                 element:<Formm/>
             },
             {
                 path:'sendemail',
                 element:<Emaill/>
+            },
+            {
+                path:'registers',
+                element:<Registers/>
+            },
+            {
+                path:'loginn',
+                element:<Logins/>
             }
         ] 
     }

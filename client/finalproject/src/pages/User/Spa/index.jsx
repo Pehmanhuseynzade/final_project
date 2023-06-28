@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./spa.scss"
 import { getspaimagesdatas, getspainfo1datas } from '../../../api/httpsrequests'
+import { SRLWrapper } from "simple-react-lightbox";
 function Spa() {
 
 
@@ -49,14 +50,17 @@ function Spa() {
           </div>
         ))}
       </section>
-
-      <div className='spa-images'>
-        {spaimgg && spaimgg.map((spaimagesitem) => (
-          <div key={spaimagesitem._id} className='img-1'>
-            <img className='spaimages' src={spaimagesitem.spaimg} alt="spaimages" />
-          </div>
-        ))}
-      </div>
+      <SRLWrapper>
+        <div className='spa-images'>
+          {spaimgg && spaimgg.map((spaimagesitem) => (
+            <div key={spaimagesitem._id} className='img-1'>
+              <img className='spaimages' src={spaimagesitem.spaimg} alt="spaimages" />
+              <div class="overlay">
+              </div>
+            </div>
+          ))}
+        </div>
+      </SRLWrapper>
     </>
   )
 }

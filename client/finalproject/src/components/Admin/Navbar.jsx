@@ -42,8 +42,10 @@ export default function Navbar() {
     >
       <List>
         {[
-          { text: 'Form', link: '/admin/form' },
+          { text: 'Contact Us', link: '/admin/contactus' },
           { text: 'Emails', link: '/admin/sendemail' },
+          { text: 'Registers', link: '/admin/registers' },
+          { text: 'Logins', link: '/admin/loginn' },
           { text: 'Hotelinfo', link: '/admin/homeadmin' },
           { text: 'About', link: '/admin/aboutadmin' },
           { text: 'Entertainment', link: '/admin/entadmin' },

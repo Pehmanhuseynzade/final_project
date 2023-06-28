@@ -10,10 +10,11 @@ import { useState } from 'react';
 import { getInfodatas } from '../../../api/httpsrequests';
 import CountUp from "react-countup"
 import ScrollTrigger from "react-scroll-trigger"
+
 function Home() {
 
   const [info, setInfo] = useState([])
-  const [counterOn,setCounterOn] = useState(false)
+  // const [counterOn,setCounterOn] = useState(false)
   useEffect(() => {
     getInfodatas().then((data) => {
       setInfo(data)
@@ -39,29 +40,29 @@ function Home() {
           <SwiperSlide>
             <img src="https://www.marxalresort.az/assets/images/marxal-2000x1355.jpg" alt="marxal1" />
             <p>BEYNƏLXALQ STANDARTLAR VƏ ŞƏRQ QONAQPƏRVƏRLİYİ</p>
-            <Link><button>Rezervasiya</button></Link>
+            <Link to='rooms'><button>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img src="https://www.marxalresort.az/assets/images/img-2719-hdr-3-1280x851.jpg" alt="marxal2" />
             <p className="p">Sadəlik və Zəriflik</p>
-            <Link><button>Rezervasiya</button></Link>
+            <Link to='rooms'><button>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img src="https://www.marxalresort.az/assets/images/img-2697-edit-2000x1297.jpg" alt="marxal2" />
             <p className="p-1">İSTİRAHƏTİNİZİ UNUDULMAZ ETMƏK ÜÇÜN ÖZƏL VƏ FƏRDİ XİDMƏTLƏRİN SEÇİM GENİŞLİYİ</p>
-            <Link><button>Rezervasiya</button></Link>
+            <Link to='rooms'><button>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img src="https://www.marxalresort.az/assets/images/img-2612-2000x1333.jpg" alt="marxal4" />
             <p className="p-2">MÜXTƏLİF ÖLKƏLƏRDƏN VƏ MƏDƏNİYYƏTLƏRDƏN DƏBDƏBƏLİ QURMAN MƏTBƏXTLƏRİNİN DADI VƏ MÜASİR YEMƏK TƏRTİBATLAR</p>
-            <Link><button>Rezervasiya</button></Link>
+            <Link to='rooms'><button>Rezervasiya</button></Link>
           </SwiperSlide>
         </Swiper>
       </div>
-
+{/* 
       <main>
 
-      </main>
+      </main> */}
 
 
 

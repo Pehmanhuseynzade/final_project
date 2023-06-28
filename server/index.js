@@ -80,7 +80,7 @@ app.use(`/api/res`, res_router)
 app.use(`/api/roominfo`, roominfo_router)
 app.use(`/api/rooms`, room_router)
 app.use(`/api/home`, home_router)
-app.use(`/api/form`, form_router)
+app.use(`/api/contactus`, form_router)
 app.use(`/api/sendemail`, sendemail_router)
 //---------------------------------------------------------codes
 
@@ -135,6 +135,7 @@ app.post('/api/registerr',async(req,res)=>{
       data: newUser,
       message: 'user signed up successfully!',
   })
+  
 });
 
 //login - sign in

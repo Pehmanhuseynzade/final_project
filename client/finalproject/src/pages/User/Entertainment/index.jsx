@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./entertainment.scss"
 import { getentmentdatas, getentmentimgdatas } from '../../../api/httpsrequests'
+import { SRLWrapper } from "simple-react-lightbox";
+
 function Entertainment() {
     const [entment, setEntment] = useState([])
     const [entmentimg, setEntmentimg] = useState([])
@@ -66,14 +68,17 @@ function Entertainment() {
                     </div>
                 ))}
             </section>
-
-            <div className='ent-images'>
-                {entmentimg && entmentimg.map((entimgitem) => (
-                    <div key={entimgitem._id} className='img-2'>
-                        <img className='entimages' src={entimgitem.entmentimgs} alt="entimage1" />
-                    </div>
-                ))}
-            </div>
+            <SRLWrapper>
+                <div className='ent-images'>
+                    {entmentimg && entmentimg.map((entimgitem) => (
+                        <div key={entimgitem._id} className='img-2'>
+                            <img className='entimages' src={entimgitem.entmentimgs} alt="entimage1" />
+                            <div class="overlay">
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </SRLWrapper>
         </>
     )
 }

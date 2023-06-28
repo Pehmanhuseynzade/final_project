@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./parties.scss"
 import { getpartiesdatas, getpartiesimgdatas } from "../../../api/httpsrequests"
+import { SRLWrapper } from "simple-react-lightbox";
+
 function Parties() {
     const [parties, setParties] = useState([])
     const [partiesimg, setPartiesimg] = useState([])
@@ -34,14 +36,17 @@ function Parties() {
                     </div>
                 ))}
             </div>
-            <div className='parties-images'>
-           {partiesimg && partiesimg.map((partiesimgitem)=>(
-             <div key={partiesimgitem._id} className='img-1'>
-                 <img className='partieimages' src={partiesimgitem.partieimg} alt="partieimage1" />
-             </div>
-           ))}
-           </div>
-
+            <SRLWrapper>
+                <div className='parties-images'>
+                    {partiesimg && partiesimg.map((partiesimgitem) => (
+                        <div key={partiesimgitem._id} className='img-1'>
+                            <img className='partieimages' src={partiesimgitem.partieimg} alt="partieimage1" />
+                            <div class="overlay">
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </SRLWrapper>
         </>
     )
 }
