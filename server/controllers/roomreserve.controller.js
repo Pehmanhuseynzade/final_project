@@ -15,7 +15,7 @@ const roomreserveModelController = {
         }
     },
     getOne: async (req, res) => {
-        const { id } = req.params
+        const { id } = req.params.id
         const roomreserveID = await roomreserveModel.findById(id)
         res.status(200).send(roomreserveID)
     },

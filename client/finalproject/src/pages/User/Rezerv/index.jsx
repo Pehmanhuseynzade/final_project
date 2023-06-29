@@ -1,28 +1,30 @@
 import React from 'react'
+import { useState } from 'react';
 import "./rezervation.scss"
-import { DatePicker } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Divider, Input, Select, Space } from 'antd';
-import { useRef, useState } from 'react';
+// import { DatePicker } from 'antd';
+// import { PlusOutlined } from '@ant-design/icons';
+// import { Button, Divider, Input, Select, Space } from 'antd';
+// import { useRef, useState } from 'react';
 import {Link} from "react-router-dom"
-const { RangePicker } = DatePicker;
-let index = 0;
+// const { RangePicker } = DatePicker;
+// let index = 0;
 
 function Rezerv() {
-  const [items, setItems] = useState(['1 Nəfər', '2 Nəfər']);
-  const [name, setName] = useState('');
-  const inputRef = useRef(null);
-  const onNameChange = (event) => {
-    setName(event.target.value);
-  };
-  const addItem = (e) => {
-    e.preventDefault();
-    setItems([...items, name || `${index++}`]);
-    setName('');
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 0);
-  };
+  const [checkIn, setcheckIn] = useState('');
+  // const [items, setItems] = useState(['1 Nəfər', '2 Nəfər']);
+  // const [name, setName] = useState('');
+  // const inputRef = useRef(null);
+  // const onNameChange = (event) => {
+  //   setName(event.target.value);
+  // };
+  // const addItem = (e) => {
+  //   e.preventDefault();
+  //   setItems([...items, name || `${index++}`]);
+  //   setName('');
+  //   setTimeout(() => {
+  //     inputRef.current?.focus();
+  //   }, 0);
+  // };
   return (
     <>
       <div className='title-reserv'>
@@ -39,13 +41,17 @@ function Rezerv() {
           </div>
          <form >
          <div className='date'>
-            <Space direction="vertical" size={12}>
+          <label htmlFor="checkin">Yerləşmə tarixi</label>
+          <input type="date" name="checkin"  />
+          <label htmlFor="checkout">Çıxış tarixi</label>
+          <input type="date" name="checkout" />
+            {/* <Space direction="vertical" size={12}>
               <RangePicker className='space'  />
-            </Space>
+            </Space> */}
           </div>
 
           <div className='select-option'>
-            <Select
+            {/* <Select
               className='space-select'
               style={{
                 width: 500,
@@ -81,7 +87,9 @@ function Rezerv() {
                 label: item,
                 value: item,
               }))}
-            />
+            /> */}
+
+            <input type="text" />
           </div>
          </form>
           <div className='find-btn'><Link to='/reserveroom'><button>Tapmaq</button></Link></div>

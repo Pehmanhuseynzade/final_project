@@ -1,15 +1,86 @@
 import React, { useEffect, useState } from 'react'
 import "./roomreserve.scss"
-// import { Card } from 'antd';
-import { getreservemdatas } from "../../../api/httpsrequests"
+import { Modal, Input, Form, DatePicker } from 'antd';
+import { useParams } from "react-router-dom"
+import { getreservemdatas, getreservePost, reservepost } from "../../../api/httpsrequests"
+import axios from 'axios';
 function Reserveroom() {
+
+    const { id } = useParams()
     const [reserverooms, setReserverooms] = useState([])
+    const [modalOpen, setModalOpen] = useState(false);
+    const [editing, setEditing] = useState(null);
+    const [detail, setDetail] = useState(null)
+    const [data, setData] = useState({})
+    const [form] = Form.useForm();
+
+    const handleitemSelected = (itemid) => {
+        const clickedCard = reserverooms.find(card => card._id === itemid)
+        if (clickedCard) {
+            console.log(`clicked id ${clickedCard._id}`);
+            console.log(`${clickedCard.nameroom}`);
+            setData(clickedCard)
+        }
+    }
+    const getSelected = () => {
+        if (detail) {
+            const selecteditem = reserverooms.find((item) => item._id === detail)
+            console.log(detail)
+
+        }
+    }
+
+    const handleOpenModal = (ress) => {
+        // setEditing(ress)
+        setModalOpen(true);
+        form.setFieldsValue({
+            formusername: ress?.formusername || '',
+            lastname: ress?.lastname || '',
+            formemail: ress?.formemail || '',
+            phonenum: ress?.phonenum || '',
+            start: ress?.start || '',
+            end: ress?.end || '',
+            personcount: ress?.personcount || '',
+        });
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+        form.resetFields();
+    };
+
+    const handleSubmit = async () => {
+        try {
+            const values = await form.validateFields();
+            const newres = {
+                nameroom: data.nameroom,
+                price: data.price,
+                personcount: data.personcount,
+                capacity: data.capacity,
+                countroom: data.countroom,
+                formusername: values?.formusername || '',
+                lastname: values?.lastname || '',
+                formemail: values?.formemail || '',
+                phonenum: values?.phonenum || '',
+                start: values?.start || '',
+                end: values?.end || '',
+            };
+
+            await reservepost(newres);
+            handleCloseModal();
+
+        } catch (error) {
+            console.error('Failed to save Spa entry:', error);
+        }
+    };
     useEffect(() => {
         getreservemdatas().then((data) => {
             console.log(data)
             setReserverooms(data)
         })
     }, [])
+    console.log(editing)
+    console.log(data);
     return (
         <>
             <div className='title-reserv'>
@@ -34,13 +105,110 @@ function Reserveroom() {
                                     </div>
                                     <div className='price-btn' style={{ display: "flex", gap: "30px" }}>
                                         <p className='price'><span>{roomitems.price}</span>Azn</p>
-                                        <div><button>Bron et</button></div>
+                                        <div><button onClick={() => { handleOpenModal(null); handleitemSelected(roomitems._id) }}>Bron et</button></div>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <Modal
+                    visible={modalOpen}
+                    // title={editing ? 'Edit Spa  Entry' : 'Add New '}
+                    onCancel={handleCloseModal}
+                    onOk={handleSubmit}
+                >
+                    <Form form={form} layout="vertical">
+                        {/* <Form.Item
+                            label="Room Name"
+                            name="nameroom"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        >
+                            <Input value={data.nameroom} />
+                        </Form.Item> */}
+                        <input type="text" value={data.nameroom} disabled />
+                        {/* <Form.Item
+                            label="Price"
+                            name="price"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+
+                        >
+                            <Input />
+                        </Form.Item> */}
+                        <input type="text" value={data.price} disabled />
+                        {/* <Form.Item
+                            label="Person Count"
+                            name="personcount"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        >
+                            <Input />
+                        </Form.Item> */}
+                        <input type="text" value={data.personcount} disabled />
+                        {/* <Form.Item
+                            label="Room Count:"
+                            name="countroom"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        >
+                            <Input />
+                        </Form.Item> */}
+                        <input type="text" value={data.capacity} disabled />
+                        <input type="text" value={data.countroom} disabled />
+                        <Form.Item
+                            label="FirstName"
+                            name="formusername"
+                            rules={[{ required: true, message: 'Please enter FirstName name' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="LastName"
+                            name="lastname"
+                            rules={[{ required: true, message: 'Please enter Restaurants desc' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="Email"
+                            name="formemail"
+                            rules={[{ required: true, message: 'Please enter Spa desc' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="Phone"
+                            name="phonenum"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="Persons:"
+                            name="personcount"
+                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="Check-in Date"
+                            name="start"
+                            rules={[{ required: true, message: 'Please enter the check-in date' }]}
+                        >
+                            <DatePicker style={{ width: '100%' }} />
+                        </Form.Item>
+
+                        <Form.Item
+                            label="Check-out Date"
+                            name="end"
+                            rules={[{ required: true, message: 'Please enter the check-out date' }]}
+                        >
+                            <DatePicker style={{ width: '100%' }} />
+                        </Form.Item>
+
+                    </Form>
+                </Modal>
             </div>
         </>
     )

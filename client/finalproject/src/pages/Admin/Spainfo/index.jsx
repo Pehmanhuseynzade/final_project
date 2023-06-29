@@ -99,9 +99,6 @@ function Spainfo() {
         };
 
         await getspainfo1Post(newres);
-
-
-
         handleCloseModal();
       }
       await spainfopage();

@@ -618,3 +618,24 @@ export const getreservePost = async(payload)=>{
 export const putreserveByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/reserve/${id}`,update)
 }
+
+//21.rESERVE POSTTT
+
+export const getreservepostdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/postreserve`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+
+
+export const reservepostDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/postreserve/${id}`)
+}
+
+export const reservepost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/postreserve`,payload)
+}
