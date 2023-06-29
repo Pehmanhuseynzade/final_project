@@ -18,6 +18,7 @@ const Loginadmin = () => {
       setAdmin(response);
 
       if (response.user.isAdmin === true) {
+        localStorage.setItem("loggedIn" , true)
         navigate('/admin')
       }
     }

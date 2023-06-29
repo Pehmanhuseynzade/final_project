@@ -8,7 +8,7 @@ function Main() {
   const navigate = useNavigate();
   const [admin, setAdmin] = useUserContext();
   useEffect(() => {
-    if (admin === null) {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
       navigate('/loginadmin');
     }
   }, [])

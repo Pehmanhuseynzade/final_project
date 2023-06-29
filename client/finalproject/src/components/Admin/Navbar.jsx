@@ -70,18 +70,6 @@ export default function Navbar() {
       </List>
 
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
     </Box>
   );
 
@@ -103,6 +91,7 @@ export default function Navbar() {
             <Button onClick={()=>{
                 localStorage.removeItem('token');
                 localStorage.removeItem('admin');
+                localStorage.removeItem("loggedIn")
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
