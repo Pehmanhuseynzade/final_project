@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate()
-  const[admin,setAdmin] = useUserContext();
+  const [admin, setAdmin] = useUserContext();
   const [state, setState] = React.useState({
     // top: false,
     left: false
@@ -40,8 +40,9 @@ export default function Navbar() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <List style={{ background: 'linear-gradient(#331c00, #000000)', color: 'white' }}>
         {[
+          { text: 'Admin page', link: '/admin' },
           { text: 'Contact Us', link: '/admin/contactus' },
           { text: 'Emails', link: '/admin/sendemail' },
           { text: 'Registers', link: '/admin/registers' },
@@ -76,7 +77,7 @@ export default function Navbar() {
   return (
     <div className='navadmin'>
       {['left'].map((anchor) => (
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <React.Fragment >
             <Button className='hamburger' onClick={toggleDrawer(anchor, true)}><i class="fa-solid fa-bars"></i></Button>
             <Drawer
@@ -88,26 +89,24 @@ export default function Navbar() {
             </Drawer>
           </React.Fragment>
           <React.Fragment >
-            <Button onClick={()=>{
-                localStorage.removeItem('token');
-                localStorage.removeItem('admin');
-                localStorage.removeItem("loggedIn")
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'user signed out successfully!',
-                    showConfirmButton: false,
-                    timer: 1200
-                })
-                setAdmin(null);
-                navigate('/loginadmin');
-              }}
-            
-            style={{color:'white'}} className='logout'>Logout</Button>
+            <Button onClick={() => {
+              localStorage.removeItem('token');
+              localStorage.removeItem('admin');
+              localStorage.removeItem("loggedIn")
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'user signed out successfully!',
+                showConfirmButton: false,
+                timer: 1200
+              })
+              setAdmin(null);
+              navigate('/loginadmin');
+            }}
+
+              style={{ color: 'white', fontSize: "17px" }} className='logout'><i className="fa-solid fa-right-from-bracket"></i></Button>
           </React.Fragment>
         </div>
-
-
       ))}
     </div>
   );

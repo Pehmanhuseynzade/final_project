@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    header{
+    header {
         width: 100%;
         top: 0;
         padding-top: 18px;
@@ -13,47 +13,67 @@
         z-index: 999;
         font-size: 14px;
         position: fixed;
-        div{
-            width: 100%;
-            top: 0;
-            ul{
-                padding-left: 1250px;
-                li{
-                    font-size: 13px;
-                    i{
-                        color: rgb(239, 166, 30);
-                    }
-                }
+      
+        div {
+          width: 100%;
+          top: 0;
+      
+          ul {
+            padding-left: 1250px;
+      
+            @media screen and (max-width: 768px) {
+              padding-left: 0;
+              justify-content: space-between;
+              display: flex;
             }
+      
+            li {
+              font-size: 13px;
+              i {
+                color: rgb(239, 166, 30);
+              }
+            }
+          }
         }
-        ul{
-            display: flex;
+      
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 25px;
+      
+          @media screen and (max-width: 768px) {
+            flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
-            align-items: center;
-            gap: 25px;
-            li{
-                padding: 0 10;
-                position: relative;
-                color: white;
-                font-family: 'Poppins', sans-serif;
-                transition: .5s;
-                &:hover::after{
-                    transform: scale(1,1);
-                }
-                }
-            li::after{
-                content: '';
-                position: absolute;
-                height: 0.145rem;   
-                width: 100%;
-                background: #B89B76;
-                left: 0;
-                bottom: -3px;
-                transition: .5s;
-                transform: scale(0,1);
+          }
+      
+          li {
+            padding: 0 10px;
+            position: relative;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.5s;
+      
+            &:hover::after {
+              transform: scale(1, 1);
             }
+      
+            &::after {
+              content: '';
+              position: absolute;
+              height: 0.145rem;
+              width: 100%;
+              background: #b89b76;
+              left: 0;
+              bottom: -3px;
+              transition: 0.5s;
+              transform: scale(0, 1);
+            }
+          }
         }
-    }
+      }
+      
     
 footer{
     padding: 50px;

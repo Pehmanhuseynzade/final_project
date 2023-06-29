@@ -27,7 +27,7 @@ import Tourimg from "../pages/Admin/Tourimg"
 import Aboutadmin from "../pages/Admin/Aboutadmin"
 import Tourinfo from "../pages/Admin/Tourinfo"
 import Partiesimg from "../pages/Admin/Partiesimg"
-import Rezerv from "../pages/User/Rezerv"
+// import Rezerv from "../pages/User/Rezerv"
 import Loginroot from "../pages/Loginpage/Loginroot"
 import Loginadmin from "../pages/Loginpage/Loginadmin"
 import Formm from "../pages/Admin/Formm"
@@ -88,10 +88,10 @@ export const ROUTES = [
                 path:'registerr',
                 element:<Register/>
             },
-            {
-                path:'reservation',
-                element:<Rezerv/>
-            },
+            // {
+            //     path:'reservation',
+            //     element:<Rezerv/>
+            // },
             {
                 path:'reserveroom',
                 element:<Reserveroom/>

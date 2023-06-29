@@ -54,7 +54,7 @@ function Contact() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.formusername}
-              placeholder="First Name (required)"
+              placeholder="First Name "
               name="formusername"
               className="name"
             />
@@ -66,7 +66,7 @@ function Contact() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.surname}
-              placeholder="Last Name (required)"
+              placeholder="Last Name"
               name="surname"
               className="sur"
             />
@@ -80,7 +80,7 @@ function Contact() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.formemail}
-              placeholder="Email (required)"
+              placeholder="Email"
               name="formemail"
               className="email"
             />
@@ -106,7 +106,7 @@ function Contact() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.messages}
-              placeholder="Message (required)"
+              placeholder="Message"
               className="message"
             />
           </div>

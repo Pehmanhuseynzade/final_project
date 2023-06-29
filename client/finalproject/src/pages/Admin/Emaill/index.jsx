@@ -58,7 +58,8 @@ function Emaill() {
     <>
        <div style={{ marginLeft: '220px' }}>
         <div style={{ width: '80%' }}>
-          <Table style={{ width: '100%' }} columns={columns} dataSource={sendemailadmin} />
+        <h1 style={{ textAlign:'center',marginTop:'20px' }}>Emails Table</h1>
+          <Table style={{ width: '100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px' }} columns={columns} dataSource={sendemailadmin} />
         </div>
       </div>
     </>

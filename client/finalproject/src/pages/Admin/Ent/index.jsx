@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import "../adminpage.scss"
+// import "../adminpage.scss"
 import { getentmentdatas, getentmentDelete, getentmentPost, putentmentByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
 // import * as Yup from 'yup';
 import Swal from 'sweetalert2';
+import "./ent.scss"
 
 
 function Ent() {
@@ -149,9 +150,9 @@ function Ent() {
     <>
               <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '80%', margin: '30px auto' }}>
           <Table columns={columns} dataSource={entadmin} />

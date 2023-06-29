@@ -1,4 +1,4 @@
-.form-login-div{
+.form-login-div-1{
     margin-top: 100px;
     height: 60vh;
     width: 100%;
@@ -12,12 +12,13 @@
         padding-left: 50px;
         padding-right: 50px;
         padding-bottom: 20px;
-        background-color: white;
+        // background: none;
+        background-color: rgba(128, 128, 128, 0.176);
         p {
             text-align: center;
             font-size: 22px;
             font-family: Georgia, 'Times New Roman', Times, serif;
-            color: #9c7441;
+            color: white;
         }
         div {
             margin-top: 20px;

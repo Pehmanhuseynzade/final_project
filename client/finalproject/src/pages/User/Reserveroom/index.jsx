@@ -122,40 +122,22 @@ function Reserveroom() {
                     onOk={handleSubmit}
                 >
                     <Form form={form} layout="vertical">
-                        {/* <Form.Item
-                            label="Room Name"
-                            name="nameroom"
-                            rules={[{ required: true, message: 'Please enter SPA images' }]}
-                        >
-                            <Input value={data.nameroom} />
-                        </Form.Item> */}
-                        <input type="text" value={data.nameroom} disabled />
-                        {/* <Form.Item
-                            label="Price"
-                            name="price"
-                            rules={[{ required: true, message: 'Please enter SPA images' }]}
+                        <div className='disableds'>
+                            <label htmlFor="nameroom">Room Name</label>
+                            <input type="text" value={data.nameroom} id='nameroom' disabled />
+                            
+                            <label htmlFor="price">Price</label>
+                            <input type="text" value={data.price} id='price' disabled />
+                            
+                            <label htmlFor="personcount">Person Count</label>
+                            <input type="text" value={data.personcount} id='personcount' disabled />
+                            
+                            <label htmlFor="capacity">Capacity:</label>
+                            <input type="text" value={data.capacity} id='capacity' disabled />
 
-                        >
-                            <Input />
-                        </Form.Item> */}
-                        <input type="text" value={data.price} disabled />
-                        {/* <Form.Item
-                            label="Person Count"
-                            name="personcount"
-                            rules={[{ required: true, message: 'Please enter SPA images' }]}
-                        >
-                            <Input />
-                        </Form.Item> */}
-                        <input type="text" value={data.personcount} disabled />
-                        {/* <Form.Item
-                            label="Room Count:"
-                            name="countroom"
-                            rules={[{ required: true, message: 'Please enter SPA images' }]}
-                        >
-                            <Input />
-                        </Form.Item> */}
-                        <input type="text" value={data.capacity} disabled />
-                        <input type="text" value={data.countroom} disabled />
+                            <label htmlFor="countroom">Room Count</label>
+                            <input type="text" value={data.countroom} id='countroom' disabled />
+                        </div>
                         <Form.Item
                             label="FirstName"
                             name="formusername"
@@ -215,24 +197,3 @@ function Reserveroom() {
 }
 
 export default Reserveroom
-
-
-{/* <Card
-                                hoverable = "true"
-                                style={{
-                                    width: 320,
-                                }}
-                                cover={<img alt="example" src="https://secure.travelline.sg/resource/images/rt/133172/637529750593259485-b7405b61-c460-4342-838a-26e96f0985a4" />}
-                            >
-                                <div>
-                                <p className='name'><span>Otaq adı:</span> Kunc suit</p>
-                                <div className='capacity-prsncount'>
-                                <p className='person'><span>Sayı:</span> 2 neferlik</p>
-                                <p className='capacity'><span>Kvadrat:</span> 50kv</p>
-                                </div>
-                                <div className='price-btn' style={{display:"flex",gap:"30px"}}>
-                                    <p className='price'><span>Qiymət:</span>100<span>Azn</span></p>
-                                    <button>Bron et</button>
-                                </div>
-                                </div>
-                            </Card>                             */}

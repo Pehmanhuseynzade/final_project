@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getroominfodatas, getroominfoPost, getroominfoDelete, putroominfoByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
@@ -23,7 +23,7 @@ function Roominfo() {
   const navigate = useNavigate();
   const[admin,setAdmin] = useUserContext();
   useEffect(()=>{
-    if(admin===null){
+    if(admin===true){
         navigate('/loginadmin');
     }
   },[])
@@ -144,12 +144,12 @@ function Roominfo() {
     <>
               <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '80%' }}>
-          <Table style={{ width: '80%' }} columns={columns} dataSource={roomsinfoadmin} />
+          <Table style={{ width: '900%' }} columns={columns} dataSource={roomsinfoadmin} />
 
           <Modal
             visible={modalOpen}

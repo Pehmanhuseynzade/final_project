@@ -2,16 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getspaimagesdatas, getspaimagesDelete, getspaimagesPost, putspaimagesDataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 
-// const { TextArea } = Input;
-
-
-// const spaimagesSchema = Yup.object().shape({
-//   spaimgname: Yup.string().required('Icon URL is required'),
-//   spaimg: Yup.string().url().required('Social Media URL is required'),
-// });
 
 function Spaimages() {
   const [spaimg, setSpaimgs] = useState([]);
@@ -152,9 +145,9 @@ function Spaimages() {
     <>
       <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '60%', margin: '30px auto' }}>
           <Table columns={columns} dataSource={spaimg} />

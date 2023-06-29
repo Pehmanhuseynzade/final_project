@@ -1,18 +1,14 @@
     .form-register-div {
-        margin-top: 100px;
+        margin-top: 150px;
         height: 60vh;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        padding-top: 20px;
-        padding-left: 70px;
-        padding-right: 70px;
-        padding-bottom: 20px;
         .form-register {
             background-color: white;
-
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 60px;
             p {
                 text-align: center;
                 font-size: 22px;

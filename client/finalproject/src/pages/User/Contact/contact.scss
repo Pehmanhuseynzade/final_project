@@ -1,15 +1,17 @@
-.main-sec-contact{
+.main-sec-contact {
     width: 100%;
     position: relative;
-    .contact-main-image{
+
+    .contact-main-image {
         width: 100%;
         height: 90vh;
         display: block;
         object-fit: cover;
         filter: brightness(0.3);
     }
-    form{
-        .name-sur{
+
+    form {
+        .name-sur {
             position: absolute;
             margin-top: 80px;
             display: flex;
@@ -19,26 +21,35 @@
             padding-top: 7px;
             color: rgba(255, 255, 255, 0.733);
             font-family: 'Caudex', serif;
-            font-size: 2rem;  
+            font-size: 20px;
             width: 100%;
             gap: 30px;
-            .name{
+
+            input {
+                padding-left: 10px;
+            }
+
+            .name {
                 background-color: rgba(255, 255, 255, 0.68);
                 width: 260px;
                 height: 50px;
-                border:none;
+                border: none;
                 border-radius: 20px;
+                font-family: 'Montserrat', sans-serif;
             }
-            .sur{
+
+            .sur {
                 background-color: rgba(255, 255, 255, 0.685);
                 width: 260px;
                 height: 50px;
-                border:none;
+                border: none;
                 border-radius: 20px;
+                font-family: 'Montserrat', sans-serif;
             }
-            
+
         }
-        .mail-num{
+
+        .mail-num {
             position: absolute;
             margin-top: 160px;
             display: flex;
@@ -48,26 +59,35 @@
             padding-top: 7px;
             color: rgba(255, 255, 255, 0.733);
             font-family: 'Caudex', serif;
-            font-size: 2rem;  
+            font-size: 20px;
             width: 100%;
             gap: 30px;
-            .email{
+
+            input {
+                padding-left: 10px;
+            }
+
+            .email {
                 background-color: rgba(255, 255, 255, 0.68);
                 width: 260px;
                 height: 50px;
-                border:none;
+                border: none;
                 border-radius: 20px;
+                font-family: 'Montserrat', sans-serif;
             }
-            .phone{
+
+            .phone {
                 background-color: rgba(255, 255, 255, 0.685);
                 width: 265px;
                 height: 50px;
-                border:none;
+                border: none;
                 border-radius: 20px;
+                font-family: 'Montserrat', sans-serif;
             }
-            
+
         }
-        .text-mes{
+
+        .text-mes {
             position: absolute;
             margin-top: 250px;
             display: flex;
@@ -77,18 +97,25 @@
             padding-top: 7px;
             color: rgba(255, 255, 255, 0.733);
             font-family: 'Caudex', serif;
-            font-size: 2rem;  
+            font-size: 20px;
             width: 100%;
             gap: 30px;
-            .message{
+            font-family: 'Montserrat', sans-serif;
+            textarea{
+                padding-left: 10px;
+                padding-top: 10px;
+            }
+            .message {
                 background-color: rgba(255, 255, 255, 0.68);
                 width: 670px;
                 height: 200px;
-                border:none;
+                border: none;
                 border-radius: 5px;
+  
             }
         }
-        .form-btn{
+
+        .form-btn {
             position: absolute;
             bottom: 30px;
             left: 1020px;
@@ -99,10 +126,11 @@
             color: white;
             transition: .5s;
             border: none;
-           &:hover{
-            background-color: #251705;
-            cursor: pointer;
-           } 
+
+            &:hover {
+                background-color: #251705;
+                cursor: pointer;
+            }
         }
     }
 

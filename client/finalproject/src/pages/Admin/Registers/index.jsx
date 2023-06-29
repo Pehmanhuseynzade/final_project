@@ -3,6 +3,7 @@ import "../adminpage.scss"
 import { getUsers } from '../../../api/httpsrequests';
 import { Table } from 'antd';
 import axios from 'axios';
+import "./index.scss"
 function Registers() {
     const [signupadmin, setsignupadmin] = useState([]);
     // const signuppage = async () => {
@@ -17,13 +18,13 @@ function Registers() {
     console.log(getUsers())
     useEffect(() => {
         // signuppage()
-        axios.get('http://localhost:7576/api/userss').then((data)=>{
+        axios.get('http://localhost:7576/api/userss').then((data) => {
             console.log(data)
             setsignupadmin(data.data)
         });
     }, []);
 
-    
+
 
     const columns = [
         {
@@ -47,7 +48,8 @@ function Registers() {
         <>
             <div style={{ marginLeft: '220px' }}>
                 <div style={{ width: '80%' }}>
-                    <Table style={{ width: '100%' }} columns={columns} dataSource={signupadmin} />
+                    <h1 style={{ textAlign: 'center', marginTop: '20px' }}>Registers Table</h1>
+                    <Table className='table' style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }} columns={columns} dataSource={signupadmin} />
                 </div>
             </div>
         </>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getroomsdatas, getroomsPost, getroomsDelete, putroomsByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 function Roomss() {
   const [roomsadmin, setroomsadmin] = useState([]);
@@ -129,25 +129,25 @@ function Roomss() {
       title: 'roomimg1',
       dataIndex: 'roomimg1',
       key: 'roomimg1',
-      render: img => <img src={img} alt="roomimage" style={{ width: "150px", height: "150px" }} />
+      render: img => <img src={img} alt="roomimage" style={{ width: "180px", height: "160px" }} />
     },
     {
       title: 'roomimg2',
       dataIndex: 'roomimg2',
       key: 'roomimg2',
-      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
+      render: img => <img src={img} alt="roomimage" style={{ width: "180px", height: "160px" }} />
     },
     {
       title: 'roomimg3',
       dataIndex: 'roomimg3',
       key: 'roomimg3',
-      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
+      render: img => <img src={img} alt="roomimage" style={{ width: "180px", height: "160px" }} />
     },
     {
       title: 'roomimg3',
       dataIndex: 'roomimg3',
       key: 'roomimg3',
-      render: img => <img src={img} alt="roomimage" style={{ width: "220px", height: "150px" }} />
+      render: img => <img src={img} alt="roomimage" style={{ width: "180px", height: "160px" }} />
     },
     {
       title: 'Edit',
@@ -171,11 +171,11 @@ function Roomss() {
 
   return (
     <>
-          <div style={{ marginLeft: '220px' }}>
+          <div style={{ marginLeft: '150px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '600px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '80%' }}>
           <Table style={{ width: '80%' }} columns={columns} dataSource={roomsadmin} />

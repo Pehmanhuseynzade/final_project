@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getmediadatas, getmediaPost, getmediaDelete, putmediaDataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
+import "../Ent/ent.scss"
 // import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 
@@ -140,9 +141,9 @@ function Media() {
     <>
           <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '80%', margin: '30px auto' }}>
           <Table columns={columns} dataSource={mediaadmin} />

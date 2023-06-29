@@ -133,11 +133,11 @@ function Entimg() {
     <>
       <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
-        <div style={{ width: '80%', margin: '30px auto' }}>
+        <div style={{ width: '70%', marginLeft: '180px',marginTop:"30px"}}>
           <Table columns={columns} dataSource={entimgadmin} />
 
           <Modal

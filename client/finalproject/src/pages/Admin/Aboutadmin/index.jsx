@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
+import "./about.scss"
 import { getAboutdatas, getaboutDelete, getaboutPost, putaboutDataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
 // import * as Yup from 'yup';
@@ -147,11 +148,11 @@ function Aboutadmin() {
   ];
   return (
     <>
-          <div style={{ marginLeft: '220px' }}>
+          <div style={{ marginLeft: '220px' }}>jbhi
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '80%', margin: '30px auto' }}>
           <Table columns={columns} dataSource={aboutadmin} />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getspainfo1datas, getspainfo1Post, getspainfo1Delete, putspainfo1DataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 
 function Spainfo() {
@@ -151,12 +151,12 @@ function Spainfo() {
     <>
             <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
-        <div style={{ width: '80%' }}>
-          <Table style={{ width: '100%' }} columns={columns} dataSource={spainfoadmin} />
+        <div style={{ width: '100%' }}>
+          <Table style={{ width: '90%' }} columns={columns} dataSource={spainfoadmin} />
 
           <Modal
             visible={modalOpen}

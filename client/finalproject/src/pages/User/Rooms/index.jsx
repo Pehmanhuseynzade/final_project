@@ -42,32 +42,28 @@ function Rooms() {
                 <div className='image-div'>
                   <img className='roomimages' src={roomitem.roomimg1} alt="roomimage1" />
                   <div class="overlay">
-                    <p>Üzərinə yazı</p>
                   </div>
                 </div>
                 <div className='image-div'>
                   <img className='roomimages' src={roomitem.roomimg2} alt="roomimage2" />
                   <div class="overlay">
-                    <p>Üzərinə yazı</p>
                   </div>
                 </div>
                 <div className='image-div'>
                   <img className='roomimages' src={roomitem.roomimg3} alt="roomimage3" />
                   <div class="overlay">
-                    <p>Üzərinə yazı</p>
                   </div>
                 </div>
                 <div className='image-div'>
                   <img className='roomimages' src={roomitem.roomimg4} alt="roomimage4" />
                   <div class="overlay">
-                    <p>Üzərinə yazı</p>
                   </div>
                 </div>
               </div>
               </SRLWrapper>
             </div>
             <div className='do-reservation'>
-              <Link to='/reservation'><button>Rezervasiya et</button></Link>
+              <Link to='/reserveroom'><button>Rezervasiya et</button></Link>
             </div>
           </div>
         ))}

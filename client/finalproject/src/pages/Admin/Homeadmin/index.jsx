@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { getInfodatas, getDelete, getPost, putDataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import "./homeadmin.scss"
 import Swal from 'sweetalert2';
 function Homeadmin() {
   const [hotelinfo, sethotelinfo] = useState([]);
@@ -137,9 +137,9 @@ function Homeadmin() {
     <>
         <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <Button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '50%', marginTop: '5%' }}>
+          <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
-          </Button>
+          </button>
         </div>
         <div style={{ width: '60%', margin: '30px auto' }}>
           <Table columns={columns} dataSource={hotelinfo} />
