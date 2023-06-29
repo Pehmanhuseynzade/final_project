@@ -553,3 +553,68 @@ export const getsendemailPost = async(payload)=>{
 export const putsendemailByID = async(update,id)=>{
     await axios.put(`${BASE_URL1}/sendemail/${id}`,update)
 }
+
+//19.Select Option
+
+export const getendformdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/reservation`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getselectID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/reservation/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getendformDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/reservation/${id}`)
+}
+
+export const getendformPost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/reservation`,payload)
+}
+
+export const putendformByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/reservation/${id}`,update)
+}
+
+
+//20.rESERVE
+
+export const getreservemdatas = async()=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/reserve`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getreserveID = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL1}/reserve/${id}`)
+    .then((res)=>{
+         globalData = res.data
+    })
+    return globalData
+}
+
+export const getreserveDelete = async(id)=>{
+    await axios.delete(`${BASE_URL1}/reserve/${id}`)
+}
+
+export const getreservePost = async(payload)=>{
+    await axios.post(`${BASE_URL1}/reserve`,payload)
+}
+
+export const putreserveByID = async(update,id)=>{
+    await axios.put(`${BASE_URL1}/reserve/${id}`,update)
+}

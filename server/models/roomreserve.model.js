@@ -4,9 +4,11 @@ const roomreserveSchema = new mongoose.Schema({
   nameroom: String,
   imageroom: String,
   price:Number,
-  personcount:String,
+  personcount:Number,
   capacity:String,
-  countroom:String,
+  countroom:Number,
+  start:String,
+  end:String
 });
 
 const roomreserveModel = mongoose.model('Roomreserve', roomreserveSchema);

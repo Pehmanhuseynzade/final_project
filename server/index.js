@@ -73,6 +73,7 @@ const home_router = require("./routes/home.routes")
 const form_router = require("./routes/form.routes")
 const sendemail_router = require("./routes/sendemail.routes")
 const reserve_router = require("./routes/reserve.routes")
+// const endform_router = require("./routes/endform.routes")
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -95,6 +96,8 @@ app.use(`/api/home`, home_router)
 app.use(`/api/contactus`, form_router)
 app.use(`/api/sendemail`, sendemail_router)
 app.use(`/api/reserve`, reserve_router)
+// app.use(`/api/reservation`, endform_router)
+
 
 //---------------------------------------------------------codes
 

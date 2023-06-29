@@ -37,9 +37,10 @@ function Rezerv() {
             <p className='checkin'>Yerləşmə tarixi</p>
             <p className='checkout'>Çıxış tarixi</p>
           </div>
-          <div className='date'>
+         <form >
+         <div className='date'>
             <Space direction="vertical" size={12}>
-              <RangePicker className='space' />
+              <RangePicker className='space'  />
             </Space>
           </div>
 
@@ -82,7 +83,8 @@ function Rezerv() {
               }))}
             />
           </div>
-          <div className='find-btn'><Link to='/reserveroom'><button>Tamamla</button></Link></div>
+         </form>
+          <div className='find-btn'><Link to='/reserveroom'><button>Tapmaq</button></Link></div>
         </div>
       </div>
     </>
