@@ -35,6 +35,8 @@ import Emaill from "../pages/Admin/Emaill"
 import Registers from "../pages/Admin/Registers"
 import Logins from "../pages/Admin/Logins"
 import Reserveroom from "../pages/User/Reserveroom"
+import Reserveinfo from "../pages/Admin/Reserveinfo"
+import Hotelinfo from "../pages/Admin/Hotelinfo"
 export const ROUTES = [
     {
         path:'/',
@@ -187,7 +189,15 @@ export const ROUTES = [
             {
                 path:'loginn',
                 element:<Logins/>
-            }
+            },
+            {
+                path:'hoteltype',
+                element:<Hotelinfo/>
+            },
+            {
+                path:'reserveinfo',
+                element:<Reserveinfo/>
+            },
         ] 
     }
 

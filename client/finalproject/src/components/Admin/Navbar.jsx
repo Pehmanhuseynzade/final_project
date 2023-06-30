@@ -47,6 +47,8 @@ export default function Navbar() {
           { text: 'Emails', link: '/admin/sendemail' },
           { text: 'Registers', link: '/admin/registers' },
           { text: 'Logins', link: '/admin/loginn' },
+          { text: 'Room Info', link: '/admin/hoteltype' },
+          { text: 'Hotel Users', link: '/admin/reserveinfo' },
           { text: 'Hotelinfo', link: '/admin/homeadmin' },
           { text: 'About', link: '/admin/aboutadmin' },
           { text: 'Entertainment', link: '/admin/entadmin' },
