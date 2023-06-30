@@ -23,7 +23,7 @@ function Roominfo() {
   const navigate = useNavigate();
   const[admin,setAdmin] = useUserContext();
   useEffect(()=>{
-    if(admin===true){
+    if(admin===null && !localStorage.getItem("loggedIn")){
         navigate('/loginadmin');
     }
   },[])

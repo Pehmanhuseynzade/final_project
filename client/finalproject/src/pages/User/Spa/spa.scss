@@ -23,6 +23,7 @@
             align-items: center;
             gap: 25px;
             .h2{
+              margin-top: 80px;
                 text-align: center;
                 color: #ffffff;
                 font-family: 'Caudex', serif;
@@ -96,3 +97,116 @@
         }
     }
 }
+
+// Small Screen (330px-768px)
+@media only screen and (min-width: 330px) and (max-width: 768px) {
+    .for-spa {
+      .spa-sect-1 {
+        flex-direction: column;
+        
+        .image {
+          width: 100%;
+          height: auto;
+          
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          width: 100%;
+          text-align: center;
+          align-items: center;
+          
+          .h2 {
+            padding-top: 30px;
+          }
+          
+          .line {
+            width: 50px;
+            margin: 0 auto;
+          }
+          
+          p {
+            padding: 0 15px;
+          }
+          
+          .p {
+            width: 100%;
+          }
+        }
+      }
+    }
+    
+    .spa-images {
+      .img-1 {
+        .spaimages {
+          width: 100%;
+          height: auto;
+        }
+        
+        .overlay {
+          background-color: #c1c1c1;
+        }
+      }
+      
+      .img-2 {
+        flex-direction: column;
+        margin-top: 10px;
+        
+        .spaimages {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  
+  // Medium Screen (769px-1008px)
+  @media only screen and (min-width: 769px) and (max-width: 1008px) {
+    .spa-sect-1 {
+      .image {
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    
+    .spa-images {
+      .img-1 {
+        .spaimages {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      .img-2 {
+        .spaimages {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  
+  // Large Screen (1009px and above)
+  @media only screen and (min-width: 1009px) {
+    .spa-images {
+      .img-1 {
+        .spaimages {
+          width: 362px;
+          height: 300px;
+        }
+      }
+      
+      .img-2 {
+        .spaimages {
+          width: 362px;
+          height: 300px;
+        }
+      }
+    }
+  }
+  

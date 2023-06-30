@@ -110,7 +110,6 @@ function Contact() {
               className="message"
             />
           </div>
-
           <button type="submit" className="form-btn">
             Göndər
           </button>

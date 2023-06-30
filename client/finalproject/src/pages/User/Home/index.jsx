@@ -59,12 +59,6 @@ function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-{/* 
-      <main>
-
-      </main> */}
-
-
 
       <div className='data'>
         {info && info.map((d) => (

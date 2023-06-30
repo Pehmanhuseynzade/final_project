@@ -34,7 +34,7 @@ const postreserveModelController = {
             phonenum:phonenum,
             start:start,
             end:end,
-
+            // isActive : false
         })
         await roompost.save()
         res.status(200).send({

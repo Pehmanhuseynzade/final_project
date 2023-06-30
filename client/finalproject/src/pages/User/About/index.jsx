@@ -11,29 +11,22 @@ function About() {
   },[])
   return (
     <>
-      <div>
-        {about && about.map((d) => (
-          <div key={d._id} className='about-page'>
-            <div>
-              <h1>İstirahət Kompleksimizə xoş gəlmişsiniz</h1>
-              <div className='line'></div>
-              <p>
-                {d.desc1}
-              </p>
-
-              <p className='content-2'>
-              {d.desc2}
-              </p>
-
-              <p>* * * * *</p>
-            </div>
-
-            <div className='about-image'>
-              <img src={d.aboutimage} alt="aboutimage" />
-            </div>
-          </div>
-        ))}
+<div>
+  {about && about.map((d) => (
+    <div key={d._id} className='about-page'>
+      <div className='about-image'>
+        <img src={d.aboutimage} alt="aboutimage" />
       </div>
+      <div>
+        <h1>İstirahət Kompleksimizə xoş gəlmişsiniz</h1>
+        <div className='line'></div>
+        <p>{d.desc1}</p>
+        <p className='content-2'>{d.desc2}</p>
+        <p>* * * * *</p>
+      </div>
+    </div>
+  ))}
+</div>
     </>
   )
 }

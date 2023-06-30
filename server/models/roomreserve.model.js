@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const roomreserveSchema = new mongoose.Schema({
+  type:Number,
   nameroom: String,
   imageroom: String,
   price:Number,

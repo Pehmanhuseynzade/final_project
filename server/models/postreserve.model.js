@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const postreserveSchema = new mongoose.Schema({
+    // type:Number,
     nameroom: String,
     price: Number,
     personcount: Number,
@@ -11,7 +12,8 @@ const postreserveSchema = new mongoose.Schema({
     formemail: String,
     phonenum: Number,
     start:Date,
-    end:Date
+    end:Date,
+    // isActive: { type: Boolean, default: false },    
 });
 
 const postreserveModel = mongoose.model('res1', postreserveSchema);

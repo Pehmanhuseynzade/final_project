@@ -60,11 +60,6 @@ function Restaurant() {
           </div>
         ))}
       </section>
-
-
-
-
-
     </>
     )
 }

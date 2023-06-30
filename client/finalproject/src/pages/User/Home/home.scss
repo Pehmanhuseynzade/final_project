@@ -89,7 +89,427 @@
         }
     }
 }
+// Responsive design for small screens (330px - 768px)
+@media only screen and (min-width: 330px) and (max-width: 768px) {
+    .data {
+      flex-wrap: wrap;
+      
+      .info-div {
+        padding: 20px;
+        
+        div {
+          font-size: 18px;
+        }
+      }
+    }
+    
+    .sect-2 {
+      flex-wrap: wrap;
+      
+      .image {
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      .text {
+        .h2 {
+          width: 100%;
+          font-size: 1.8rem;
+        }
+        
+        .text-p {
+          width: 100%;
+          max-width: none;
+          font-size: 0.9rem;
+        }
+        
+        .btnn {
+          margin-left: auto;
+          margin-right: auto;
+          width: 120px;
+          height: 40px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+    .sect-3 {
+        flex-wrap: wrap;
+        
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            width: 100%;
+            font-size: 1.8rem;
+          }
+          
+          .text-p {
+            width: 100%;
+            max-width: none;
+            font-size: 0.9rem;
+          }
+          
+          .btnn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            height: 40px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .sect-4 {
+        flex-wrap: wrap;
+        
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            width: 100%;
+            font-size: 1.8rem;
+          }
+          
+          .text-p {
+            width: 100%;
+            max-width: none;
+            font-size: 0.9rem;
+          }
+          
+          .btnn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            height: 40px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .sect-5 {
+        flex-wrap: wrap;
+        
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            width: 100%;
+            font-size: 1.8rem;
+          }
+          
+          .text-p {
+            width: 100%;
+            max-width: none;
+            font-size: 0.9rem;
+          }
+          
+          .btnn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            height: 40px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .sect-6 {
+        flex-wrap: wrap;
+        
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            width: 100%;
+            font-size: 1.8rem;
+          }
+          
+          .text-p {
+            width: 100%;
+            max-width: none;
+            font-size: 0.9rem;
+          }
+          
+          .btnn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            height: 40px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      .sect-7 {
+        flex-wrap: wrap;
+        
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            width: 100%;
+            font-size: 1.8rem;
+          }
+          
+          .text-p {
+            width: 100%;
+            max-width: none;
+            font-size: 0.9rem;
+          }
+          
+          .btnn {
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            height: 40px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    
+  }
+  
+  // Responsive design for medium screens
+  @media only screen and (min-width: 769px) and (max-width: 1110px) {
+    .data {
+      .info-div {
+        padding: 30px;
+        
+        div {
+          font-size: 19px;
+        }
+      }
+    }
+    
+    .sect-2 {
+      .image {
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      .text {
+        .h2 {
+          font-size: 1.9rem;
+        }
+        
+        .text-p {
+          max-width: 550px;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .sect-3 {
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            font-size: 1.9rem;
+          }
+          
+          .text-p {
+            max-width: 550px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      .sect-4 {
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            font-size: 1.9rem;
+          }
+          
+          .text-p {
+            max-width: 550px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      .sect-5 {
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            font-size: 1.9rem;
+          }
+          
+          .text-p {
+            max-width: 550px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      .sect-6 {
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            font-size: 1.9rem;
+          }
+          
+          .text-p {
+            max-width: 550px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      .sect-7 {
+        .image {
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          .h2 {
+            font-size: 1.9rem;
+          }
+          
+          .text-p {
+            max-width: 550px;
+            font-size: 1.1rem;
+          }
+        }
+      }
+  }
+  
+  // Responsive design for large screens (greater than 1110px)
+  @media only screen and (min-width: 1111px) {
+    .data {
+      .info-div {
+        div {
+          font-size: 21px;
+        }
+      }
+    }
+    
+    .sect-2 {
+      .text {
+        .h2 {
+          font-size: 2rem;
+        }
+        
+        .text-p {
+          max-width: 600px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .sect-3 {
+        .text {
+          .h2 {
+            font-size: 2rem;
+          }
+          
+          .text-p {
+            max-width: 600px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .sect-4 {
+        .text {
+          .h2 {
+            font-size: 2rem;
+          }
+          
+          .text-p {
+            max-width: 600px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .sect-5 {
+        .text {
+          .h2 {
+            font-size: 2rem;
+          }
+          
+          .text-p {
+            max-width: 600px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .sect-6 {
+        .text {
+          .h2 {
+            font-size: 2rem;
+          }
+          
+          .text-p {
+            max-width: 600px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .sect-7 {
+        .text {
+          .h2 {
+            font-size: 2rem;
+          }
+          
+          .text-p {
+            max-width: 600px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+  }
 
+
+
+
+
+
+  //-----------------------------------------------
 .sect-3{
     background-color:#1a1818;
     display: flex;  

@@ -22,6 +22,7 @@
         align-items: center;
         gap: 25px;
         .h2{
+            margin-top: 40px;
             text-align: center;
             color: #ffffff;
             font-family: 'Caudex', serif;
@@ -81,7 +82,7 @@
             }
             p{
                 color: RGB(172, 164, 164);
-                        }
+            }
             .p{
                 width: 70%;
             }
@@ -112,3 +113,120 @@
         }
     }
 }
+
+// Small Screen (768px) - Mobile Devices
+@media only screen and (max-width: 768px) {
+    .tour-sect-1 {
+      flex-direction: column;
+      align-items: center;
+      
+      .image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      
+      .text {
+        text-align: center;
+        gap: 15px;
+        
+        .h2 {
+          padding-top: 30px;
+        }
+        
+        .line {
+          width: 50px;
+          margin: 0 auto;
+        }
+        
+        p {
+          padding: 0 15px;
+        }
+      }
+    }
+    
+    .for-tour {
+      .tour-sect-2 {
+        flex-direction: column-reverse;
+        
+        .image {
+          padding: 0;
+          
+          .img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .text {
+          width: 100%;
+          align-items: center;
+          
+          .h2 {
+            padding-top: 30px;
+          }
+          
+          .line {
+            width: 50px;
+            margin: 0 auto;
+          }
+          
+          p {
+            padding: 0 15px;
+          }
+        }
+      }
+    }
+    
+    .tour-images {
+      padding: 10px;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      
+      .img-2 {
+        overflow: hidden;
+        width: 100%;
+        
+        .tourimages {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  
+  // Medium Screen (1008px) - Tablets and Small Laptops
+  @media only screen and (min-width: 769px) and (max-width: 1008px) {
+    .tour-sect-1 {
+      .image {
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    
+    .tour-sect-2 {
+      .image {
+        .img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    
+    .tour-images {
+      .img-2 {
+        .tourimages {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }

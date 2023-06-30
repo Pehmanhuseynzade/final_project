@@ -25,8 +25,9 @@ const roomreserveModelController = {
         res.status(200).send(deleteroomreserve)
     },
     post: async (req, res) => {
-        const { nameroom, imageroom,price,personcount,countroom,capacity,start,end } = req.body
+        const { nameroom, imageroom,price,personcount,countroom,capacity,start,end,type } = req.body
         const roompost = new roomreserveModel({
+            type:type,
             nameroom: nameroom,
             imageroom: imageroom,
             price: price,
@@ -45,8 +46,9 @@ const roomreserveModelController = {
     },
     edit: async (req, res) => {
         const id = req.params.id
-        const { nameroom, imageroom,price,personcount,countroom,capacity,start,end } = req.body
+        const { nameroom, imageroom,price,personcount,countroom,capacity,start,end,type } = req.body
         const roomput = {
+            type:type,
             nameroom: nameroom,
             imageroom: imageroom,
             price: price,
