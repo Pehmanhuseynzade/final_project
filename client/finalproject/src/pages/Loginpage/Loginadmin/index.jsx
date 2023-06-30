@@ -34,7 +34,8 @@ const Loginadmin = () => {
   })
   return (
     <>
-      <div className="form-login-div-1" style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <body className='login-page'>
+  <div className="form-login-div-1" style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <form className="form-login"  onSubmit={formik.handleSubmit}>
         <p>Admin Login</p>
           <div>
@@ -46,6 +47,7 @@ const Loginadmin = () => {
           <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Login</Button>
         </form>
       </div>
+  </body>
     </>
   )
 }
