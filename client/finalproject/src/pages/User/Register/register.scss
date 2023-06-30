@@ -1,19 +1,27 @@
+.body-register {
+    background-image: url('http://www.marxalresort.az/assets/images/marxal-2000x1355.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
     .form-register-div {
-        margin-top: 150px;
         height: 60vh;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+
         .form-register {
-            background-color: white;
+            margin-top: 300px;
+            background-color: #ffffff66;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             padding: 60px;
+
             p {
                 text-align: center;
                 font-size: 22px;
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                color: #9c7441;
+                color: white;
             }
 
             div {
@@ -28,3 +36,4 @@
             }
         }
     }
+}

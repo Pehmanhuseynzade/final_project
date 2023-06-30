@@ -3,7 +3,8 @@ import "../adminpage.scss"
 import "./about.scss"
 import { getAboutdatas, getaboutDelete, getaboutPost, putaboutDataByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 import Swal from 'sweetalert2';
 
 
@@ -13,7 +14,13 @@ function Aboutadmin() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingabout, setEditingabout] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const Aboutpage = async () => {
     try {
       const aboutData = await getAboutdatas();
@@ -65,6 +72,7 @@ function Aboutadmin() {
       }
     });
   };
+
 
   const handleSubmit = async () => {
     try {

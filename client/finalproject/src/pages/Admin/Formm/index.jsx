@@ -3,6 +3,8 @@ import "../adminpage.scss"
 import { getformdatas, getformDelete } from '../../../api/httpsrequests';
 import { Table, Button } from 'antd';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Formm() {
   const [formadmin, setformadmin] = useState([]);
   const formpage = async () => {
@@ -13,6 +15,14 @@ function Formm() {
       console.error('Failed to retrieve Form entries:', error);
     }
   };
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
+
   useEffect(() => {
     formpage();
   }, [formadmin]);

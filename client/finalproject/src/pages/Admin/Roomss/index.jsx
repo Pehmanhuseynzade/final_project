@@ -4,12 +4,20 @@ import { getroomsdatas, getroomsPost, getroomsDelete, putroomsByID } from '../..
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Roomss() {
   const [roomsadmin, setroomsadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingrooms, setEditingrooms] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const Roomspage = async () => {
     try {
       const roomsData = await getroomsdatas();

@@ -3,18 +3,18 @@ import "../adminpage.scss"
 import { getUsers } from '../../../api/httpsrequests';
 import { Table } from 'antd';
 import axios from 'axios';
-import "./index.scss"
+import "./index.scss";
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Registers() {
     const [signupadmin, setsignupadmin] = useState([]);
-    // const signuppage = async () => {
-    //     try {
-    //         const signupData = await getUsers();
-    //         setsignupadmin(signupData);
-    //         // console.log(signupadmin)
-    //     } catch (error) {
-    //         console.error('Failed to retrieve signup entries:', error);
-    //     }
-    // };
+    const navigate = useNavigate();
+    const[admin,setAdmin] = useUserContext();
+    useEffect(()=>{
+      if(admin===null && !localStorage.getItem("loggedIn")){
+          navigate('/loginadmin');
+      }
+    },[])
     console.log(getUsers())
     useEffect(() => {
         // signuppage()

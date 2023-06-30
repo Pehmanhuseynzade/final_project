@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
-// import { getsignIn,getsignDelete } from '../../../api/httpsrequests';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 import { Table,Button } from 'antd';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 function Logins() {
     const [signINadmin, setsignINadmin] = useState([]);
-
+    const navigate = useNavigate();
+    const[admin,setAdmin] = useUserContext();
+    useEffect(()=>{
+      if(admin===null && !localStorage.getItem("loggedIn")){
+          navigate('/loginadmin');
+      }
+    },[])
     useEffect(() => {
         axios.get('http://localhost:7576/api/loginn').then((data)=>{
             console.log(data)

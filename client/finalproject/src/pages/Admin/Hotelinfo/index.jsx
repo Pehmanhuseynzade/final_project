@@ -4,12 +4,20 @@ import "../Aboutadmin/about.scss"
 import { getreservemdatas, getreserveDelete, getreservePost, putreserveByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Hotelinfo() {
   const [hotelinfoadmin, sethotelinfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editinghotelinfo, setEditinghotelinfo] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const hotelpage = async () => {
     try {
       const hotelinfoData = await getreservemdatas();

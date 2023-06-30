@@ -39,7 +39,9 @@ const Register = () => {
     onSubmit: handleSubmit
   })
   return (
-      <div className='div'>
+    <>
+    <body className='body-register'>
+    <div className='div'>
       <div className='form-register-div' >
         <form className='form-register' onSubmit={formik.handleSubmit}>
         <p>Register Page</p>
@@ -52,6 +54,8 @@ const Register = () => {
         </form>
       </div>
       </div>
+    </body>
+    </>
   );
 };
 

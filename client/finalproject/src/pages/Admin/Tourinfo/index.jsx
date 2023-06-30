@@ -4,6 +4,8 @@ import { gettourdatas, gettourPost, gettourDelete, puttourByID } from '../../../
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Tourinfo() {
   const [tourinfoadmin, settourinfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,7 +20,13 @@ function Tourinfo() {
       console.error('Failed to retrieve tour entries:', error);
     }
   };
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   useEffect(() => {
     tourinfopage();
   }, [tourinfoadmin]);

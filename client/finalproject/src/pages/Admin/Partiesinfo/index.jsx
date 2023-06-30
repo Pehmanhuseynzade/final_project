@@ -4,14 +4,21 @@ import { getpartiesdatas, getpartiesPost, getpartiesDelete, putpartiesDataByID }
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
-
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 
 function Parties() {
   const [partiesinfoadmin, setpartiesinfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingpartiesinfo, setEditingpartiesinfo] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const partiesinfopage = async () => {
     try {
       const partiesinfoData = await getpartiesdatas();

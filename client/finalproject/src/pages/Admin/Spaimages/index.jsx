@@ -4,7 +4,8 @@ import { getspaimagesdatas, getspaimagesDelete, getspaimagesPost, putspaimagesDa
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
-
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 
 function Spaimages() {
   const [spaimg, setSpaimgs] = useState([]);
@@ -27,12 +28,13 @@ function Spaimages() {
     Spas();
   }, [spaimg]);
 
-  // useEffect(() => {
-  //   getspaimagesdatas().then((data)=>{
-  //     setSpaimgs(data)
-  //     console.log(data)
-  //   });
-  // }, []);
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
 
 
   const handleOpenModal = (spa) => {

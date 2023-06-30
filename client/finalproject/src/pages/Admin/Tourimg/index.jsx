@@ -4,10 +4,17 @@ import { gettourimgdatas, gettourimgDelete, gettourimgPost, puttourimgByID } fro
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
-
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 
 function Tourimg() {
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const [tourimgadmin, settourimgadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingtourimg, setEditingtourimg] = useState(null);

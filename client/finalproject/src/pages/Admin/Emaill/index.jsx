@@ -3,6 +3,8 @@ import "../adminpage.scss"
 import { getsendemaildatas, getsendemailDelete } from '../../../api/httpsrequests';
 import { Table, Button } from 'antd';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Emaill() {
   const [sendemailadmin, setsendemailadmin] = useState([]);
   const sendemailpage = async () => {
@@ -13,6 +15,13 @@ function Emaill() {
       console.error('Failed to retrieve sendemail entries:', error);
     }
   };
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   useEffect(() => {
     sendemailpage();
   }, [sendemailadmin]);

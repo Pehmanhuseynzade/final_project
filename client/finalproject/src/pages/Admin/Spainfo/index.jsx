@@ -4,13 +4,20 @@ import { getspainfo1datas, getspainfo1Post, getspainfo1Delete, putspainfo1DataBy
 import { Table, Button, Modal, Form, Input } from 'antd';
 import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
-
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Spainfo() {
   const [spainfoadmin, setspainfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingspainfo, setEditingspainfo] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const spainfopage = async () => {
     try {
       const spainfoData = await getspainfo1datas();

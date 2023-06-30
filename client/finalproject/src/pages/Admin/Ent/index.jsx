@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 // import "../adminpage.scss"
 import { getentmentdatas, getentmentDelete, getentmentPost, putentmentByID } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 import Swal from 'sweetalert2';
 import "./ent.scss"
 
@@ -12,7 +13,13 @@ function Ent() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingent, setEditingent] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const Entpage = async () => {
     try {
       const entData = await getentmentdatas();

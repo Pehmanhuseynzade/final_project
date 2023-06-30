@@ -4,13 +4,20 @@ import { getentmentimgdatas, getentmentimgPost, getentmentimgDelete, putentmenti
 import { Table, Button, Modal, Form, Input } from 'antd';
 // import * as Yup from 'yup';
 import Swal from 'sweetalert2';
-
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../../context/Usercontext';
 function Entimg() {
   const [entimgadmin, setentimgadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingentimg, setEditingentimg] = useState(null);
   const [form] = Form.useForm();
-
+  const navigate = useNavigate();
+  const[admin,setAdmin] = useUserContext();
+  useEffect(()=>{
+    if(admin===null && !localStorage.getItem("loggedIn")){
+        navigate('/loginadmin');
+    }
+  },[])
   const Entimgpage = async () => {
     try {
       const entimgData = await getentmentimgdatas();
