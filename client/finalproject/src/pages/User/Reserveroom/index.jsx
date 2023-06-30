@@ -31,9 +31,9 @@ function Reserveroom() {
     }
 
     const handleOpenModal = (ress) => {
-        // setEditing(ress)
         setModalOpen(true);
         form.setFieldsValue({
+            type: ress?.type || '',
             formusername: ress?.formusername || '',
             lastname: ress?.lastname || '',
             formemail: ress?.formemail || '',
@@ -53,6 +53,7 @@ function Reserveroom() {
         try {
             const values = await form.validateFields();
             const newres = {
+                type:data.type,
                 nameroom: data.nameroom,
                 price: data.price,
                 personcount: data.personcount,

@@ -8,8 +8,8 @@ const roomreserveSchema = new mongoose.Schema({
   personcount:Number,
   capacity:String,
   countroom:Number,
-  start:Date,
-  end:Date
+  start:String,
+  end:String
 });
 
 const roomreserveModel = mongoose.model('Roomreserve', roomreserveSchema);
