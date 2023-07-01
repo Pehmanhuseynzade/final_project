@@ -35,7 +35,8 @@ const roomreserveModelController = {
             countroom:countroom,
             capacity:capacity,
             start:start,
-            end:end
+            end:end,
+            
 
         })
         await roompost.save()

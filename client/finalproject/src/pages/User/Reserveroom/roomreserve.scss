@@ -51,16 +51,30 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+
             .card {
                 background-color: rgba(255, 255, 255, 0.9);
                 width: 300px;
                 height: 350px;
                 border-radius: 5px;
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-                img{
+
+                img {
                     border-top-left-radius: 5px;
                     border-top-right-radius: 5px;
                 }
+
+                .reserved {
+                    margin-top: 5px;
+                    margin-left: 12px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    color: #9c7441;
+                }
+
                 .name {
                     font-size: 20px;
                     color: #9c7441;
@@ -75,35 +89,41 @@
                     margin-left: 7px;
                     justify-content: center;
                     align-items: center;
-                    gap: 50px;
+                    gap: 30px;
                     color: gray;
-                    .person{
+                    .person {
                         font-size: 15px;
                     }
+
                     .capacity {
                         font-size: 15px;
                     }
                 }
-                .price-btn{
+
+                .price-btn {
                     margin-top: 15px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    .price{
+
+                    .price {
                         position: relative;
                         left: 15px;
                         color: gray;
-                        i{
+
+                        i {
                             color: gray;
                         }
-                        span{
-                        font-size: 20px;  
-                        font-weight: 500;
+
+                        span {
+                            font-size: 20px;
+                            font-weight: 500;
                         }
                     }
-                    button{
+
+                    button {
                         position: relative;
-                        right:20px;
+                        right: 20px;
                         top: 2px;
                         width: 120px;
                         height: 35px;
@@ -112,7 +132,8 @@
                         background-color: #9c7541da;
                         color: white;
                         transition: .5s;
-                        &:hover{
+
+                        &:hover {
                             background-color: #251705f3;
                             cursor: pointer;
                         }
@@ -123,11 +144,12 @@
     }
 }
 
-.disableds{
+.disableds {
     display: block;
     flex-direction: column;
     margin-top: 30px;
-    input{
+
+    input {
         width: 480px;
         height: 30px;
         border-radius: 5px;

@@ -21,7 +21,7 @@ const postreserveModelController = {
         res.status(200).send(deletepostreserve)
     },
     post: async (req, res) => {
-        const { nameroom, price,personcount,capacity,countroom,formusername,lastname,formemail,phonenum,start,end } = req.body
+        const { nameroom, price,personcount,capacity,countroom,formusername,lastname,formemail,phonenum,start,end,isPosted } = req.body
         const roompost = new roomreserveModel({
             nameroom: nameroom,
             price: price,
@@ -34,6 +34,7 @@ const postreserveModelController = {
             phonenum:phonenum,
             start:start,
             end:end,
+            isPosted:isPosted
             // isActive : false
         })
         await roompost.save()

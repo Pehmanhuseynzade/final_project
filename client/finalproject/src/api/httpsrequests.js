@@ -587,7 +587,7 @@ export const putendformByID = async(update,id)=>{
 }
 
 
-//20.rESERVE
+//20.rESERVE room
 
 export const getreservemdatas = async()=>{
     let globalData;

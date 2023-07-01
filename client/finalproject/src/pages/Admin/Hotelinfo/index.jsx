@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import "../Aboutadmin/about.scss"
 import { getreservemdatas, getreserveDelete, getreservePost, putreserveByID } from '../../../api/httpsrequests';
-import { Table, Button, Modal, Form, Input } from 'antd';
+import { Table, Button, Modal, Form, Input, DatePicker } from 'antd';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
@@ -22,7 +22,8 @@ function Hotelinfo() {
     try {
       const hotelinfoData = await getreservemdatas();
       sethotelinfoadmin(hotelinfoData);
-    } catch (error) {
+      console.log(hotelinfoadmin)
+        } catch (error) {
       console.error('Failed to retrieve Hotelinfo entries:', error);
     }
   };
@@ -265,19 +266,19 @@ function Hotelinfo() {
                 <Input />
               </Form.Item>
               <Form.Item
-                label="Start Date"
-                name="start"
-                rules={[{ required: true, message: 'Please enter Start Date' }]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                label="End Date"
-                name="end"
-                rules={[{ required: true, message: 'Please enter End Date' }]}
-              >
-                <Input />
-              </Form.Item>
+              label="Bitiş Tarihi"
+              name="start"
+              rules={[{ required: true, message: 'Lütfen baslangic tarihini seçin' }]}
+            >
+              <DatePicker format="DD-MM-YYYY" />
+            </Form.Item>
+            <Form.Item
+              label="Bitiş Tarihi"
+              name="end"
+              rules={[{ required: true, message: 'Lütfen bitiş tarihini seçin' }]}
+            >
+              <DatePicker format="DD-MM-YYYY" />
+            </Form.Item>
             </Form>
           </Modal>
         </div>

@@ -37,6 +37,7 @@ import Logins from "../pages/Admin/Logins"
 import Reserveroom from "../pages/User/Reserveroom"
 import Reserveinfo from "../pages/Admin/Reserveinfo"
 import Hotelinfo from "../pages/Admin/Hotelinfo"
+// import ReserveMap from "../pages/User/ReserveMap"
 export const ROUTES = [
     {
         path:'/',
@@ -97,7 +98,11 @@ export const ROUTES = [
             {
                 path:'reserveroom',
                 element:<Reserveroom/>
-            }
+            },
+            // {
+            //     path:'reservemap',
+            //     element:<ReserveMap/>
+            // },
         ]
     },
     {

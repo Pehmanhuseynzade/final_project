@@ -66,9 +66,10 @@
             content: '';
             position: absolute;
             height: 0.145rem;
-            width: 100%;
-            background: linear-gradient(#331c00, #000000);
-            left: 0;
+            padding: 1px;
+            width: 90%;
+            background: #916b39;
+            left:10px;
             bottom: -3px;
             transition: 0.5s;
             transform: scale(0, 1);

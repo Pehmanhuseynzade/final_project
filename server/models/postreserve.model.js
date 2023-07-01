@@ -13,6 +13,7 @@ const postreserveSchema = new mongoose.Schema({
     phonenum: Number,
     start:Date,
     end:Date,
+    isPosted:Boolean
     // isActive: { type: Boolean, default: false },    
 });
 

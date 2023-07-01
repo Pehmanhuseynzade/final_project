@@ -19,6 +19,7 @@ function Reserveinfo() {
     try {
       const postReserveData = await getreservepostdatas();
       setpostreserveadmin(postReserveData);
+
     } catch (error) {
       console.error('Failed to retrieve Hotelinfo entries:', error);
     }
@@ -26,8 +27,8 @@ function Reserveinfo() {
 
   useEffect(() => {
     hotelpostpage();
-  }, [postreserveadmin]);
-
+  }, []);
+ console.log('posted',postreserveadmin);
   const handleOpenModal = (marxalpost) => {
     setModalOpen(true);
     form.setFieldsValue({
@@ -154,6 +155,11 @@ function Reserveinfo() {
       title: 'Start Date',
       dataIndex: 'start',
       key: 'start',
+    },
+    {
+      title: 'End Date',
+      dataIndex: 'end',
+      key: 'end',
     },
     {
       title: 'Edit',
