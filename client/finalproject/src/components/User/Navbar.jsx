@@ -27,7 +27,7 @@ function Navbar() {
                     localStorage.removeItem('token');
                     localStorage.removeItem('user');
                     setUser(null);
-                    navigate('/login');
+                    navigate('/');
                   }}><i className="fa-solid fa-user"></i> Logout</li>
               </>
             ) : (

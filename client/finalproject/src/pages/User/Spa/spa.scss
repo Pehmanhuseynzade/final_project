@@ -1,5 +1,5 @@
 .for-spa{
-    margin-top: 120px;
+    // padding-top: 120px;
     .spa-sect-1{
         background-color:#1a1818;
         display: flex;  
@@ -109,7 +109,7 @@
           height: auto;
           
           .img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
           }
         }
@@ -168,7 +168,7 @@
     .spa-sect-1 {
       .image {
         .img {
-          width: 100%;
+          max-width: 100%;
           height: auto;
         }
       }
@@ -177,14 +177,14 @@
     .spa-images {
       .img-1 {
         .spaimages {
-          width: 100%;
+          max-width: 100%;
           height: auto;
         }
       }
       
       .img-2 {
         .spaimages {
-          width: 100%;
+          max-width: 100%;
           height: auto;
         }
       }

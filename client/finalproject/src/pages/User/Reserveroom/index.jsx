@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './roomreserve.scss';
 import { Modal, Input, Form, DatePicker, message } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getreservemdatas, reservepost } from '../../../api/httpsrequests';
-
+import axios from 'axios';
+import Swal from "sweetalert2"
 function Reserveroom() {
   const { id } = useParams();
   const [reserverooms, setReserverooms] = useState([]);
@@ -12,7 +13,8 @@ function Reserveroom() {
   const [form] = Form.useForm();
   const [selectedRoomId, setSelectedRoomId] = useState('');
   const [isPosted, setIsPosted] = useState(false);
-
+  const [user, setUser] = useState([])
+  const navigate = useNavigate()
   const handleitemSelected = (itemId) => {
     const clickedCard = reserverooms.find((card) => card._id === itemId);
     if (clickedCard) {
@@ -20,6 +22,14 @@ function Reserveroom() {
       setData(clickedCard);
     }
   };
+
+  const getData = async () =>{
+    const res = axios.get("http://localhost:7576/api/userss")
+    setUser(res.data)
+  }
+  useEffect(()=>{
+    getData()
+  },[])
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -54,6 +64,13 @@ function Reserveroom() {
         setData({ ...data, isPosted: true });
       }
       handleCloseModal();
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
 
       const selectedRoomId = data._id; // ya da data'dan ilgili ID'yi alın
       localStorage.setItem('selectedRoomId', selectedRoomId);
@@ -124,6 +141,9 @@ function Reserveroom() {
                       ) : (
                         <button
                           onClick={() => {
+                            if (!localStorage.getItem("token")){
+                              navigate("/registerr")
+                            }
                             handleOpenModal();
                             handleitemSelected(roomItem._id);
                             localStorage.setItem('selectedRoomId', roomItem._id);

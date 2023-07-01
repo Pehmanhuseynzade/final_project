@@ -42,7 +42,7 @@ function Contact() {
       <div className="main-sec-contact">
         <img
           className="contact-main-image"
-          src="https://www.marxalresort.az/assets/images/contact-1500x614.jpeg"
+          src=""
           alt="restaurant"
         />
         <form onSubmit={formik.handleSubmit}>
@@ -110,9 +110,11 @@ function Contact() {
               className="message"
             />
           </div>
-          <button type="submit" className="form-btn">
+           <div className='submit-body'>
+           <button type="submit" className="form-btn">
             Göndər
           </button>
+           </div>
         </form>
       </div>
     </>

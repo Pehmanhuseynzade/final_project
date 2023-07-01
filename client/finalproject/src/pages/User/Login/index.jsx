@@ -22,7 +22,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1200
       })
-      navigate('/spa');
+      navigate('/');
     }
     actions.resetForm();
   }
