@@ -12,8 +12,7 @@ function Restaurant() {
   return (
     <>
     <div className='main-sec-res'>
-      <img className='rest-main-image' src="http://www.marxalresort.az/assets/images/35911-photo-r-1-1024x6825.jpg" alt="restaurant" />
-      <h1>BAR VƏ RESTORANLAR</h1>
+      <h1 className='resturant-h1'>BAR VƏ RESTORANLAR</h1>
       <p className='p-info'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir.Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz</p>
       <div className='rest-info'>
         <div>

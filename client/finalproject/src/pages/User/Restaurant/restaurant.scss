@@ -1,41 +1,50 @@
 .main-sec-res{
     width: 100%;
     position: relative;
+    background-image: url('http://www.marxalresort.az/assets/images/35911-photo-r-1-1024x6825.jpg');
+    background-repeat: no-repeat, repeat;
+background-position: center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover;
     .rest-main-image{
         width: 100%;
         height: 80vh;
         display: block;
         object-fit: cover;
         filter: brightness(0.3);
+       
     }
-    h1{
-        position: absolute;
+    .resturant-h1{
+        // position: absolute;
         text-align: center;
-        top: 120px;
+        top: 150px;
         padding-top: 7px;
         color: rgba(255, 255, 255, 0.906);
         font-family: 'Caudex', serif;
         font-size: 2rem;  
-        width: 100%;
+        max-width: 100%;
+        padding-top: 150px;
     }
     .p-info{
-        position: absolute;
+        // position: absolute;
         text-align: center;
         top: 170px;
         left: 300px;
         color: rgba(255, 255, 255, 0.735);
         font-family: 'Caudex', serif;
         font-size: 16px;  
-        width: 60%;
+        max-width: 100%;
     }
     .rest-info{
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 40px;
-        position: absolute;
+        // position: absolute;
+        flex-wrap: wrap;
         top: 240px;
         left: 20px;
+        padding-bottom: 20px;
         div{
             overflow: hidden ;
             .restaurants{
@@ -85,7 +94,7 @@
         width: 100%;
         height: 100%;
         .img{
-            width: 760px;
+            max-width: 100%;
             height: 518px;
             object-fit: cover;
             object-position: center center;
@@ -118,6 +127,29 @@
         }
     }
 }
+
+@media only screen and (min-width: 330px) and (max-width: 768px) {
+   
+    .resturant-h1{
+        // position: absolute;
+        text-align: center;
+        // top: 120px;
+        padding-top: 50px !important;
+        color: rgba(255, 255, 255, 0.906);
+        font-family: 'Caudex', serif;
+        font-size: 2rem;  
+        width: 100%;
+    }
+    .restaurants{
+        width: 270px !important;
+        height: 200px !important;
+        transition: .5s;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
 
 
 

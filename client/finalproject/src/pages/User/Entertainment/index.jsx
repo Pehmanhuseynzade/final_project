@@ -21,8 +21,8 @@ function Entertainment() {
     return (
         <>
             <div className='main-sec-ent'>
-                <img className='ent-main-image' src="https://www.marxalresort.az/assets/images/016-1280x800.jpg" alt="entertainment" />
-                <h1>Əyləncə</h1>
+                <img className='ent-main-image' src="" alt="entertainment" />
+                <h1 className='entertaiment-h1'>Əyləncə</h1>
                 <p className='p-info'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir.Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz</p>
                 <p className='p-info-bold'>Boulinq zalı • Bilyard otağı • Gecə klubu • Karaoke launç • Kitabxana • Kinozal • Stolüstü tennis • Əyləncəli oyun aparatları • Uşaqlar üçün əyləncə mərkəzi • Lazerstrayk • Playstation • Katamaran</p>
                 <div className='ent-info'>
@@ -46,7 +46,7 @@ function Entertainment() {
                     <div key={entmentitem._id}>
                         {idx % 2 ? (<div className='entment-sect-1'>
                             <div className='image'>
-                                <img className='img' src={entmentitem.entmentimg} alt="entmentimage1" />
+                                <img className='img'  src={entmentitem.entmentimg} alt="entmentimage1" />
                             </div>
                             <div className='text'>
                                 <h2 className='h2'>{entmentitem.entmentname}</h2>

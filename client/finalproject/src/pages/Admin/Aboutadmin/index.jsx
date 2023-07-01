@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import "./about.scss"
-import { getAboutdatas, getaboutDelete, getaboutPost, putaboutDataByID } from '../../../api/httpsrequests';
+import { getAboutdatas, getaboutDelete, getaboutPost } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 
@@ -51,6 +52,45 @@ function Aboutadmin() {
     form.resetFields();
   };
 
+  const handleEditData = (record) => {
+    Swal.fire({
+      title: "Edit Record",
+      html: `
+        <input id="edit-desc1" type="text" placeholder="desc1 :" value="${record.desc1}" class="swal2-input" />
+        <input id="edit-desc2" type="text" placeholder="desc2" value="${record.desc2}" class="swal2-input" />
+        <input id="edit-aboutimage" type="text" placeholder="image" value="${record.aboutimage}" class="swal2-input" />
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      preConfirm: () => {
+        const editeddesc1 = Swal.getPopup().querySelector("#edit-desc1").value;
+        const editeddesc2 = Swal.getPopup().querySelector("#edit-desc1").value;
+        const editedaboutimage = Swal.getPopup().querySelector("#edit-aboutimage").value;
+  
+        if (!editeddesc1 || !editeddesc2 || !editedaboutimage) {
+          Swal.showValidationMessage("Please fill in all fields");
+          return false;
+        }
+        return {
+          desc1: editeddesc1,
+          desc2: editeddesc2,
+          aboutimage:editedaboutimage
+        };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const editedData = result.value;
+        console.log("Edited Data:", editedData);
+  
+        try {
+          await axios.put(`http://localhost:7576/api/about/${record._id}`, editedData);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+  };
+
   const handleDeleteAbout = (id) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -77,29 +117,7 @@ function Aboutadmin() {
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields();
-
-      if (editingabout) {
-        const updatedData = {
-          desc1: values.desc1,
-          desc2: values.desc2,
-          aboutimage: values.aboutimage
-        };
-
-        await putaboutDataByID(editingabout._id, updatedData);
-
-        const updatedAbout = aboutadmin.map((about) => {
-          if (about._id === editingabout._id) {
-            return {
-              ...about,
-              ...updatedData,
-            };
-          }
-          return about;
-        });
-
-        setAboutadmin(updatedAbout);
-      } else {
-
+ {
         const newAbout = {
           desc1: values.desc1,
           desc2: values.desc2,
@@ -136,10 +154,22 @@ function Aboutadmin() {
       render: img =><img src={img} alt="aboutimage" style={{width:"220px",height:"150px"}} />   
     },
     {
-      title: 'Edit',
-      key: 'edit',
-      render: (_, record) => (
-        <Button type="primary" onClick={() => handleOpenModal(record)}>
+      title: "Edit",
+      dataIndex: "",
+      key: "edit",
+      render: (text, record) => (
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => {
+            handleEditData(record)
+          }}
+        >
           Edit
         </Button>
       ),
@@ -156,7 +186,7 @@ function Aboutadmin() {
   ];
   return (
     <>
-          <div style={{ marginLeft: '220px' }}>jbhi
+          <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add

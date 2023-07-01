@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
-import { getentmentimgdatas, getentmentimgPost, getentmentimgDelete, putentmentimgByID } from '../../../api/httpsrequests';
+import { getentmentimgdatas, getentmentimgPost, getentmentimgDelete } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
-// import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import axios from 'axios';
 function Entimg() {
   const [entimgadmin, setentimgadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -40,6 +40,40 @@ function Entimg() {
     });
   };
 
+  const handleEditData = (record) => {
+    Swal.fire({
+      title: "Edit Record",
+      html: `
+        <input id="edit-entmentimgs" type="text" placeholder="Image:" value="${record.entmentimgs}" class="swal2-input" />
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      preConfirm: () => {
+        const editedentmentnameimg = Swal.getPopup().querySelector("#edit-entmentimgs").value;  
+        if (!editedentmentnameimg) {
+          Swal.showValidationMessage("Please fill in all fields");
+          return false;
+        }
+        return {
+          count: editedentmentnameimg
+            };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const editedData = result.value;
+        console.log("Edited Data:", editedData);
+  
+        try {
+          await axios.put(`http://localhost:7576/api/entmentimg/${record._id}`, editedData);
+          // fetchData();
+        } catch (error) {
+          console.error(error);
+          // Handle the error here
+        }
+      }
+    });
+  };
+
   const handleCloseModal = () => {
     setEditingentimg(null);
     setModalOpen(false);
@@ -71,28 +105,7 @@ function Entimg() {
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields();
-
-      if (editingentimg) {
-        const updatedData = {
-          entmentnameimg: values.entmentnameimg,
-          entmentimgs: values.entmentimgs,
-        };
-
-        await putentmentimgByID(editingentimg._id, updatedData);
-
-        const updatedEntimg = entimgadmin.map((enttimgg) => {
-          if (enttimgg._id === editingentimg._id) {
-            return {
-              ...enttimgg,
-              ...updatedData,
-            };
-          }
-          return enttimgg;
-        });
-
-        setentimgadmin(updatedEntimg);
-      } else {
-
+      {
         const newEntimg = {
           entmentnameimg: values.entmentnameimg,
           entmentimgs: values.entmentimgs,
@@ -118,10 +131,22 @@ function Entimg() {
       render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
     },
     {
-      title: 'Edit',
-      key: 'edit',
-      render: (_, record) => (
-        <Button type="primary" onClick={() => handleOpenModal(record)}>
+      title: "Edit",
+      dataIndex: "",
+      key: "edit",
+      render: (text, record) => (
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => {
+            handleEditData(record)
+          }}
+        >
           Edit
         </Button>
       ),
@@ -156,7 +181,7 @@ function Entimg() {
             <Form form={form} layout="vertical">
               <Form.Item
                 label="Entertainment Images"
-                name="entmentimg"
+                name="entmentimgs"
                 rules={[{ required: true, message: 'Please enter Entertainment images' }]}
               >
                 <Input />

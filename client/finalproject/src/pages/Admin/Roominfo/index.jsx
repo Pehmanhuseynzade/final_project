@@ -122,15 +122,6 @@ function Roominfo() {
       key: 'roominfos',
     },
     {
-      title: 'Edit',
-      key: 'edit',
-      render: (_, record) => (
-        <Button type="primary" onClick={() => handleOpenModal(record)}>
-          Edit
-        </Button>
-      ),
-    },
-    {
       title: 'Delete',
       key: 'delete',
       render: (_, record) => (

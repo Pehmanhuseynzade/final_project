@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <>
-      <div>
+      <div className='padding'>
         <Swiper
           pagination={{
             dynamicBullets: true,

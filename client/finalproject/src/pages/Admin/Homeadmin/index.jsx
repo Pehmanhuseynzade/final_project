@@ -6,6 +6,7 @@ import "./homeadmin.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import axios from 'axios';
 function Homeadmin() {
   const [hotelinfo, sethotelinfo] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -40,6 +41,45 @@ function Homeadmin() {
     });
   };
 
+  const handleEditData = (record) => {
+    Swal.fire({
+      title: "Edit Record",
+      html: `
+        <input id="edit-count" type="number" placeholder="Count :" value="${record.count}" class="swal2-input" />
+        <input id="edit-name" type="text" placeholder="Name" value="${record.name}" class="swal2-input" />
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      preConfirm: () => {
+        const editedCount = Swal.getPopup().querySelector("#edit-count").value;
+        const editedName = Swal.getPopup().querySelector("#edit-name").value;
+  
+        if (!editedCount || !editedName) {
+          Swal.showValidationMessage("Please fill in all fields");
+          return false;
+        }
+        return {
+          count: editedCount,
+          name: editedName,
+        };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const editedData = result.value;
+        console.log("Edited Data:", editedData);
+  
+        try {
+          await axios.put(`http://localhost:7576/api/infomarxal/${record._id}`, editedData);
+          // fetchData();
+        } catch (error) {
+          console.error(error);
+          // Handle the error here
+        }
+      }
+    });
+  };
+  
+
   const handleCloseModal = () => {
     setEditinghotelinfo(null);
     setModalOpen(false);
@@ -69,29 +109,9 @@ function Homeadmin() {
   };
 
   const handleSubmit = async () => {
-    try {
+    // try {
       const values = await form.validateFields();
 
-      if (editinghotelinfo) {
-        const updatedData = {
-          name: values.name,
-          count: values.count,
-        };
-
-        await putDataByID(editinghotelinfo._id, updatedData);
-
-        const updatedhotel = hotelinfo.map((hotell) => {
-          if (hotell._id === editinghotelinfo._id) {
-            return {
-              ...hotell,
-              ...updatedData,
-            };
-          }
-          return hotell;
-        });
-
-        sethotelinfo(updatedhotel);
-      } else {
 
         const newHotel = {
           name: values.name,
@@ -103,12 +123,12 @@ function Homeadmin() {
 
 
         handleCloseModal();
-      }
-      await Hotelinfo();
-    } catch (error) {
-      console.error('Failed to save hotel entry:', error);
-    }
+      // }
+      // await Hotelinfo();
+
   };
+
+
 
   const columns = [
     {
@@ -122,10 +142,22 @@ function Homeadmin() {
       key: 'count',
     },
     {
-      title: 'Edit',
-      key: 'edit',
-      render: (_, record) => (
-        <Button type="primary" onClick={() => handleOpenModal(record)}>
+      title: "Edit",
+      dataIndex: "",
+      key: "edit",
+      render: (text, record) => (
+        <Button
+          style={{
+            background: "#1677ff",
+            color: "white",
+            width: 80,
+            height: 40,
+            fontFamily: "chillax-regular",
+          }}
+          onClick={() => {
+            handleEditData(record)
+          }}
+        >
           Edit
         </Button>
       ),

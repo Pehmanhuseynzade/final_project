@@ -40,7 +40,7 @@ const aboutModelController = {
       },
     edit:async(req,res)=>{
       const id = req.params.id
-      const {desc1,desc2} = req.body
+      const {desc1,desc2,aboutimage} = req.body
       const put = {
         desc1:desc1,
         desc2:desc2,
