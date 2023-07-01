@@ -52,9 +52,9 @@ function Logins() {
             key: 'username',
         },
         {
-            title: 'Password',
-            dataIndex: 'password',
-            key: 'password',
+            title: 'E-mail',
+            dataIndex: 'email',
+            key: 'email',
         },
         {
             title: 'Delete',

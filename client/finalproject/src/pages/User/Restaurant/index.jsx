@@ -39,7 +39,7 @@ function Restaurant() {
           <div key={resitem._id}>
             {idx % 2 ? (<div className='res-sect-1'>
               <div className='image'>
-                <img className='img' src={resitem.resimg} alt="resimage1" />
+                <img className='img' src={resitem.resimg}  />
               </div>
               <div className='text'>
                 <h2 className='h2'>{resitem.resname}</h2>
@@ -53,7 +53,7 @@ function Restaurant() {
                 <p >{resitem.resdesc}</p>
               </div>
               <div className='image'>
-                <img className='img' src={resitem.resimg} alt="resimage1" />
+                <img className='img' src={resitem.resimg}  />
               </div>
             </div>)}
           </div>

@@ -22,7 +22,7 @@ function Entertainment() {
         <>
             <div className='main-sec-ent'>
                 <img className='ent-main-image' src="" alt="entertainment" />
-                <h1 className='entertaiment-h1'>Əyləncə</h1>
+                <h1  className='entertaiment-h1'>Əyləncə</h1>
                 <p className='p-info'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir.Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz</p>
                 <p className='p-info-bold'>Boulinq zalı • Bilyard otağı • Gecə klubu • Karaoke launç • Kitabxana • Kinozal • Stolüstü tennis • Əyləncəli oyun aparatları • Uşaqlar üçün əyləncə mərkəzi • Lazerstrayk • Playstation • Katamaran</p>
                 <div className='ent-info'>
@@ -72,7 +72,7 @@ function Entertainment() {
                 <div className='ent-images'>
                     {entmentimg && entmentimg.map((entimgitem) => (
                         <div key={entimgitem._id} className='img-2'>
-                            <img className='entimages' src={entimgitem.entmentimgs} alt="entimage1" />
+                            <img className='entimages' src={entimgitem.entmentimgs} />
                             <div class="overlay">
                             </div>
                         </div>

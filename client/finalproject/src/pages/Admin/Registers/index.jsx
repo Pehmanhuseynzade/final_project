@@ -37,11 +37,7 @@ function Registers() {
             dataIndex: 'email',
             key: 'email',
         },
-        {
-            title: 'Password',
-            dataIndex: 'password',
-            key: 'password',
-        }
+        
 
     ];
     return (

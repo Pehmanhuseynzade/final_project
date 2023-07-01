@@ -18,7 +18,7 @@ function Media() {
         <div className='media-images'>
           {media && media.map((image) => (
             <div key={image._id} className='img-1'>
-              <img className='mediaimages' src={image.mediaimage} alt="mediaimage1" />
+              <img className='mediaimages' src={image.mediaimage}  />
               <div class="overlay">
               </div>
             </div>

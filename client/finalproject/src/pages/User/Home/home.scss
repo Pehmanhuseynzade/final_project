@@ -56,7 +56,7 @@
         }
         .line{
             background: linear-gradient(90deg, #ffffff, #9c7441);
-            width: 30%;
+            width: 50%;
             padding: 1px;
             // margin-left: 3px;
         }
@@ -117,6 +117,7 @@
         .h2 {
           width: 100%;
           font-size: 1.8rem;
+          text-align: center;
         }
         
         .text-p {
@@ -131,6 +132,7 @@
           width: 120px;
           height: 40px;
           font-size: 0.9rem;
+          margin-bottom: 10px;
         }
       }
     }
@@ -148,6 +150,7 @@
           .h2 {
             width: 100%;
             font-size: 1.8rem;
+            text-align: center;
           }
           
           .text-p {
@@ -162,6 +165,8 @@
             width: 120px;
             height: 40px;
             font-size: 0.9rem;
+          margin-bottom: 10px;
+
           }
         }
       }
@@ -179,6 +184,8 @@
           .h2 {
             width: 100%;
             font-size: 1.8rem;
+            text-align: center;
+
           }
           
           .text-p {
@@ -193,6 +200,8 @@
             width: 120px;
             height: 40px;
             font-size: 0.9rem;
+          margin-bottom: 10px;
+
           }
         }
       }
@@ -216,6 +225,8 @@
             width: 100%;
             max-width: none;
             font-size: 0.9rem;
+            text-align: center;
+
           }
           
           .btnn {
@@ -224,6 +235,8 @@
             width: 120px;
             height: 40px;
             font-size: 0.9rem;
+          margin-bottom: 10px;
+
           }
         }
       }
@@ -241,6 +254,7 @@
           .h2 {
             width: 100%;
             font-size: 1.8rem;
+            text-align: center;
           }
           
           .text-p {
@@ -255,6 +269,8 @@
             width: 120px;
             height: 40px;
             font-size: 0.9rem;
+          margin-bottom: 10px;
+
           }
         }
       }
@@ -272,6 +288,7 @@
           .h2 {
             width: 100%;
             font-size: 1.8rem;
+            text-align: center;
           }
           
           .text-p {
@@ -286,6 +303,8 @@
             width: 120px;
             height: 40px;
             font-size: 0.9rem;
+          margin-bottom: 10px;
+
           }
         }
       }
@@ -314,12 +333,18 @@
       
       .text {
         .h2 {
+          text-align: center;
           font-size: 1.9rem;
         }
         
         .text-p {
           max-width: 550px;
           font-size: 1.1rem;
+        }
+        .linee{
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         .btnn{
           display: flex;
@@ -339,11 +364,17 @@
         .text {
           .h2 {
             font-size: 1.9rem;
+            text-align: center;
           }
           
           .text-p {
             max-width: 550px;
             font-size: 1.1rem;
+          }
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .btnn{
             display: flex;
@@ -363,11 +394,17 @@
         .text {
           .h2 {
             font-size: 1.9rem;
+            text-align: center;
           }
           
           .text-p {
             max-width: 550px;
             font-size: 1.1rem;
+          }
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .btnn{
             display: flex;
@@ -387,8 +424,13 @@
         .text {
           .h2 {
             font-size: 1.9rem;
+            text-align: center;
           }
-          
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
           .text-p {
             max-width: 550px;
             font-size: 1.1rem;
@@ -411,8 +453,13 @@
         .text {
           .h2 {
             font-size: 1.9rem;
+            text-align: center;
           }
-          
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
           .text-p {
             max-width: 550px;
             font-size: 1.1rem;
@@ -425,21 +472,21 @@
         }
       }
       .sect-7 {
-        // .image {
-        //   .img {
-        //     width: 100%;
-        //     height: auto;
-        //   }
-        // }
         
         .text {
           .h2 {
             font-size: 1.9rem;
+            text-align: center;
           }
           
           .text-p {
             max-width: 550px;
             font-size: 1.1rem;
+          }
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .btnn{
             display: flex;
@@ -464,8 +511,13 @@
       .text {
         .h2 {
           font-size: 2rem;
+          text-align: center;
         }
-        
+        .linee{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
         .text-p {
           max-width: 600px;
           font-size: 1.2rem;
@@ -482,7 +534,11 @@
           .h2 {
             font-size: 2rem;
           }
-          
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
           .text-p {
             max-width: 600px;
             font-size: 1.2rem;
@@ -498,11 +554,17 @@
         .text {
           .h2 {
             font-size: 2rem;
+            text-align: center;
           }
           
           .text-p {
             max-width: 600px;
             font-size: 1.2rem;
+          }
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .btnn{
             display: flex;
@@ -515,11 +577,17 @@
         .text {
           .h2 {
             font-size: 2rem;
+            text-align: center;
           }
           
           .text-p {
             max-width: 600px;
             font-size: 1.2rem;
+          }
+          .linee{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .btnn{
             display: flex;
@@ -532,12 +600,19 @@
         .text {
           .h2 {
             font-size: 2rem;
+            text-align: center;
+
           }
           
           .text-p {
             max-width: 600px;
             font-size: 1.2rem;
           }
+          // .linee{
+          //   display: flex;
+          //   justify-content: center;
+          //   align-items: center;
+          // }
           .btnn{
             display: flex;
             justify-content: center;
@@ -549,8 +624,9 @@
         .text {
           .h2 {
             font-size: 2rem;
+            text-align: center;
           }
-          
+
           .text-p {
             max-width: 600px;
             font-size: 1.2rem;
@@ -562,4 +638,11 @@
           }
         }
       }
+  }
+  .h2 {
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
   }

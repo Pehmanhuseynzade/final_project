@@ -31,7 +31,7 @@ function Parties() {
                             <p className='p' >{partiesitem.partiesdesc2}</p>
                         </div>
                         <div className='image'>
-                            <img className='img' src={partiesitem.partiesimg} alt="partie" />
+                            <img className='img' src={partiesitem.partiesimg}  />
                         </div>
                     </div>
                 ))}
@@ -40,7 +40,7 @@ function Parties() {
                 <div className='parties-images'>
                     {partiesimg && partiesimg.map((partiesimgitem) => (
                         <div key={partiesimgitem._id} className='img-1'>
-                            <img className='partieimages' src={partiesimgitem.partieimg} alt="partieimage1" />
+                            <img className='partieimages' src={partiesimgitem.partieimg}  />
                             <div class="overlay">
                             </div>
                         </div>

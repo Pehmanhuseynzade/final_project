@@ -34,7 +34,7 @@ function Footer() {
             <Link to='https://www.linkedin.com/company/marxal-resort-and-spa-hotel/?originalSubdomain=ru' className='circle'><i className="fa-brands fa-linkedin-in"></i></Link>
             <Link to='https://www.youtube.com/channel/UC453HCc6k0_zzwhu2zd-cOg' className='circle'><i className="fa-brands fa-youtube"></i></Link>
           </div>
-          <p>Marxal Resort & Spa, Azərbaycan, Şəki</p>
+          <p style={{paddingTop:"10px"}}>Marxal Resort & Spa, Azərbaycan, Şəki</p>
           <Link>
             <p>Tel: +994 (12) 585 35 85</p>
           </Link>

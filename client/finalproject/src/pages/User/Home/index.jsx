@@ -38,22 +38,22 @@ function Home() {
           navigation={true}
         >
           <SwiperSlide>
-            <img src="https://www.marxalresort.az/assets/images/marxal-2000x1355.jpg" alt="marxal1" />
-            <p>BEYNƏLXALQ STANDARTLAR VƏ ŞƏRQ QONAQPƏRVƏRLİYİ</p>
+            <img className='marxal-img' src="https://www.marxalresort.az/assets/images/marxal-2000x1355.jpg" alt="marxal1" />
+            <p >BEYNƏLXALQ STANDARTLAR VƏ ŞƏRQ QONAQPƏRVƏRLİYİ</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://www.marxalresort.az/assets/images/img-2719-hdr-3-1280x851.jpg" alt="marxal2" />
+            <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2719-hdr-3-1280x851.jpg" alt="marxal2" />
             <p className="p">Sadəlik və Zəriflik</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://www.marxalresort.az/assets/images/img-2697-edit-2000x1297.jpg" alt="marxal2" />
+            <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2697-edit-2000x1297.jpg" alt="marxal2" />
             <p className="p-1">İSTİRAHƏTİNİZİ UNUDULMAZ ETMƏK ÜÇÜN ÖZƏL VƏ FƏRDİ XİDMƏTLƏRİN SEÇİM GENİŞLİYİ</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="https://www.marxalresort.az/assets/images/img-2612-2000x1333.jpg" alt="marxal4" />
+            <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2612-2000x1333.jpg" alt="marxal4" />
             <p className="p-2">MÜXTƏLİF ÖLKƏLƏRDƏN VƏ MƏDƏNİYYƏTLƏRDƏN DƏBDƏBƏLİ QURMAN MƏTBƏXTLƏRİNİN DADI VƏ MÜASİR YEMƏK TƏRTİBATLAR</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
@@ -80,7 +80,7 @@ function Home() {
         </div>
         <div className='text'>
           <h2 className='h2'>İstirahət Kompleksimizə xoş gəlmişsiniz</h2>
-          <div className='line'></div>
+        <div className='line'></div>
           <p className='text-p'>Azərbaycanın ən yaxşı otellərindən biri Marxal Resort & Spa füsunkarlığıyla 5 ulduzlu məkanın lüks və rahatlığını özündə birləşdirir. İçəri addımladığınız ilk andan bura Sizi özü ilə uzaqlara aparır. Bu otelin qüsursuz qonaqsevərliyi Sizə səfəriniz boyunca öz evinizdə olduğu kimi əziz qonaq hissini verəcək.</p>
           <Link to='about'><button className='btnn'>Ətraflı</button></Link>
         </div>
