@@ -6,6 +6,8 @@ import "./homeadmin.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 import axios from 'axios';
 function Homeadmin() {
   const [hotelinfo, sethotelinfo] = useState([]);
@@ -22,12 +24,12 @@ function Homeadmin() {
     }
   };
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   useEffect(() => {
     Hotelinfo();
   }, [hotelinfo]);
@@ -53,7 +55,7 @@ function Homeadmin() {
       preConfirm: () => {
         const editedCount = Swal.getPopup().querySelector("#edit-count").value;
         const editedName = Swal.getPopup().querySelector("#edit-name").value;
-  
+
         if (!editedCount || !editedName) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
@@ -67,7 +69,7 @@ function Homeadmin() {
       if (result.isConfirmed) {
         const editedData = result.value;
         console.log("Edited Data:", editedData);
-  
+
         try {
           await axios.put(`http://localhost:7576/api/infomarxal/${record._id}`, editedData);
           // fetchData();
@@ -78,7 +80,7 @@ function Homeadmin() {
       }
     });
   };
-  
+
 
   const handleCloseModal = () => {
     setEditinghotelinfo(null);
@@ -109,22 +111,21 @@ function Homeadmin() {
   };
 
   const handleSubmit = async () => {
-    // try {
-      const values = await form.validateFields();
+    const values = await form.validateFields();
 
 
-        const newHotel = {
-          name: values.name,
-          count: values.count,
-        };
+    const newHotel = {
+      name: values.name,
+      count: values.count,
+    };
 
-        await getPost(newHotel);
+    await getPost(newHotel);
 
 
 
-        handleCloseModal();
-      // }
-      // await Hotelinfo();
+    handleCloseModal();
+    // }
+    // await Hotelinfo();
 
   };
 
@@ -175,7 +176,15 @@ function Homeadmin() {
 
   return (
     <>
-        <div style={{ marginLeft: '220px' }}>
+      <Helmet>
+        <title>Counts</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add

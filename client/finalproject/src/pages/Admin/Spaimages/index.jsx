@@ -6,6 +6,7 @@ import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
 
 function Spaimages() {
   const [spaimg, setSpaimgs] = useState([]);
@@ -14,7 +15,7 @@ function Spaimages() {
   const [form] = Form.useForm();
 
 
-  
+
   const Spas = async () => {
     try {
       const spaData = await getspaimagesdatas();
@@ -29,12 +30,12 @@ function Spaimages() {
   }, [spaimg]);
 
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
 
 
   const handleOpenModal = (spa) => {
@@ -121,7 +122,7 @@ function Spaimages() {
       title: 'Spa Images',
       dataIndex: 'spaimg',
       key: 'spaimg',
-      render: img =><img src={img} alt="spaimg" style={{width:"220px",height:"150px"}} />   
+      render: img => <img src={img} alt="spaimg" style={{ width: "220px", height: "150px" }} />
     },
     {
       title: 'Edit',
@@ -145,9 +146,17 @@ function Spaimages() {
 
   return (
     <>
+      <Helmet>
+        <title>Spa Images</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
+          <button onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
           </button>
         </div>

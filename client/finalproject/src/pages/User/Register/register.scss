@@ -10,7 +10,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        input{
+            background-color: rgba(255, 255, 255, 0.824);
+        }
         .form-register {
             margin-top: 300px;
             background-color: #ffffff66;

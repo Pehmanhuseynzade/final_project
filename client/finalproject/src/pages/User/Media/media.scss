@@ -1,12 +1,10 @@
 .all-media {
   background-color: #1a1818;
-  padding-top: 120px;
-  padding-top: 20px;
+  padding-top: 160px;
   color: white;
   text-align: center;
-
   @media (max-width: 1008px) {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 }
 

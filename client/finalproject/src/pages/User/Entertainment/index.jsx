@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./entertainment.scss"
 import { getentmentdatas, getentmentimgdatas } from '../../../api/httpsrequests'
 import { SRLWrapper } from "simple-react-lightbox";
+import { Helmet } from "react-helmet";
 
 function Entertainment() {
     const [entment, setEntment] = useState([])
@@ -20,11 +21,19 @@ function Entertainment() {
     }, [])
     return (
         <>
+            <Helmet>
+                <title>Entertainment</title>
+                <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+                <meta
+                    name="description"
+                    content="Beginner friendly page for learning React Helmet."
+                />
+            </Helmet>
             <div className='main-sec-ent'>
-                <img className='ent-main-image' src="" alt="entertainment" />
-                <h1  className='entertaiment-h1'>Əyləncə</h1>
-                <p className='p-info'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir.Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz</p>
-                <p className='p-info-bold'>Boulinq zalı • Bilyard otağı • Gecə klubu • Karaoke launç • Kitabxana • Kinozal • Stolüstü tennis • Əyləncəli oyun aparatları • Uşaqlar üçün əyləncə mərkəzi • Lazerstrayk • Playstation • Katamaran</p>
+                {/* <img className='ent-main-image' src="" alt="entertainment" /> */}
+                <h1 className='entertaiment-h1'> </h1>
+                {/* <p className='p-info'>Bizim Kompleks qonaqlarına müasir avadanlıqlarla təchiz olunmuş, peşəkar heyət və ləziz mətbəxi ilə bir neçə restoran təqdim edir.Siz bizim restoranlarımızda milli və xarici mətbəxin təamlarını dada bilərsiniz</p>
+                <p className='p-info-bold'>Boulinq zalı • Bilyard otağı • Gecə klubu • Karaoke launç • Kitabxana • Kinozal • Stolüstü tennis • Əyləncəli oyun aparatları • Uşaqlar üçün əyləncə mərkəzi • Lazerstrayk • Playstation • Katamaran</p> */}
                 <div className='ent-info'>
                     <div>
                         <img className='ent' src="https://www.marxalresort.az/assets/images/800x533-578x385.jpg" alt="ent1" />
@@ -46,7 +55,7 @@ function Entertainment() {
                     <div key={entmentitem._id}>
                         {idx % 2 ? (<div className='entment-sect-1'>
                             <div className='image'>
-                                <img className='img'  src={entmentitem.entmentimg} alt="entmentimage1" />
+                                <img className='img' src={entmentitem.entmentimg} alt="entmentimage1" />
                             </div>
                             <div className='text'>
                                 <h2 className='h2'>{entmentitem.entmentname}</h2>

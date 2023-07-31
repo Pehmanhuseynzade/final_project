@@ -1,5 +1,4 @@
-Common styles
-#app {
+Common styles #app {
   height: 100%;
 }
 
@@ -13,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Swiper styles */
 .swiper {
   width: 100%;
@@ -38,50 +38,48 @@ body {
 }
 
 
-.swiper-slide p {
+.swiper-slide .standarts {
   position: absolute;
-  top: 120px;
+  top: 140px;
   color: white;
-  font-family: 'Caudex', serif;
   font-size: 2rem;
   width: 100%;
   max-width: 1090px;
   margin: 20px auto 0;
 }
 
-.swiper-slide .p {
+.secondswiper {
   position: absolute;
-  top: 120px;
-  right: 40px;
+  top: 260px;
+  left: 300px;
   color: white;
-  font-family: 'Caudex', serif;
   font-size: 37px;
-  margin: 10px auto 0;
+  /* margin: 10px auto 0; */
 }
 
-.swiper-slide .p-1 {
+.swiper-slide .thirdswipper {
   position: absolute;
-  font-family: 'Poppins', sans-serif;
-  top: 120px;
-  right: 40px;
+  top: 160px;
+  right: 170px;
   color: white;
   font-size: 20px;
   margin: 10px auto 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.swiper-slide .p-2 {
+.swiper-slide .last-swipper {
   position: absolute;
-  top: 120px;
-  right: 40px;
+  top: 150px;
+  right: 80px;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 21px;
   margin: 10px auto 0;
 }
 
 .swiper-slide .res-btn {
   position: absolute;
-  top: 250px;
+  top: 400px;
   width: 150px;
   height: 45px;
   border: none;
@@ -90,6 +88,7 @@ body {
   background-color: #ffffff66;
   font-family: 'Poppins', sans-serif;
   transition: 0.5s;
+  padding-bottom: 30px;
 }
 
 .swiper-slide .res-btn:hover {
@@ -106,31 +105,31 @@ body {
     /* padding-top: 80px; */
   }
 
-  .swiper-slide p {
+  .swiper-slide .standarts {
     top: 80px;
     font-size: 1.5rem;
   }
 
-  .swiper-slide .p {
+  .swiper-slide .secondswiper {
     top: 80px;
     right: 20px;
     font-size: 28px;
   }
 
-  .swiper-slide .p-1 {
+  .swiper-slide .thirdswipper {
     top: 80px;
     right: 20px;
     font-size: 18px;
   }
 
-  .swiper-slide .p-2 {
+  .swiper-slide .last-swipper  {
     top: 80px;
     right: 20px;
     font-size: 18px;
   }
 
   .swiper-slide .res-btn {
-    top: 180px;
+    top: 280px;
     width: 120px;
     height: 35px;
     right: 150px;
@@ -144,34 +143,34 @@ body {
     /* padding-top: 100px; */
   }
 
-  .swiper-slide p {
+  .swiper-slide .standarts {
     top: 100px;
     font-size: 1.8rem;
   }
 
-  .swiper-slide .p {
+  .swiper-slide .secondswiper {
     top: 100px;
     right: 30px;
     font-size: 32px;
   }
 
-  .swiper-slide .p-1 {
+  .swiper-slide .thirdswipper {
     top: 100px;
     right: 30px;
     font-size: 19px;
   }
 
-  .swiper-slide .p-2 {
+  .swiper-slide .last-swipper  {
     top: 100px;
     right: 30px;
     font-size: 19px;
   }
 
   .swiper-slide .res-btn {
-    top: 180px;
-    width: 130px;
-    height: 40px;
-    right: 180px;
+    top: 280px;
+    width: 120px;
+    height: 35px;
+    right: 150px;
   }
 }
 
@@ -182,33 +181,42 @@ body {
     /* padding-top: 120px; */
   }
 
-  .swiper-slide p {
+  .swiper-slide .standarts {
     top: 120px;
     font-size: 2rem;
   }
 
-  .swiper-slide .p {
+  .swiper-slide .secondswiper {
     top: 120px;
     right: 40px;
     font-size: 37px;
   }
 
-  .swiper-slide .p-1 {
+  .swiper-slide .thirdswipper {
     top: 120px;
     right: 40px;
     font-size: 20px;
   }
 
-  .swiper-slide .p-2 {
+  .swiper-slide .last-swipper  {
     top: 120px;
     right: 40px;
     font-size: 21px;
   }
 
   .swiper-slide .res-btn {
-    top: 220px;
-    width: 150px;
-    height: 45px;
-    right: 200px;
+    top: 280px;
+    width: 120px;
+    height: 35px;
+    right: 150px;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 577px){
+  .swiper-slide .res-btn {
+    top: 300px;
+    width: 120px;
+    height: 35px;
+    right: 110px;
   }
 }

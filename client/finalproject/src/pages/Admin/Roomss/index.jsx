@@ -6,18 +6,20 @@ import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 function Roomss() {
   const [roomsadmin, setroomsadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingrooms, setEditingrooms] = useState(null);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const Roomspage = async () => {
     try {
       const roomsData = await getroomsdatas();
@@ -179,7 +181,15 @@ function Roomss() {
 
   return (
     <>
-          <div style={{ marginLeft: '150px' }}>
+      <Helmet>
+        <title>Rooms</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '150px' }}>
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '600px', marginTop: '60px' }}>
             Add

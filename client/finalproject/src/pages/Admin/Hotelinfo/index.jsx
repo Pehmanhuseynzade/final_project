@@ -6,24 +6,26 @@ import { Table, Button, Modal, Form, Input, DatePicker } from 'antd';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 function Hotelinfo() {
   const [hotelinfoadmin, sethotelinfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editinghotelinfo, setEditinghotelinfo] = useState(null);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const hotelpage = async () => {
     try {
       const hotelinfoData = await getreservemdatas();
       sethotelinfoadmin(hotelinfoData);
       console.log(hotelinfoadmin)
-        } catch (error) {
+    } catch (error) {
       console.error('Failed to retrieve Hotelinfo entries:', error);
     }
   };
@@ -38,13 +40,13 @@ function Hotelinfo() {
     form.setFieldsValue({
       type: marxal?.type || '',
       nameroom: marxal?.nameroom || '',
-      imageroom:marxal?.imageroom || '',
-      price:marxal?.price || '',
-      personcount:marxal?.personcount || '',
-      capacity:marxal?.capacity || '',
-      countroom:marxal?.countroom || '',
-      start:marxal?.start || '',
-      end:marxal?.end || '',
+      imageroom: marxal?.imageroom || '',
+      price: marxal?.price || '',
+      personcount: marxal?.personcount || '',
+      capacity: marxal?.capacity || '',
+      countroom: marxal?.countroom || '',
+      start: marxal?.start || '',
+      end: marxal?.end || '',
     });
   };
 
@@ -147,7 +149,7 @@ function Hotelinfo() {
       title: 'Image',
       dataIndex: 'imageroom',
       key: 'imageroom',
-      render: img =><img src={img} alt="Hotel Image" style={{width:"200px",height:"150px"}} />   
+      render: img => <img src={img} alt="Hotel Image" style={{ width: "200px", height: "150px" }} />
     },
     {
       title: 'Price',
@@ -200,7 +202,15 @@ function Hotelinfo() {
   ];
   return (
     <>
-              <div style={{ marginLeft: '40px' }}>
+      <Helmet>
+        <title>Hotel Info</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '40px' }}>
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '100px', marginTop: '60px' }}>
             Add
@@ -266,19 +276,19 @@ function Hotelinfo() {
                 <Input />
               </Form.Item>
               <Form.Item
-              label="Bitiş Tarihi"
-              name="start"
-              rules={[{ required: true, message: 'Lütfen baslangic tarihini seçin' }]}
-            >
-              <DatePicker format="DD-MM-YYYY" />
-            </Form.Item>
-            <Form.Item
-              label="Bitiş Tarihi"
-              name="end"
-              rules={[{ required: true, message: 'Lütfen bitiş tarihini seçin' }]}
-            >
-              <DatePicker format="DD-MM-YYYY" />
-            </Form.Item>
+                label="Bitiş Tarihi"
+                name="start"
+                rules={[{ required: true, message: 'Lütfen baslangic tarihini seçin' }]}
+              >
+                <DatePicker format="DD-MM-YYYY" />
+              </Form.Item>
+              <Form.Item
+                label="Bitiş Tarihi"
+                name="end"
+                rules={[{ required: true, message: 'Lütfen bitiş tarihini seçin' }]}
+              >
+                <DatePicker format="DD-MM-YYYY" />
+              </Form.Item>
             </Form>
           </Modal>
         </div>

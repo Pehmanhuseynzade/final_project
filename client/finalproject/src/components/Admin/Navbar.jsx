@@ -98,12 +98,12 @@ export default function Navbar() {
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'user signed out successfully!',
+                title: 'Admin signed out successfully!',
                 showConfirmButton: false,
                 timer: 1200
               })
               setAdmin(null);
-              navigate('/loginadmin');
+              navigate('/');
             }}
 
               style={{ color: 'white', fontSize: "17px" }} className='logout'><i className="fa-solid fa-right-from-bracket"></i></Button>

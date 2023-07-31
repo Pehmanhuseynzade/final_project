@@ -4,7 +4,9 @@ import { Modal, Input, Form, DatePicker, message } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getreservemdatas, reservepost } from '../../../api/httpsrequests';
 import axios from 'axios';
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+
 function Reserveroom() {
   const { id } = useParams();
   const [reserverooms, setReserverooms] = useState([]);
@@ -23,13 +25,13 @@ function Reserveroom() {
     }
   };
 
-  const getData = async () =>{
+  const getData = async () => {
     const res = axios.get("http://localhost:7576/api/userss")
     setUser(res.data)
   }
-  useEffect(()=>{
+  useEffect(() => {
     getData()
-  },[])
+  }, [])
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -67,7 +69,7 @@ function Reserveroom() {
       Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Otaq bron edildi',
         showConfirmButton: false,
         timer: 1500
       })
@@ -98,11 +100,15 @@ function Reserveroom() {
 
   return (
     <>
+      <Helmet>
+        <title>Reserve</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div className="title-reserv">
-        <div>
-          <div className="line"></div>
-        </div>
-        <p>Aşağıdakı formadan istifadə edərək otaqlarımızı onlayn və zəmanətli sifariş edə bilərsiniz.</p>
       </div>
       <div className="reservepage">
         <div className="second-div-reserve">
@@ -141,7 +147,7 @@ function Reserveroom() {
                       ) : (
                         <button
                           onClick={() => {
-                            if (!localStorage.getItem("token")){
+                            if (!localStorage.getItem("token")) {
                               navigate("/registerr")
                             }
                             handleOpenModal();
@@ -167,19 +173,21 @@ function Reserveroom() {
           visible={modalOpen}
           onCancel={handleCloseModal}
           footer={[
-            <button
-              key="cancel"
-              onClick={() => {
-                handleCloseModal();
-                setSelectedRoomId('');
-                localStorage.removeItem('selectedRoomId');
-              }}
-            >
-              İmtina et
-            </button>,
-            <button key="submit" type="primary" onClick={handleSubmit}>
-              Bron et
-            </button>,
+            <div style={{display:"flex",gap:"10px"}}>
+              <button
+                key="cancel"
+                onClick={() => {
+                  handleCloseModal();
+                  setSelectedRoomId('');
+                  localStorage.removeItem('selectedRoomId');
+                }}
+              >
+                İmtina et
+              </button>,
+              <button key="submit" type="primary" onClick={handleSubmit}>
+                Bron et
+              </button>,
+            </div>
           ]}
         >
           <Form form={form} layout="vertical">

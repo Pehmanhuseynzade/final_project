@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
 import Swal from 'sweetalert2';
 import "./ent.scss"
-
+import { Helmet } from "react-helmet";
 
 function Ent() {
   const [entadmin, setentadmin] = useState([]);
@@ -14,12 +14,12 @@ function Ent() {
   const [editingent, setEditingent] = useState(null);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const Entpage = async () => {
     try {
       const entData = await getentmentdatas();
@@ -39,7 +39,7 @@ function Ent() {
     form.setFieldsValue({
       entmentname: entment?.entmentname || '',
       entmentdesc: entment?.entmentdesc || '',
-      entmentimg:entment?.entmentimg || ''
+      entmentimg: entment?.entmentimg || ''
     });
   };
 
@@ -131,7 +131,7 @@ function Ent() {
       title: 'Entertainment Images',
       dataIndex: 'entmentimg',
       key: 'entmentimg',
-      render: img =><img src={img} alt="entertainmentimage" style={{width:"220px",height:"150px"}} />   
+      render: img => <img src={img} alt="entertainmentimage" style={{ width: "220px", height: "150px" }} />
     },
     {
       title: 'Edit',
@@ -155,9 +155,17 @@ function Ent() {
 
   return (
     <>
-              <div style={{ marginLeft: '220px' }}>
+      <Helmet>
+        <title>Entertainment</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
+          <button onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
           </button>
         </div>

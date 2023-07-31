@@ -2,7 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import "./contact.scss"
+import "./contact.scss";
+import { Helmet } from "react-helmet";
+
 function Contact() {
 
   const formik = useFormik({
@@ -25,7 +27,7 @@ function Contact() {
       messages: Yup.string().required('Required')
     }),
     onSubmit: values => {
-      axios.post('http://localhost:7576/api/form', values)
+      axios.post('http://localhost:7576/api/contactus', values)
         .then(response => {
           console.log('Post request successful');
           console.log(response.data);
@@ -39,6 +41,14 @@ function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div className="main-sec-contact">
         <img
           className="contact-main-image"
@@ -110,11 +120,11 @@ function Contact() {
               className="message"
             />
           </div>
-           <div className='submit-body'>
-           <button type="submit" className="form-btn">
-            Göndər
-          </button>
-           </div>
+          <div className='submit-body'>
+            <button type="submit" className="form-btn">
+              Göndər
+            </button>
+          </div>
         </form>
       </div>
     </>

@@ -5,6 +5,8 @@ import { Table, Button, Modal, Form, Input } from 'antd';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 import axios from 'axios';
 function Entimg() {
   const [entimgadmin, setentimgadmin] = useState([]);
@@ -12,12 +14,12 @@ function Entimg() {
   const [editingentimg, setEditingentimg] = useState(null);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const Entimgpage = async () => {
     try {
       const entimgData = await getentmentimgdatas();
@@ -49,20 +51,20 @@ function Entimg() {
       showCancelButton: true,
       confirmButtonText: "Save",
       preConfirm: () => {
-        const editedentmentnameimg = Swal.getPopup().querySelector("#edit-entmentimgs").value;  
+        const editedentmentnameimg = Swal.getPopup().querySelector("#edit-entmentimgs").value;
         if (!editedentmentnameimg) {
           Swal.showValidationMessage("Please fill in all fields");
           return false;
         }
         return {
           count: editedentmentnameimg
-            };
+        };
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
         const editedData = result.value;
         console.log("Edited Data:", editedData);
-  
+
         try {
           await axios.put(`http://localhost:7576/api/entmentimg/${record._id}`, editedData);
           // fetchData();
@@ -163,13 +165,21 @@ function Entimg() {
   ];
   return (
     <>
+      <Helmet>
+        <title>Enttertainment images</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
+          <button onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add
           </button>
         </div>
-        <div style={{ width: '70%', marginLeft: '180px',marginTop:"30px"}}>
+        <div style={{ width: '70%', marginLeft: '180px', marginTop: "30px" }}>
           <Table columns={columns} dataSource={entimgadmin} />
 
           <Modal

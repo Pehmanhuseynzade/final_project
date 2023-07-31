@@ -3,6 +3,8 @@ import "./rooms.scss"
 import { getroominfodatas, getroomsdatas } from '../../../api/httpsrequests'
 import { SRLWrapper } from "simple-react-lightbox";
 import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
+
 function Rooms() {
   const [roominfo, setRoominfo] = useState([])
   const [room, setRoom] = useState([])
@@ -21,7 +23,14 @@ function Rooms() {
   }, [])
   return (
     <>
-
+        <Helmet>
+          <title>Rooms</title>
+          <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+          <meta
+            name="description"
+            content="Beginner friendly page for learning React Helmet."
+          />
+        </Helmet>
       <div>
         {roominfo && roominfo.map((roominfoitem) => (
           <div key={roominfoitem._id} className='room-info'>
@@ -40,22 +49,22 @@ function Rooms() {
             <SRLWrapper>
               <div className='img-1'>
                 <div className='image-div'>
-                  <img className='roomimages' src={roomitem.roomimg1} alt="roomimage1" />
+                  <img className='roomimages' src={roomitem.roomimg1} />
                   <div class="overlay">
                   </div>
                 </div>
                 <div className='image-div'>
-                  <img className='roomimages' src={roomitem.roomimg2} alt="roomimage2" />
+                  <img className='roomimages' src={roomitem.roomimg2} />
                   <div class="overlay">
                   </div>
                 </div>
                 <div className='image-div'>
-                  <img className='roomimages' src={roomitem.roomimg3} alt="roomimage3" />
+                  <img className='roomimages' src={roomitem.roomimg3} />
                   <div class="overlay">
                   </div>
                 </div>
                 <div className='image-div'>
-                  <img className='roomimages' src={roomitem.roomimg4} alt="roomimage4" />
+                  <img className='roomimages' src={roomitem.roomimg4} />
                   <div class="overlay">
                   </div>
                 </div>

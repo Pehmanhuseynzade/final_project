@@ -10,9 +10,10 @@ import { useState } from 'react';
 import { getInfodatas } from '../../../api/httpsrequests';
 import CountUp from "react-countup"
 import ScrollTrigger from "react-scroll-trigger"
+import { Helmet } from "react-helmet";
 
 function Home() {
-
+  const [counterOn,setCounterOn]=useState(false)
   const [info, setInfo] = useState([])
   // const [counterOn,setCounterOn] = useState(false)
   useEffect(() => {
@@ -24,6 +25,14 @@ function Home() {
 
   return (
     <>
+        <Helmet>
+          <title>Home</title>
+          <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+          <meta
+            name="description"
+            content="Beginner friendly page for learning React Helmet."
+          />
+        </Helmet>
       <div className='padding'>
         <Swiper
           pagination={{
@@ -39,22 +48,22 @@ function Home() {
         >
           <SwiperSlide>
             <img className='marxal-img' src="https://www.marxalresort.az/assets/images/marxal-2000x1355.jpg" alt="marxal1" />
-            <p >BEYNƏLXALQ STANDARTLAR VƏ ŞƏRQ QONAQPƏRVƏRLİYİ</p>
+            <p className='standarts' >BEYNƏLXALQ STANDARTLAR VƏ ŞƏRQ QONAQPƏRVƏRLİYİ</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2719-hdr-3-1280x851.jpg" alt="marxal2" />
-            <p className="p">Sadəlik və Zəriflik</p>
+            <p className="secondswiper">Sadəlik və Zəriflik</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2697-edit-2000x1297.jpg" alt="marxal2" />
-            <p className="p-1">İSTİRAHƏTİNİZİ UNUDULMAZ ETMƏK ÜÇÜN ÖZƏL VƏ FƏRDİ XİDMƏTLƏRİN SEÇİM GENİŞLİYİ</p>
+            <p className="thirdswipper">İSTİRAHƏTİNİZİ UNUDULMAZ ETMƏK ÜÇÜN ÖZƏL VƏ FƏRDİ XİDMƏTLƏRİN SEÇİM GENİŞLİYİ</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
           <SwiperSlide>
             <img className='marxal-img' src="https://www.marxalresort.az/assets/images/img-2612-2000x1333.jpg" alt="marxal4" />
-            <p className="p-2">MÜXTƏLİF ÖLKƏLƏRDƏN VƏ MƏDƏNİYYƏTLƏRDƏN DƏBDƏBƏLİ QURMAN MƏTBƏXTLƏRİNİN DADI VƏ MÜASİR YEMƏK TƏRTİBATLAR</p>
+            <p className="last-swipper">MÜXTƏLİF ÖLKƏLƏRDƏN VƏ MƏDƏNİYYƏTLƏRDƏN DƏBDƏBƏLİ QURMAN MƏTBƏXTLƏRİNİN DADI VƏ MÜASİR YEMƏK TƏRTİBATLAR</p>
             <Link to='/reserveroom'><button className='res-btn'>Rezervasiya</button></Link>
           </SwiperSlide>
         </Swiper>
@@ -63,14 +72,13 @@ function Home() {
       <div className='data'>
         {info && info.map((d) => (
           <div className='info-div' key={d._id}>
-            <ScrollTrigger>
-              <h1><CountUp start={0} end={d.count} duration={2} delay={0}/></h1>
+            <ScrollTrigger onEnter={()=>setCounterOn(true)} onExit={()=>setCounterOn(false)}>
+              {counterOn && <h1><CountUp start={0} end={d.count} duration={2} delay={0} /></h1>}
             </ScrollTrigger>
             <div>
               <p>{d.name}</p>
             </div>
           </div>
-
         ))}
       </div>
 
@@ -80,7 +88,7 @@ function Home() {
         </div>
         <div className='text'>
           <h2 className='h2'>İstirahət Kompleksimizə xoş gəlmişsiniz</h2>
-        <div className='line'></div>
+          <div className='line'></div>
           <p className='text-p'>Azərbaycanın ən yaxşı otellərindən biri Marxal Resort & Spa füsunkarlığıyla 5 ulduzlu məkanın lüks və rahatlığını özündə birləşdirir. İçəri addımladığınız ilk andan bura Sizi özü ilə uzaqlara aparır. Bu otelin qüsursuz qonaqsevərliyi Sizə səfəriniz boyunca öz evinizdə olduğu kimi əziz qonaq hissini verəcək.</p>
           <Link to='about'><button className='btnn'>Ətraflı</button></Link>
         </div>
@@ -89,7 +97,7 @@ function Home() {
 
 
       <div className='sect-5'>
-      <div className='text'>
+        <div className='text'>
           <h2 className='h2'>Otaqlar</h2>
           <div className='line'></div>
           <p className='text-p'>Lüks və rahatlıqla təmin edilən möhtəşəm otaq və suitlərimizdə gözəl gecə yuxusundan həzz alın.</p>
@@ -113,7 +121,7 @@ function Home() {
       </div>
 
       <div className='sect-6'>
-      <div className='text'>
+        <div className='text'>
           <h2 className='h2'>Sağlamlıq və Spa</h2>
           <div className='line'></div>
           <p className='text-p'>Dünyanın hər yerindən yüksək keyfiyyətli və zövqlü markaları istifadə edərək zəngin müalicə üsullarını kəşf edin. Xidmətlərimizə üz masajları, lüks masajlar, bədən yumşaldıcı və qüvvətləndirici müalicəvi masajlar, türk hamamı daxildir.</p>
@@ -138,7 +146,7 @@ function Home() {
 
 
       <div className='sect-7'>
-      <div className='text'>
+        <div className='text'>
           <h2 className='h2'>Konfranslar və Tədbirlər</h2>
           <div className='line'></div>
           <p className='text-p'>Marxal Resort & Spa fərdi və ictimai tədbirlər, konfranslar və iş görüşləri üçün ideal seçimdir.</p>

@@ -28,7 +28,7 @@ function Navbar() {
                     localStorage.removeItem('user');
                     setUser(null);
                     navigate('/');
-                  }}><i className="fa-solid fa-user"></i> Logout</li>
+                  }}><i className="fa-solid fa-user"></i> <Link style={{color:"white"}}>Logout</Link></li>
               </>
             ) : (
               <>

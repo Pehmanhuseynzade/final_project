@@ -91,18 +91,10 @@ export const ROUTES = [
                 path:'registerr',
                 element:<Register/>
             },
-            // {
-            //     path:'reservation',
-            //     element:<Rezerv/>
-            // },
             {
                 path:'reserveroom',
                 element:<Reserveroom/>
             },
-            // {
-            //     path:'reservemap',
-            //     element:<ReserveMap/>
-            // },
         ]
     },
     {

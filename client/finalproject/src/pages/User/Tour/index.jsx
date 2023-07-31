@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "./tour.scss"
+import "./tour.scss";
+import { Helmet } from "react-helmet";
 import { gettourdatas, gettourimgdatas } from "../../../api/httpsrequests"
 function Tour() {
   const [tour, setTour] = useState([])
@@ -9,17 +10,25 @@ function Tour() {
       setTour(data)
       console.log(data)
     })
-  },[])
+  }, [])
 
   useEffect(() => {
     gettourimgdatas().then((data) => {
       setTourimg(data)
       console.log(data)
     })
-  },[])
+  }, [])
 
   return (
     <>
+      <Helmet>
+        <title>Tour</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div className='tour-sect-1'>
         <div className='text'>
           <h2 className='h2'>Turlar</h2>
@@ -35,11 +44,11 @@ function Tour() {
       </div>
 
       <div className='tour-images'>
-      {tourimg && tourimg.map((tourimgitem)=>(
-                <div key={tourimgitem._id} className='img-2'>
-                <img className='tourimages' src={tourimgitem.tourimgs} alt="tourimage1" />
-                </div>
-      ))}
+        {tourimg && tourimg.map((tourimgitem) => (
+          <div key={tourimgitem._id} className='img-2'>
+            <img className='tourimages' src={tourimgitem.tourimgs} alt="tourimage1" />
+          </div>
+        ))}
       </div>
 
       <section className='for-tour'>

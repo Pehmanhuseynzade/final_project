@@ -6,6 +6,7 @@ import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
 
 function Parties() {
   const [partiesinfoadmin, setpartiesinfoadmin] = useState([]);
@@ -13,12 +14,12 @@ function Parties() {
   const [editingpartiesinfo, setEditingpartiesinfo] = useState(null);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const partiesinfopage = async () => {
     try {
       const partiesinfoData = await getpartiesdatas();
@@ -160,7 +161,15 @@ function Parties() {
   ];
   return (
     <>
-     <div style={{ marginLeft: '220px' }}>
+      <Helmet>
+        <title>Partie images</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }}>
             Add

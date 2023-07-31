@@ -6,6 +6,8 @@ import "../Ent/ent.scss"
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 function Tourinfo() {
   const [tourinfoadmin, settourinfoadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,12 +23,12 @@ function Tourinfo() {
     }
   };
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   useEffect(() => {
     tourinfopage();
   }, [tourinfoadmin]);
@@ -153,9 +155,17 @@ function Tourinfo() {
 
   return (
     <>
+      <Helmet>
+        <title>Tour Info</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div style={{ marginLeft: '220px' }}>
         <div style={{ marginBottom: '16px' }}>
-          <button  onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }} >
+          <button onClick={() => handleOpenModal(null)} style={{ marginLeft: '550px', marginTop: '60px' }} >
             Add
           </button>
         </div>

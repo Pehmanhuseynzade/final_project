@@ -1,74 +1,82 @@
-.main-sec-res{
+.main-sec-res {
     width: 100%;
     position: relative;
-    background-image: url('http://www.marxalresort.az/assets/images/35911-photo-r-1-1024x6825.jpg');
+    background-image: url('https://media.istockphoto.com/id/1428737062/photo/empty-wooden-table-top-with-lights-bokeh-on-blur-restaurant-background.webp?b=1&s=170667a&w=0&k=20&c=bmQyPVwhLAB_FN9glJrREyPxzmIQPv5TOFcqcXHy2pw=');
     background-repeat: no-repeat, repeat;
-background-position: center; /* Center the image */
-background-repeat: no-repeat; /* Do not repeat the image */
-background-size: cover;
-filter: brightness(0.8);
-    .rest-main-image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.8);
+
+    .rest-main-image {
         width: 100%;
         height: 80vh;
         display: block;
         object-fit: cover;
         filter: brightness(0.3);
-       
+
     }
-    .resturant-h1{
-        // position: absolute;
+
+    .resturant-h1 {
         text-align: center;
-        top: 150px;
         padding-top: 7px;
         color: rgba(255, 255, 255, 0.906);
         font-family: 'Caudex', serif;
-        font-size: 2rem;  
+        font-size: 2rem;
         max-width: 100%;
         padding-top: 150px;
     }
-    .p-info{
-        // position: absolute;
+
+    .p-info {
         text-align: center;
-        top: 170px;
-        left: 300px;
         color: rgb(255, 255, 255);
         font-family: 'Caudex', serif;
-        font-size: 16px;  
+        font-size: 16px;
         max-width: 100%;
         padding-bottom: 10px;
     }
-    .rest-info{
+
+    .rest-info {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 40px;
+        padding-top: 160px;
         // position: absolute;
         flex-wrap: wrap;
         top: 240px;
         left: 20px;
         padding-bottom: 20px;
-        div{
-            overflow: hidden ;
-            .restaurants{
+
+        div {
+            overflow: hidden;
+
+            .restaurants {
                 width: 340px;
                 height: 240px;
-                transition: .5s;
-                &:hover{
+                transition: all 2s ease;
+
+                &:hover {
                     transform: scale(1.1);
+                    border-radius:70%;
+                    cursor: pointer;
                 }
             }
-            p{
+
+            p {
                 color: white;
                 text-align: center;
                 padding-top: 10px;
             }
-            div{
+
+            div {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-top: 10px;
                 margin-left: 3px;
-                .btnn{
+
+                .btnn {
                     width: 123px;
                     height: 41px;
                     border-radius: 25px;
@@ -77,7 +85,8 @@ filter: brightness(0.8);
                     color: white;
                     font-weight: bold;
                     transition: .5s;
-                    &:hover{
+
+                    &:hover {
                         background-color: #251705a4;
                         cursor: pointer;
                     }
@@ -87,22 +96,25 @@ filter: brightness(0.8);
     }
 }
 
-.res-sect-1{
-    background-color:#1a1818;
-    display: flex;  
+.res-sect-1 {
+    background-color: #1a1818;
+    display: flex;
     gap: 10px;
     text-align: justify;
-    .image{
+
+    .image {
         width: 100%;
         height: 100%;
-        .img{
+
+        .img {
             max-width: 100%;
             height: 518px;
             object-fit: cover;
             object-position: center center;
         }
     }
-    .text{
+
+    .text {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -110,7 +122,8 @@ filter: brightness(0.8);
         align-items: center;
         gap: 25px;
         padding-top: 20px;
-        .h2{
+
+        .h2 {
             text-align: center;
             color: #ffffff;
             font-family: 'Caudex', serif;
@@ -118,12 +131,14 @@ filter: brightness(0.8);
             padding-top: 80px;
             font-weight: 300;
         }
-        .line{
+
+        .line {
             background: linear-gradient(90deg, #ffffff, #9c7441);
             width: 20%;
             padding: 1px;
         }
-        p{
+
+        p {
             color: RGB(172, 164, 164);
             width: 80%;
         }
@@ -131,28 +146,25 @@ filter: brightness(0.8);
 }
 
 @media only screen and (min-width: 330px) and (max-width: 768px) {
-   
-    .resturant-h1{
+
+    .resturant-h1 {
         // position: absolute;
         text-align: center;
         // top: 120px;
         padding-top: 50px !important;
         color: rgba(255, 255, 255, 0.906);
         font-family: 'Caudex', serif;
-        font-size: 2rem;  
+        font-size: 2rem;
         width: 100%;
     }
-    .restaurants{
+
+    .restaurants {
         width: 270px !important;
         height: 200px !important;
         transition: .5s;
-        &:hover{
+
+        &:hover {
             transform: scale(1.1);
         }
     }
 }
-
-
-
-
-

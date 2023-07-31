@@ -5,6 +5,8 @@ import { Table, Button } from 'antd';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../context/Usercontext';
+import { Helmet } from "react-helmet";
+
 function Formm() {
   const [formadmin, setformadmin] = useState([]);
   const formpage = async () => {
@@ -16,12 +18,12 @@ function Formm() {
     }
   };
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
 
   useEffect(() => {
     formpage();
@@ -86,10 +88,18 @@ function Formm() {
   ];
   return (
     <>
-       <div style={{ marginLeft: '220px' }}>
+      <Helmet>
+        <title>Form</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <div style={{ marginLeft: '220px' }}>
         <div style={{ width: '80%' }}>
-          <h1 style={{ textAlign:'center',marginTop:'20px' }}>Contact Us Table</h1>
-          <Table style={{ width: '100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px' }} columns={columns} dataSource={formadmin} />
+          <h1 style={{ textAlign: 'center', marginTop: '20px' }}>Contact Us Table</h1>
+          <Table style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }} columns={columns} dataSource={formadmin} />
         </div>
       </div>
     </>

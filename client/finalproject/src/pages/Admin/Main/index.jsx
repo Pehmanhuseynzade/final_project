@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./main.scss"
 import { useUserContext } from "../../../context/Usercontext";
+import { Helmet } from "react-helmet";
 
 function Main() {
   const navigate = useNavigate();
@@ -14,6 +15,14 @@ function Main() {
 
   return (
     <>
+      <Helmet>
+        <title>Main Page</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div className='main'>
         <div className="user">
           {/* <p className="p-user">Profile</p> */}
@@ -40,13 +49,13 @@ function Main() {
               </div>
               <div className="user-private">
                 <div className="users-info-private">
-                  <p style={{color:'gray'}} className="full">Full Name : <span style={{ color: "teal" }}> Pehman Huseynzade</span></p>
-                  <p style={{color:'gray'}} className="mobile">Mobile : <span style={{ color: "teal" }}> +994 70 314 47 77</span></p>
-                  <p style={{color:'gray'}} className="email">Email : <span style={{ color: "teal" }}> pehmanhuseynzade@gmail.com</span></p>
+                  <p style={{ color: 'gray' }} className="full">Full Name : <span style={{ color: "teal" }}> Pehman Huseynzade</span></p>
+                  <p style={{ color: 'gray' }} className="mobile">Mobile : <span style={{ color: "teal" }}> +994 70 314 47 77</span></p>
+                  <p style={{ color: 'gray' }} className="email">Email : <span style={{ color: "teal" }}> pehmanhuseynzade@gmail.com</span></p>
                 </div>
                 <div className="user-info-private">
-                  <p style={{color:'gray'}} className="username">Username : <span style={{ color: "teal" }}> Pehman</span></p>
-                  <p style={{color:'gray'}} className="birthday">Birthday : <span style={{ color: "teal" }}> 15.04.2003</span></p>
+                  <p style={{ color: 'gray' }} className="username">Username : <span style={{ color: "teal" }}> Pehman</span></p>
+                  <p style={{ color: 'gray' }} className="birthday">Birthday : <span style={{ color: "teal" }}> 15.04.2003</span></p>
                 </div>
               </div>
             </div>

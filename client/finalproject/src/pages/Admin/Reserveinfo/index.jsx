@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import "../adminpage.scss"
 import { useNavigate } from 'react-router-dom';
-import { useUserContext } from '../../../context/Usercontext';import { getreservepostdatas, reservepostDelete, reservepost } from '../../../api/httpsrequests';
+import { useUserContext } from '../../../context/Usercontext'; import { getreservepostdatas, reservepostDelete, reservepost } from '../../../api/httpsrequests';
 import { Table, Button, Modal, Form, Input } from 'antd';
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet";
+
 function Reserveinfo() {
   const [postreserveadmin, setpostreserveadmin] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  const[admin,setAdmin] = useUserContext();
-  useEffect(()=>{
-    if(admin===null && !localStorage.getItem("loggedIn")){
-        navigate('/loginadmin');
+  const [admin, setAdmin] = useUserContext();
+  useEffect(() => {
+    if (admin === null && !localStorage.getItem("loggedIn")) {
+      navigate('/loginadmin');
     }
-  },[])
+  }, [])
   const hotelpostpage = async () => {
     try {
       const postReserveData = await getreservepostdatas();
@@ -28,7 +30,7 @@ function Reserveinfo() {
   useEffect(() => {
     hotelpostpage();
   }, []);
- console.log('posted',postreserveadmin);
+  console.log('posted', postreserveadmin);
   const handleOpenModal = (marxalpost) => {
     setModalOpen(true);
     form.setFieldsValue({
@@ -182,6 +184,14 @@ function Reserveinfo() {
   ];
   return (
     <>
+      <Helmet>
+        <title>Reserve Info</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <div >
         <div style={{ marginBottom: '16px' }}>
           <button type="primary" onClick={() => handleOpenModal(null)} style={{ marginLeft: '800px', marginTop: '60px' }}>

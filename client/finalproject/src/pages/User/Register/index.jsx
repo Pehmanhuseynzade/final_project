@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
 import { signUP } from "../../../api/httpsrequests";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -40,21 +41,29 @@ const Register = () => {
   })
   return (
     <>
-    <body className='body-register'>
-    <div className='div'>
-      <div className='form-register-div' >
-        <form className='form-register' onSubmit={formik.handleSubmit}>
-        <p>Register Page</p>
-         <div><input placeholder='Username' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username"  type="text" label="username" variant="outlined" /></div>
-          <div><input placeholder='Email' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} name="email"  type="email" label="email" variant="outlined" /></div>
-          <div><input placeholder='Password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password"  type="password" label="password" variant="outlined" /></div>
-          <div><input placeholder='Comfirm Password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmPassword} name="confirmPassword"  type="password" label="confirm password" variant="outlined" /></div>
-          <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Register</Button>
-          <Link style={{ display: 'block', textAlign: 'center' }} to='/login'>already have an account?</Link>
-        </form>
-      </div>
-      </div>
-    </body>
+      <Helmet>
+        <title>Register</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <body className='body-register'>
+        <div className='div'>
+          <div className='form-register-div' >
+            <form className='form-register' onSubmit={formik.handleSubmit}>
+              <p>Register Page</p>
+              <div><input placeholder='Username' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username" type="text" label="username" variant="outlined" /></div>
+              <div><input placeholder='Email' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} name="email" type="email" label="email" variant="outlined" /></div>
+              <div><input placeholder='Password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" type="password" label="password" variant="outlined" /></div>
+              <div><input placeholder='Comfirm Password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmPassword} name="confirmPassword" type="password" label="confirm password" variant="outlined" /></div>
+              <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Register</Button>
+              <Link style={{ display: 'block', textAlign: 'center' }} to='/login'>already have an account?</Link>
+            </form>
+          </div>
+        </div>
+      </body>
     </>
   );
 };

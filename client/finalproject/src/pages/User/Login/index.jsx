@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { signIN } from "../../../api/httpsrequests";
 import { useMarxalContext } from "../../../context/usercontextsite";
 import "./login.scss"
+import { Helmet } from "react-helmet";
+
 const Login = () => {
   const [user, setUser] = useMarxalContext();
   const navigate = useNavigate();
@@ -35,20 +37,28 @@ const Login = () => {
   })
   return (
     <>
-        <body className="body">
-      <div className="form-login-div" style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <form className="form-login" onSubmit={formik.handleSubmit}>
-          <p>Login Page</p>
-          <div>
-            <input placeholder="Username" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username" id="outlined-basic" type="text" label="username" variant="outlined" />
-          </div>
-          <div>
-            <input placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" id="outlined-basic" type="password" label="password" variant="outlined" />
-          </div>
-          <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Login</Button>
-        </form>
-      </div>
-    </body>
+      <Helmet>
+        <title>Login</title>
+        <link rel="icon" type="image/png" href="https://www.marxalresort.az/assets/images/3-2868x2153.png" />
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
+      <body className="body">
+        <div className="form-login-div" style={{ height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <form className="form-login" onSubmit={formik.handleSubmit}>
+            <p>Login Page</p>
+            <div>
+              <input placeholder="Username" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username} name="username" id="outlined-basic" type="text" label="username" variant="outlined" />
+            </div>
+            <div>
+              <input placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} name="password" id="outlined-basic" type="password" label="password" variant="outlined" />
+            </div>
+            <Button style={{ display: 'block', margin: '30px auto' }} type="submit" variant="contained" color="primary">Login</Button>
+          </form>
+        </div>
+      </body>
     </>
   )
 }
